@@ -6,15 +6,23 @@ import helper.ShareHelper;
 import helper.MsgBoxHelper;
 import helper.DateHelper;
 import java.awt.Color;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
 
     KhachHangDAO dao = new KhachHangDAO();
     int row = -1;
     int index = 0;
+    int check;
 
     public KhachHangJInternalFrame(Color color) {
         initComponents();
@@ -40,6 +48,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         btnPrePage = new javax.swing.JButton();
         lblChiSo = new javax.swing.JLabel();
         btnNextPage = new javax.swing.JButton();
+        btnXuatExcel = new javax.swing.JButton();
         pn3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtMaKhachHang = new javax.swing.JTextField();
@@ -148,23 +157,33 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        btnXuatExcel.setText("Xuất báo cáo");
+        btnXuatExcel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnXuatExcelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pn2Layout = new javax.swing.GroupLayout(pn2);
         pn2.setLayout(pn2Layout);
         pn2Layout.setHorizontalGroup(
             pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pn2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pn2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE))
+                    .addGroup(pn2Layout.createSequentialGroup()
+                        .addGap(234, 234, 234)
+                        .addComponent(btnPrePage)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblChiSo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnNextPage)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnXuatExcel)))
                 .addContainerGap())
-            .addGroup(pn2Layout.createSequentialGroup()
-                .addGap(234, 234, 234)
-                .addComponent(btnPrePage)
-                .addGap(18, 18, 18)
-                .addComponent(lblChiSo)
-                .addGap(18, 18, 18)
-                .addComponent(btnNextPage)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn2Layout.setVerticalGroup(
             pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,8 +195,9 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPrePage)
                     .addComponent(lblChiSo)
-                    .addComponent(btnNextPage))
-                .addGap(0, 27, Short.MAX_VALUE))
+                    .addComponent(btnNextPage)
+                    .addComponent(btnXuatExcel))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         tabs.addTab("Danh Sách", pn2);
@@ -309,7 +329,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
                         .addComponent(btnVoHieuHoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addComponent(btnFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPre, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -360,7 +380,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
-                .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pn3Layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -368,8 +388,8 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
                             .addComponent(rdoNu)))
                     .addGroup(pn3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DCNgaySinh, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DCNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7))
@@ -385,7 +405,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtDiemThuong, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(txtMaNV))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -404,11 +424,11 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         pn1.setLayout(pn1Layout);
         pn1Layout.setHorizontalGroup(
             pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tabs)
             .addGroup(pn1Layout.createSequentialGroup()
-                .addGap(237, 237, 237)
+                .addGap(250, 250, 250)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(tabs)
         );
         pn1Layout.setVerticalGroup(
             pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,13 +476,15 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNextPageActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        if (checkForm()) {
+        checkFormInsert();
+        if (check == 1) {
             insert();
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        if (checkForm()) {
+        checkFormUpdate();
+        if (check == 1) {
             update();
         }
     }//GEN-LAST:event_btnSuaActionPerformed
@@ -492,6 +514,86 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLastActionPerformed
 
 
+    private void btnXuatExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXuatExcelMouseClicked
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet("Khách hàng");
+
+        XSSFRow row = null;
+        Cell cell = null;
+
+        row = sheet.createRow((short) 2);
+        row.setHeight((short) 500);
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("STT");
+        cell = row.createCell(1, CellType.STRING);
+        cell.setCellValue("Mã khách hàng");
+        cell = row.createCell(2, CellType.STRING);
+        cell.setCellValue("Tên khách hàng");
+        cell = row.createCell(3, CellType.STRING);
+        cell.setCellValue("SĐT");
+        cell = row.createCell(4, CellType.STRING);
+        cell.setCellValue("Email");
+        cell = row.createCell(5, CellType.STRING);
+        cell.setCellValue("Ngày sinh");
+        cell = row.createCell(6, CellType.STRING);
+        cell.setCellValue("Giới tính");
+        cell = row.createCell(7, CellType.STRING);
+        cell.setCellValue("Tích điểm");
+        cell = row.createCell(8, CellType.STRING);
+        cell.setCellValue("Mã NV");
+        cell = row.createCell(9, CellType.STRING);
+        cell.setCellValue("Trạng thái");
+
+//        List<nhanVien> listItem = dao.select();
+        if (list != null) {
+            FileOutputStream fis = null;
+            try {
+                int s = list.size();
+                for (int i = 0; i < s; i++) {
+                    KhachHang kh1 = list.get(i);
+                    row = sheet.createRow((short) 4 + i);
+                    cell = row.createCell(0, CellType.NUMERIC);
+                    cell.setCellValue(i + 1);
+
+                    cell = row.createCell(1, CellType.STRING);
+                    cell.setCellValue(kh1.getMaKH());
+
+                    cell = row.createCell(2, CellType.STRING);
+                    cell.setCellValue(kh1.getTenKH());
+
+                    cell = row.createCell(3, CellType.STRING);
+                    cell.setCellValue(kh1.getsDT());
+
+                    cell = row.createCell(4, CellType.STRING);
+                    cell.setCellValue(kh1.getEmail());
+
+                    cell = row.createCell(5, CellType.STRING);
+                    cell.setCellValue(kh1.getNgaySinh());
+
+                    cell = row.createCell(6, CellType.STRING);
+                    cell.setCellValue(kh1.isGioiTinh());
+
+                    cell = row.createCell(7, CellType.STRING);
+                    cell.setCellValue(kh1.getDiemThuong());
+
+                    cell = row.createCell(8, CellType.STRING);
+                    cell.setCellValue(kh1.getMaNV());
+
+                    cell = row.createCell(9, CellType.STRING);
+                    cell.setCellValue(kh1.isTrangThai());
+                }
+                //save file
+                File f = new File("src/khachhang.xlsx");
+                fis = new FileOutputStream(f);
+                workbook.write(fis);
+                fis.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_btnXuatExcelMouseClicked
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DCNgaySinh;
     private javax.swing.JButton btnFirst;
@@ -504,6 +606,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnVoHieuHoa;
+    private javax.swing.JButton btnXuatExcel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -559,6 +662,8 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         try {
             dao.insert(kh);
             this.fillTable(0);
+            btnPrePage.setEnabled(false);
+            btnNextPage.setEnabled(true);
             this.clearForm();
             MsgBoxHelper.alert(this, "Thêm mới thành công !!");
             lblChiSo.setText(1 + "");
@@ -573,6 +678,8 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         try {
             dao.update(kh);
             this.fillTable(0);
+            btnPrePage.setEnabled(false);
+            btnNextPage.setEnabled(true);
             MsgBoxHelper.alert(this, "Sửa thành công !!");
             lblChiSo.setText(1 + "");
         } catch (Exception e) {
@@ -591,6 +698,8 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
                 try {
                     dao.vohieuhoa(maKH);
                     fillTable(0);
+                    btnPrePage.setEnabled(false);
+                    btnNextPage.setEnabled(true);
                     clearForm();
                     MsgBoxHelper.alert(this, "Vô hiệu hóa thành công !!");
                     lblChiSo.setText(1 + "");
@@ -649,8 +758,9 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
     void fillTable(int index) {
         DefaultTableModel mol = (DefaultTableModel) tblDanhSach.getModel();
         mol.setRowCount(0);
+        String key = txtTimKiem.getText();
         try {
-            List<KhachHang> listkh = dao.selectPage(index);
+            List<KhachHang> listkh = dao.selectPage(key, index);
             for (KhachHang kh : listkh) {
                 Object[] row = {kh.getMaKH(), kh.getTenKH(), kh.getsDT(), kh.getEmail(), kh.getNgaySinh(),
                     kh.isGioiTinh() ? "Nam" : "Nữ", kh.getDiemThuong(), kh.getMaNV()};
@@ -668,7 +778,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
     void updatePage() {
         boolean page = (this.index >= 0);
         boolean fpage = (this.index == 0);
-        boolean lpage = (this.index == Math.round(count));
+        boolean lpage = (tblDanhSach.getRowCount() <= 8);
         btnNextPage.setEnabled(page && !lpage);
         btnPrePage.setEnabled(page && !fpage);
     }
@@ -693,6 +803,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         txtMaKhachHang.setText(kh.getMaKH());
         txtTenKhachHang.setText(String.valueOf(kh.getTenKH()));
         rdoNam.setSelected(kh.isGioiTinh());
+        rdoNu.setSelected(!kh.isGioiTinh());
         DCNgaySinh.setDate(DateHelper.toDate(kh.getNgaySinh(), "yyyy-MM-dd"));
         txtSDT.setText(kh.getsDT());
         txtEmail.setText(kh.getEmail());
@@ -705,6 +816,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         kh.setMaKH(txtMaKhachHang.getText());
         kh.setTenKH(txtTenKhachHang.getText());
         kh.setGioiTinh(rdoNam.isSelected());
+        kh.setGioiTinh(!rdoNu.isSelected());
         kh.setNgaySinh(DateHelper.toString(DCNgaySinh.getDate(), "yyyy-MM-dd"));
         kh.setsDT(txtSDT.getText());
         kh.setEmail(txtEmail.getText());
@@ -735,25 +847,83 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         this.updateStatus();
     }
 
-    boolean checkForm() {
-        if (txtMaKhachHang.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống mã khách hàng");
+    void checkFormUpdate() {
+        KhachHang kh = dao.selectById(txtMaKhachHang.getText());
+        if (kh == null) {
+            MsgBoxHelper.alert(this, "Mã khách hàng không tồn tại !!");
             txtMaKhachHang.requestFocus();
-            return false;
-        } else if (txtTenKhachHang.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống họ tên");
-            txtTenKhachHang.requestFocus();
-            return false;
-//        } else if (txtTenNV.getText().equals("")) {
-//            MsgBox.alert(this, "Không để trống họ tên");
-//            txtTenNV.requestFocus();
-//            return false;
-//        } else if (txtTenNV.getText().equals("")) {
-//            MsgBox.alert(this, "Không để trống họ tên");
-//            txtTenNV.requestFocus();
-//            return false;
+            check = 0;
+            return;
+        } else if (txtMaKhachHang.getText().equals("")) {
+            MsgBoxHelper.alert(this, "Không để trống mã khách hàng !!");
+            txtMaKhachHang.requestFocus();
+            check = 0;
+            return;
         } else {
-            return true;
+            check = 1;
+        }
+        if (txtTenKhachHang.getText().equals("")) {
+            MsgBoxHelper.alert(this, "Không để trống họ tên khách hàng !!");
+            txtTenKhachHang.requestFocus();
+            check = 0;
+            return;
+        } else {
+            check = 1;
+        }
+        if (DCNgaySinh.getDate() == null) {
+            MsgBoxHelper.alert(this, "Không để trống ngày sinh!!");
+            check = 0;
+            return;
+        } else {
+            check = 1;
+        }
+        if (txtSDT.getText().equals("")) {
+            MsgBoxHelper.alert(this, "Không để trống số điện thoại !!");
+            txtTenKhachHang.requestFocus();
+            check = 0;
+            return;
+        } else {
+            check = 1;
+        }
+    }
+
+    void checkFormInsert() {
+        KhachHang kh = dao.selectById(txtMaKhachHang.getText());
+        if (kh != null) {
+            MsgBoxHelper.alert(this, "Mã khách hàng đã tồn tại !!");
+            txtMaKhachHang.requestFocus();
+            check = 0;
+            return;
+        } else if (txtMaKhachHang.getText().equals("")) {
+            MsgBoxHelper.alert(this, "Không để trống mã khách hàng !!");
+            txtMaKhachHang.requestFocus();
+            check = 0;
+            return;
+        } else {
+            check = 1;
+        }
+        if (txtTenKhachHang.getText().equals("")) {
+            MsgBoxHelper.alert(this, "Không để trống họ tên khách hàng !!");
+            txtTenKhachHang.requestFocus();
+            check = 0;
+            return;
+        } else {
+            check = 1;
+        }
+        if (DCNgaySinh.getDate() == null) {
+            MsgBoxHelper.alert(this, "Không để trống ngày sinh!!");
+            check = 0;
+            return;
+        } else {
+            check = 1;
+        }
+        if (txtSDT.getText().equals("")) {
+            MsgBoxHelper.alert(this, "Không để trống số điện thoại !!");
+            txtTenKhachHang.requestFocus();
+            check = 0;
+            return;
+        } else {
+            check = 1;
         }
     }
 }
