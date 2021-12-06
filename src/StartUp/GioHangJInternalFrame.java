@@ -11,6 +11,7 @@ import helper.DateHelper;
 import helper.MsgBoxHelper;
 import helper.ShareHelper;
 import helper.currency;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -42,9 +43,21 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
     int check;
     int a;
 
-    public GioHangJInternalFrame() {
+    public GioHangJInternalFrame(String color) {
         initComponents();
         init();
+        pn1.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn2.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn3.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn4.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn5.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn6.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn7.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn8.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn9.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn10.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn11.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn12.setBackground(new Color(Integer.parseInt(color, 16)));
     }
 
     @SuppressWarnings("unchecked")
@@ -79,7 +92,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         lblChiSoSP = new javax.swing.JLabel();
         btnNextSP = new javax.swing.JButton();
         btnThanhToan = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        pn12 = new javax.swing.JPanel();
         cboThuongHieu = new javax.swing.JComboBox<>();
         btnXoa = new javax.swing.JButton();
         pn10 = new javax.swing.JPanel();
@@ -154,9 +167,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         );
         pn3Layout.setVerticalGroup(
             pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn3Layout.createSequentialGroup()
-                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(txtTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
         );
 
         pn4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Màu", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -375,7 +386,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thương Hiệu", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        pn12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thương Hiệu", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         cboThuongHieu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cboThuongHieu.addItemListener(new java.awt.event.ItemListener() {
@@ -384,14 +395,14 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pn12Layout = new javax.swing.GroupLayout(pn12);
+        pn12.setLayout(pn12Layout);
+        pn12Layout.setHorizontalGroup(
+            pn12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(cboThuongHieu, 0, 188, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pn12Layout.setVerticalGroup(
+            pn12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(cboThuongHieu)
         );
 
@@ -415,7 +426,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
                     .addGroup(pn2Layout.createSequentialGroup()
                         .addComponent(pn3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pn12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(42, 42, 42)
                         .addComponent(pn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
@@ -442,11 +453,11 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             .addGroup(pn2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pn12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pn3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pn3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 1, Short.MAX_VALUE)
                 .addComponent(pn9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -772,10 +783,10 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         pn1Layout.setHorizontalGroup(
             pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tabs)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pn1Layout.createSequentialGroup()
+                .addGap(350, 350, 350)
                 .addComponent(jLabel1)
-                .addGap(330, 330, 330))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn1Layout.setVerticalGroup(
             pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -858,7 +869,12 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnThemVaoGioActionPerformed
 
     private void btnThanhToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThanhToanActionPerformed
-        thanhToan();
+        if (tblGioHang.getRowCount() > 0) {
+            thanhToan();
+        } else {
+            MsgBoxHelper.alert(this, "Xin hãy thêm sản phẩm vào giỏ !!");
+            return;
+        }
     }//GEN-LAST:event_btnThanhToanActionPerformed
 
     private void txtSoLuongFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSoLuongFocusLost
@@ -866,11 +882,20 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSoLuongFocusLost
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        xoaSP();
+        dong = tblGioHang.getSelectedRow();
+        if (dong >= 0) {
+            xoaSP();
+        } else {
+            MsgBoxHelper.alert(this, "Mời bạn chọn sản phẩm cần xóa !!");
+        }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
-        checkSDT();
+        if (txtSDT.getText().matches("^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$")) {
+            checkSDT();
+        } else {
+            MsgBoxHelper.alert(this, "Số điện thoại không hợp lệ !!");
+        }
     }//GEN-LAST:event_btnCheckActionPerformed
 
     private void cboDoiDiemItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboDoiDiemItemStateChanged
@@ -899,7 +924,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             }
             fillTableSP(0);
             tabs.setSelectedIndex(0);
-            lblChiSoSP.setText(1+"");
+            lblChiSoSP.setText(1 + "");
             btnPreSP.setEnabled(false);
             btnNextSP.setEnabled(true);
             clearForm();
@@ -963,7 +988,6 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -972,6 +996,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pn1;
     private javax.swing.JPanel pn10;
     private javax.swing.JPanel pn11;
+    private javax.swing.JPanel pn12;
     private javax.swing.JPanel pn2;
     private javax.swing.JPanel pn3;
     private javax.swing.JPanel pn4;
@@ -1110,10 +1135,11 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
                 giamin = "2000001";
                 giamax = "500000000";
             }
-            List<SanPham> list = daosp.selectPage2(thuonghieu, mau, size, giamin, giamax, keyword, index);
+            List<SanPham> list = daosp.selectGioHang(thuonghieu, mau, size, giamin, giamax, keyword, index);
             for (SanPham sp : list) {
-                Object[] row = {sp.getMaSP(), sp.getTenSP(), sp.getMaThuongHieu(), sp.getMau(), sp.getSize(),
+                Object[] row = {sp.getMaSP(), sp.getTenSP(), daoth.selectById(sp.getMaThuongHieu()).getTenThuongHieu(), sp.getMau(), sp.getSize(),
                     currency.toCurrency(sp.getDonGia()), sp.getSoLuong(), sp.getMaKM()};
+
                 mol_tbl.addRow(row);
             }
         } catch (Exception e) {
@@ -1218,69 +1244,47 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         tabs.setSelectedIndex(1);
         String kytu = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         String chuoi1 = "";
-        String chuoi2 = "";
         int soluong = 6;
         Random rd = new Random();
         char[] text1 = new char[soluong];
-        char[] text2 = new char[soluong];
         for (int i = 0; i < soluong; i++) {
             text1[i] = kytu.charAt(rd.nextInt(kytu.length()));
         }
         for (int i = 0; i < text1.length; i++) {
             chuoi1 += text1[i];
         }
-        HoaDonThanhToan hd = daohd.selectById(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi1);
-        if (hd != null) {
-            for (int i = 0; i < soluong; i++) {
-                text1[i] = kytu.charAt(rd.nextInt(kytu.length()));
+        while (true) {
+            HoaDonThanhToan hd = daohd.selectById(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi1);
+            if (hd != null) {
+                chuoi1 = "";
+                for (int i = 0; i < soluong; i++) {
+                    text1[i] = kytu.charAt(rd.nextInt(kytu.length()));
+                }
+                for (int i = 0; i < text1.length; i++) {
+                    chuoi1 += text1[i];
+                }
+            } else {
+                break;
             }
-            for (int i = 0; i < text1.length; i++) {
-                chuoi1 += text1[i];
-            }
-            txtMaHoaDon.setText(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi1);
-            txtMaNhanVien.setText(ShareHelper.user.getMaNV());
-            DefaultTableModel mol_tbl = (DefaultTableModel) tblBangSP.getModel();
-            mol_tbl.setRowCount(0);
-            for (int i = 0; i < tblGioHang.getRowCount(); i++) {
-                Object[] row = {tblGioHang.getValueAt(i, 0), tblGioHang.getValueAt(i, 1), tblGioHang.getValueAt(i, 3),
-                    tblGioHang.getValueAt(i, 4), tblGioHang.getValueAt(i, 5), tblGioHang.getValueAt(i, 7), tblGioHang.getValueAt(i, 6)};
-                mol_tbl.addRow(row);
-            }
-            txtDiemThuong.setText("100");
-            List<Double> tiensp = new ArrayList<>();
-            double thanhtoan = 0;
-            for (int i = 0; i < tblBangSP.getRowCount(); i++) {
-                tiensp.add(currency.toInt(tblBangSP.getValueAt(i, 4).toString()) * (100 - (Double.parseDouble(tblBangSP.getValueAt(i, 5).toString().substring(0, 2)))) / 100);
-                thanhtoan = thanhtoan + tiensp.get(i);
-            }
-            txtTienThanhToan.setText(currency.toCurrency(thanhtoan));
-            txtTongThanhToan.setText(currency.toCurrency(thanhtoan));
-        } else {
-            for (int i = 0; i < soluong; i++) {
-                text2[i] = kytu.charAt(rd.nextInt(kytu.length()));
-            }
-            for (int i = 0; i < text1.length; i++) {
-                chuoi2 += text2[i];
-            }
-            txtMaHoaDon.setText(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi2);
-            txtMaNhanVien.setText(ShareHelper.user.getMaNV());
-            DefaultTableModel mol_tbl = (DefaultTableModel) tblBangSP.getModel();
-            mol_tbl.setRowCount(0);
-            for (int i = 0; i < tblGioHang.getRowCount(); i++) {
-                Object[] row = {tblGioHang.getValueAt(i, 0), tblGioHang.getValueAt(i, 1), tblGioHang.getValueAt(i, 3),
-                    tblGioHang.getValueAt(i, 4), tblGioHang.getValueAt(i, 5), tblGioHang.getValueAt(i, 7), tblGioHang.getValueAt(i, 6)};
-                mol_tbl.addRow(row);
-            }
-            txtDiemThuong.setText("100");
-            List<Double> tiensp = new ArrayList<>();
-            double thanhtoan = 0;
-            for (int i = 0; i < tblBangSP.getRowCount(); i++) {
-                tiensp.add(currency.toInt(tblBangSP.getValueAt(i, 4).toString()) * ((100 - (Double.parseDouble(tblBangSP.getValueAt(i, 5).toString().substring(0, 2)))) / 100) * Integer.parseInt(tblBangSP.getValueAt(i, 6).toString()));
-                thanhtoan = thanhtoan + tiensp.get(i);
-            }
-            txtTienThanhToan.setText(currency.toCurrency(thanhtoan));
-            txtTongThanhToan.setText(currency.toCurrency(thanhtoan));
         }
+        txtMaHoaDon.setText(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi1);
+        txtMaNhanVien.setText(ShareHelper.user.getMaNV());
+        DefaultTableModel mol_tbl = (DefaultTableModel) tblBangSP.getModel();
+        mol_tbl.setRowCount(0);
+        for (int i = 0; i < tblGioHang.getRowCount(); i++) {
+            Object[] row = {tblGioHang.getValueAt(i, 0), tblGioHang.getValueAt(i, 1), tblGioHang.getValueAt(i, 3),
+                tblGioHang.getValueAt(i, 4), tblGioHang.getValueAt(i, 5), tblGioHang.getValueAt(i, 7), tblGioHang.getValueAt(i, 6)};
+            mol_tbl.addRow(row);
+        }
+        txtDiemThuong.setText("100");
+        List<Double> tiensp = new ArrayList<>();
+        double thanhtoan = 0;
+        for (int i = 0; i < tblBangSP.getRowCount(); i++) {
+            tiensp.add(currency.toInt(tblBangSP.getValueAt(i, 4).toString()) * ((100 - (Double.parseDouble(tblBangSP.getValueAt(i, 5).toString().substring(0, 2)))) / 100) * Integer.parseInt(tblBangSP.getValueAt(i, 6).toString()));
+            thanhtoan = thanhtoan + tiensp.get(i);
+        }
+        txtTienThanhToan.setText(currency.toCurrency(thanhtoan));
+        txtTongThanhToan.setText(currency.toCurrency(thanhtoan));
     }
 
     void checkDiemThuong() {
@@ -1427,22 +1431,19 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             check = 1;
         }
     }
-    
-    void capNhatSoLuong(int b){
+
+    void capNhatSoLuong(int b) {
         try {
             daosp.capNhatSoLuong(Integer.parseInt(tblBangSP.getValueAt(b, 6).toString()), tblBangSP.getValueAt(b, 0).toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     ChiTietHoaDonThanhToan getFormCT(int a) {
         ChiTietHoaDonThanhToan ct = new ChiTietHoaDonThanhToan();
         ct.setMaHD(txtMaHoaDon.getText());
         ct.setMaSP(tblBangSP.getValueAt(a, 0).toString());
-        ct.setTenSP(tblBangSP.getValueAt(a, 1).toString());
-        ct.setMau(tblBangSP.getValueAt(a, 2).toString());
-        ct.setSize(Integer.parseInt(tblBangSP.getValueAt(a, 3).toString()));
         ct.setDonGia(currency.toInt(tblBangSP.getValueAt(a, 4).toString()));
         ct.setSoLuong(Integer.parseInt(tblBangSP.getValueAt(a, 6).toString()));
         ct.setKhuyenMai(tblBangSP.getValueAt(a, 5).toString());
@@ -1479,4 +1480,12 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         txtTongThanhToan.setText("");
     }
 
+//    void XuatHoaDon(){
+//        String link = "C:\\SOF2041\\GitHub\\Nhom3_Duan1\\src\\StartUp\\xpXuatHoaDon.jrxml";
+//        try {
+//            JasperReport jr = Jasper
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

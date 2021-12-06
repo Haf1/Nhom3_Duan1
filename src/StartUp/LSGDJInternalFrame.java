@@ -3,6 +3,7 @@ package StartUp;
 import DAO.ChiTietHoaDonThanhToanDAO;
 import DAO.HoaDonThanhToanDAO;
 import DAO.KhachHangDAO;
+import DAO.SanPhamDAO;
 import helper.DateHelper;
 import helper.MsgBoxHelper;
 import helper.currency;
@@ -18,17 +19,19 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
     HoaDonThanhToanDAO daott = new HoaDonThanhToanDAO();
     ChiTietHoaDonThanhToanDAO daoct = new ChiTietHoaDonThanhToanDAO();
     KhachHangDAO daokh = new KhachHangDAO();
+    SanPhamDAO daosp = new SanPhamDAO();
     int row = -1;
     int row1 = -1;
     int index = 0;
 
-    public LSGDJInternalFrame(Color color) {
+    public LSGDJInternalFrame(String color) {
         initComponents();
         init();
-        pn2.setBackground(color);
-        pn1.setBackground(color);
-        pn3.setBackground(color);
-        pn4.setBackground(color);
+        pn1.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn2.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn3.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn4.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn5.setBackground(new Color(Integer.parseInt(color, 16)));
     }
 
     @SuppressWarnings("unchecked")
@@ -62,6 +65,7 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         txtMaNhanVien = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        btnXuatFileEX = new javax.swing.JButton();
         txtDiemThuong = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtNgayThanhToan = new javax.swing.JTextField();
@@ -183,28 +187,31 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-                            .addComponent(pn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(pn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnXuatHD, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pn1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DCNgayBD, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DCNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLoc)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pn1Layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
-                        .addComponent(btnPreHD)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblChiSoHD)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnNextHD)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnXuatHD, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pn1Layout.createSequentialGroup()
+                                .addGap(237, 237, 237)
+                                .addComponent(btnPreHD)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblChiSoHD)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnNextHD))
+                            .addGroup(pn1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(DCNgayBD, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(DCNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnLoc)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pn1Layout.setVerticalGroup(
@@ -224,13 +231,13 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(pn3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPreHD)
                     .addComponent(btnNextHD)
                     .addComponent(lblChiSoHD)
-                    .addComponent(btnXuatHD))
+                    .addComponent(btnXuatHD, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -300,6 +307,15 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Điểm Thưởng");
 
+        btnXuatFileEX.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnXuatFileEX.setText("Xuất file Excel");
+        btnXuatFileEX.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatFileEX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatFileEXActionPerformed(evt);
+            }
+        });
+
         txtDiemThuong.setEditable(false);
         txtDiemThuong.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -343,6 +359,18 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
             .addGroup(pn2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pn2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnTraHang)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnXuatFileEX, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
                         .addComponent(pn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(10, 10, 10))
@@ -366,15 +394,7 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel11)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtNgayThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(25, 25, 25))
-                    .addGroup(pn2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnTraHang)
-                            .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12)
-                                .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(25, 25, 25))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -420,9 +440,11 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnTraHang, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnXuatFileEX, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTraHang, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
         );
 
         tabs.addTab("Chi Tiết Thanh Toán", pn2);
@@ -462,6 +484,10 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnXuatFileEXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatFileEXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXuatFileEXActionPerformed
 
     private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
         this.fillTableHD(0);
@@ -541,8 +567,9 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                         String mahd = tblHoaDon.getValueAt(row1, 0).toString();
                         List<ChiTietHoaDonThanhToan> listct = daoct.selectPage(mahd);
                         for (ChiTietHoaDonThanhToan ct : listct) {
-                            Object[] row = {ct.getMaSP(), ct.getTenSP(), ct.getMau(), ct.getSize(), currency.toCurrency(ct.getDonGia()),
-                                ct.getSoLuong(), ct.getKhuyenMai()};
+                            Object[] row = {ct.getMaSP(), daosp.selectById(ct.getMaSP()).getTenSP(),
+                                daosp.selectById(ct.getMaSP()).getMau(), daosp.selectById(ct.getMaSP()).getSize(),
+                                currency.toCurrency(ct.getDonGia()), ct.getSoLuong(), ct.getKhuyenMai()};
                             mol.addRow(row);
                         }
                     } catch (Exception e) {
@@ -567,8 +594,9 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                     String mahd = tblHoaDon.getValueAt(row1, 0).toString();
                     List<ChiTietHoaDonThanhToan> listct = daoct.selectPage(mahd);
                     for (ChiTietHoaDonThanhToan ct : listct) {
-                        Object[] row = {ct.getMaSP(), ct.getTenSP(), ct.getMau(), ct.getSize(), currency.toCurrency(ct.getDonGia()),
-                            ct.getSoLuong(), ct.getKhuyenMai()};
+                        Object[] row = {ct.getMaSP(), daosp.selectById(ct.getMaSP()).getTenSP(),
+                            daosp.selectById(ct.getMaSP()).getMau(), daosp.selectById(ct.getMaSP()).getSize(),
+                            currency.toCurrency(ct.getDonGia()), ct.getSoLuong(), ct.getKhuyenMai()};
                         mol.addRow(row);
                     }
                 } catch (Exception e) {
@@ -594,8 +622,9 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                         String mahd = tblHoaDon.getValueAt(row1, 0).toString();
                         List<ChiTietHoaDonThanhToan> listct = daoct.selectPage(mahd);
                         for (ChiTietHoaDonThanhToan ct : listct) {
-                            Object[] row = {ct.getMaSP(), ct.getTenSP(), ct.getMau(), ct.getSize(), currency.toCurrency(ct.getDonGia()),
-                                ct.getSoLuong(), ct.getKhuyenMai()};
+                            Object[] row = {ct.getMaSP(), daosp.selectById(ct.getMaSP()).getTenSP(),
+                                daosp.selectById(ct.getMaSP()).getMau(), daosp.selectById(ct.getMaSP()).getSize(),
+                                currency.toCurrency(ct.getDonGia()), ct.getSoLuong(), ct.getKhuyenMai()};
                             mol.addRow(row);
                         }
                     } catch (Exception e) {
@@ -617,8 +646,9 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                         String mahd = tblHoaDon.getValueAt(row1, 0).toString();
                         List<ChiTietHoaDonThanhToan> listct = daoct.selectPage(mahd);
                         for (ChiTietHoaDonThanhToan ct : listct) {
-                            Object[] row = {ct.getMaSP(), ct.getTenSP(), ct.getMau(), ct.getSize(), currency.toCurrency(ct.getDonGia()),
-                                ct.getSoLuong(), ct.getKhuyenMai()};
+                            Object[] row = {ct.getMaSP(), daosp.selectById(ct.getMaSP()).getTenSP(),
+                                daosp.selectById(ct.getMaSP()).getMau(), daosp.selectById(ct.getMaSP()).getSize(),
+                                currency.toCurrency(ct.getDonGia()), ct.getSoLuong(), ct.getKhuyenMai()};
                             mol.addRow(row);
                         }
                     } catch (Exception e) {
@@ -645,6 +675,7 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNextHD;
     private javax.swing.JButton btnPreHD;
     private javax.swing.JButton btnTraHang;
+    private javax.swing.JButton btnXuatFileEX;
     private javax.swing.JButton btnXuatHD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -739,8 +770,9 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
             String mahd = tblHoaDon.getValueAt(row, 0).toString();
             List<ChiTietHoaDonThanhToan> listct = daoct.selectPage(mahd);
             for (ChiTietHoaDonThanhToan ct : listct) {
-                Object[] row = {ct.getMaSP(), ct.getTenSP(), ct.getMau(), ct.getSize(), currency.toCurrency(ct.getDonGia()),
-                    ct.getSoLuong(), ct.getKhuyenMai()};
+                Object[] row = {ct.getMaSP(), daosp.selectById(ct.getMaSP()).getTenSP(),
+                    daosp.selectById(ct.getMaSP()).getMau(), daosp.selectById(ct.getMaSP()).getSize(),
+                    currency.toCurrency(ct.getDonGia()), ct.getSoLuong(), ct.getKhuyenMai()};
                 mol.addRow(row);
             }
         } catch (Exception e) {
@@ -777,6 +809,7 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
             index--;
             fillTableHD(index);
             updatePageHD();
+            btnNextHD.setEnabled(true);
         }
     }
 
@@ -824,8 +857,8 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
             e.printStackTrace();
         }
     }
-    
-    void voHieuHoa(String mahd){
+
+    void voHieuHoa(String mahd) {
         try {
             daott.vohieuhoa(mahd);
         } catch (Exception e) {
