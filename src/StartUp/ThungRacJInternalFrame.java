@@ -25,12 +25,14 @@ public class ThungRacJInternalFrame extends javax.swing.JInternalFrame {
     int rowsp = -1;
     int index = 0;
 
-    public ThungRacJInternalFrame(Color color) {
+    public ThungRacJInternalFrame(String color) {
         initComponents();
         init();
-        pn1.setBackground(color);
-        pn2.setBackground(color);
-        pn3.setBackground(color);
+        this.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn1.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn2.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn3.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn4.setBackground(new Color(Integer.parseInt(color, 16)));
     }
 
     @SuppressWarnings("unchecked")
@@ -59,7 +61,7 @@ public class ThungRacJInternalFrame extends javax.swing.JInternalFrame {
         lblChiSoNCC = new javax.swing.JLabel();
         btnNextNCC = new javax.swing.JButton();
         btnKhoiPhucNCC = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        pn4 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblSanPham = new javax.swing.JTable();
         btnKhoiPhucSP = new javax.swing.JButton();
@@ -377,15 +379,15 @@ public class ThungRacJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pn4Layout = new javax.swing.GroupLayout(pn4);
+        pn4.setLayout(pn4Layout);
+        pn4Layout.setHorizontalGroup(
+            pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnPreSP)
                         .addGap(18, 18, 18)
@@ -396,13 +398,13 @@ public class ThungRacJInternalFrame extends javax.swing.JInternalFrame {
                         .addComponent(btnKhoiPhucSP)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pn4Layout.setVerticalGroup(
+            pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnKhoiPhucSP)
                     .addComponent(lblChiSoSP)
                     .addComponent(btnPreSP)
@@ -410,7 +412,7 @@ public class ThungRacJInternalFrame extends javax.swing.JInternalFrame {
                 .addGap(0, 14, Short.MAX_VALUE))
         );
 
-        tabs.addTab("Sản Phẩm", jPanel1);
+        tabs.addTab("Sản Phẩm", pn4);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Dữ Liệu Bỏ");
@@ -501,7 +503,6 @@ public class ThungRacJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnPreNV;
     private javax.swing.JButton btnPreSP;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -513,6 +514,7 @@ public class ThungRacJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pn1;
     private javax.swing.JPanel pn2;
     private javax.swing.JPanel pn3;
+    private javax.swing.JPanel pn4;
     private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblDanhSachKH;
     private javax.swing.JTable tblDanhSachNCC;

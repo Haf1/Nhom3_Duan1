@@ -1,7 +1,10 @@
 package StartUp;
 
 import DAO.ChiTietHoaDonNhapHangDAO;
+import DAO.HoaDonNhapHangDAO;
 import DAO.NhaCungCapDAO;
+import DAO.SanPhamDAO;
+import DAO.ThuongHieuDAO;
 import model.NhaCungCap;
 import helper.MsgBoxHelper;
 import helper.currency;
@@ -9,21 +12,31 @@ import java.awt.Color;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
-import model.ChiTietHoaDonNhapHang;
+import model.SanPham;
 
 public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
 
-    NhaCungCapDAO dao = new NhaCungCapDAO();
+    NhaCungCapDAO daoncc = new NhaCungCapDAO();
     ChiTietHoaDonNhapHangDAO daohd = new ChiTietHoaDonNhapHangDAO();
+    ThuongHieuDAO daoth = new ThuongHieuDAO();
+    SanPhamDAO daosp = new SanPhamDAO();
+    HoaDonNhapHangDAO daonh = new HoaDonNhapHangDAO();
+
     int row = -1;
     int index = 0;
     int index1 = 0;
     int check;
 
-    public NhaCungCapJInternalFrame(Color color) {
+    public NhaCungCapJInternalFrame(String color) {
         initComponents();
         init();
-        pn2.setBackground(color);
+//        color = ;
+//        String hexcolor = Integer.toHexString(color.getRGB()).substring(2);
+//        System.out.println(hexcolor);
+        pn1.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+        pn2.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+        pn3.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+        pn4.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
     }
 
     @SuppressWarnings("unchecked")
@@ -239,17 +252,17 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
 
         tblSanPham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Thương Hiệu", "Mã SP", "Tên SP", "Giá Nhập", "Ngày Nhập", "Số Lượng", "Nhân Viên"
+                "Thương Hiệu", "Mã SP", "Tên SP", "Giá Nhập", "Số Lượng"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -431,11 +444,13 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
 
     private void btnPreNCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreNCCActionPerformed
         prePage();
+        clearForm();
         lblChiSoNCC.setText(index + 1 + "");
     }//GEN-LAST:event_btnPreNCCActionPerformed
 
     private void btnNextNCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextNCCActionPerformed
         nextPage();
+        clearForm();
         lblChiSoNCC.setText(index + 1 + "");
     }//GEN-LAST:event_btnNextNCCActionPerformed
 
@@ -542,15 +557,23 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
         mol.getColumn(1).setMaxWidth(170);
         mol.getColumn(2).setMaxWidth(120);
         mol.getColumn(3).setMaxWidth(100);
-        mol.getColumn(4).setMaxWidth(110);
+        mol.getColumn(4).setMaxWidth(130);
         tblDanhSach.setColumnModel(mol);
+
+        TableColumnModel molsp = tblSanPham.getColumnModel();
+        molsp.getColumn(0).setMaxWidth(90);
+        molsp.getColumn(1).setMaxWidth(110);
+        molsp.getColumn(2).setMaxWidth(190);
+        molsp.getColumn(3).setMaxWidth(110);
+        molsp.getColumn(4).setMaxWidth(90);
+        tblSanPham.setColumnModel(molsp);
     }
 
     void fillTable(int index) {
         DefaultTableModel mol = (DefaultTableModel) tblDanhSach.getModel();
         mol.setRowCount(0);
         try {
-            List<NhaCungCap> listncc = dao.selectPage(index);
+            List<NhaCungCap> listncc = daoncc.selectPage(index);
             for (NhaCungCap ncc : listncc) {
                 Object[] row = {ncc.getMaNCC(), ncc.getTenNCC(), ncc.getDiaChi(), ncc.getsDT(), ncc.getEmail()};
                 mol.addRow(row);
@@ -566,11 +589,10 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
         DefaultTableModel mol = (DefaultTableModel) tblSanPham.getModel();
         mol.setRowCount(0);
         try {
-            String maNCC = tblDanhSach.getValueAt(row, 0).toString();
-            List<ChiTietHoaDonNhapHang> listhd = daohd.selectPage(maNCC, index1);
-            for (ChiTietHoaDonNhapHang hd : listhd) {
-                Object[] row = {hd.getThuongHieu(), hd.getMaSP(), hd.getTenSP(), currency.toCurrency(hd.getGiaNhap()), hd.getNgayNhap(),
-                    hd.getSoLuong(), hd.getMaNV()};
+            List<SanPham> listsp = daosp.selectNCC(tblDanhSach.getValueAt(row, 0).toString(), index1);
+            for (SanPham sp : listsp) {
+                Object[] row = {daoth.selectById(sp.getMaThuongHieu()).getTenThuongHieu(), sp.getMaSP(), sp.getTenSP(),
+                    currency.toCurrency(sp.getGiaNhap()), sp.getSoLuong()};
                 mol.addRow(row);
             }
         } catch (Exception e) {
@@ -579,7 +601,7 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
         }
     }
 
-    List<NhaCungCap> list = dao.selectAll();
+    List<NhaCungCap> list = daoncc.selectAll();
     double count = (list.size() / 5);
 
     void updatePage() {
@@ -595,6 +617,7 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
             index--;
             fillTable(index);
             updatePage();
+            btnNextNCC.setEnabled(true);
         }
     }
 
@@ -606,8 +629,8 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
         }
     }
 
-    List<ChiTietHoaDonNhapHang> listhd = daohd.selectAll();
-    double countSP = (listhd.size() / 5);
+    List<SanPham> listsp = daosp.selectAll();
+    double countSP = (listsp.size() / 5);
 
     void updatePageSP() {
         boolean page = (this.index1 >= 0);
@@ -622,6 +645,7 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
             index1--;
             fillTableSP(index1);
             updatePageSP();
+            btnNextSP.setEnabled(true);
         }
     }
 
@@ -686,7 +710,7 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
     void insert() {
         NhaCungCap ncc = getForm();
         try {
-            dao.insert(ncc);
+            daoncc.insert(ncc);
             this.fillTable(0);
             lblChiSoNCC.setText(1 + "");
             btnPreNCC.setEnabled(false);
@@ -702,7 +726,7 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
     void update() {
         NhaCungCap ncc = getForm();
         try {
-            dao.update(ncc);
+            daoncc.update(ncc);
             this.fillTable(0);
             lblChiSoNCC.setText(1 + "");
             btnPreNCC.setEnabled(false);
@@ -718,7 +742,7 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
         String mancc = txtMaNCC.getText();
         if (MsgBoxHelper.confirm(this, "Bạn thực sự muốn vô hiệu hóa nhà cung cấp này ?")) {
             try {
-                dao.vohieuhoa(mancc);
+                daoncc.vohieuhoa(mancc);
                 fillTable(0);
                 lblChiSoNCC.setText(1 + "");
                 btnPreNCC.setEnabled(false);
@@ -734,7 +758,7 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
 
     void edit() {
         String mancc = (String) tblDanhSach.getValueAt(row, 0);
-        NhaCungCap ncc = dao.selectById(mancc);
+        NhaCungCap ncc = daoncc.selectById(mancc);
         setForm(ncc);
         fillTableSP(0);
         updatePageSP();
@@ -766,7 +790,7 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
     }
 
     void checkFormInsert() {
-        NhaCungCap ncc = dao.selectById(txtMaNCC.getText());
+        NhaCungCap ncc = daoncc.selectById(txtMaNCC.getText());
         if (ncc != null) {
             MsgBoxHelper.alert(this, "Mã nhà cung cấp đã tồn tại !!");
             txtMaNCC.requestFocus();
@@ -774,6 +798,11 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
             return;
         } else if (txtMaNCC.getText().equals("")) {
             MsgBoxHelper.alert(this, "Không để trống mã nhà cung cấp !!");
+            txtMaNCC.requestFocus();
+            check = 0;
+            return;
+        } else if (txtMaNCC.getText().length() != 6) {
+            MsgBoxHelper.alert(this, "Mã nhà cung cấp phải đủ 6 kí tự !!");
             txtMaNCC.requestFocus();
             check = 0;
             return;
@@ -799,7 +828,7 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
     }
 
     void checkFormUpdate() {
-        NhaCungCap ncc = dao.selectById(txtMaNCC.getText());
+        NhaCungCap ncc = daoncc.selectById(txtMaNCC.getText());
         if (ncc == null) {
             MsgBoxHelper.alert(this, "Mã nhà cung cấp không tồn tại !!");
             txtMaNCC.requestFocus();
@@ -807,6 +836,11 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
             return;
         } else if (txtMaNCC.getText().equals("")) {
             MsgBoxHelper.alert(this, "Không để trống mã nhà cung cấp !!");
+            txtMaNCC.requestFocus();
+            check = 0;
+            return;
+        } else if (txtMaNCC.getText().length() != 6) {
+            MsgBoxHelper.alert(this, "Mã nhà cung cấp phải đủ 6 kí tự !!");
             txtMaNCC.requestFocus();
             check = 0;
             return;
