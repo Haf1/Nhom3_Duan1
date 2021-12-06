@@ -30,14 +30,15 @@ AnhNV VARCHAR(30) NULL,
 TrangThai BIT NOT NULL,
 VaiTro BIT NOT NULL,
 MaXacNhan VARCHAR(6) NULL,
+MauNen VARCHAR(10) NOT NULL,
 );
 
 INSERT INTO dbo.NhanVien VALUES
-('PH17245', N'Nguyễn Bá Hà', 'baha123', N'Hà Nội', '0325878373', 'hanbph17245@fpt.edu.vn', '20020516', 1, 'baha123.jpg', 1, 1, NULL),
-('PH17417', N'Nguyễn Phú Quang', 'quang123', N'Hà Nội', '0936352884', 'quangnpph17417@fpt.edu.vn', '20021004', 1, 'quang123.jpg', 1, 1, NULL),
-('PH17481', N'Nguyễn Công Trường', 'truong123', N'Hà Nội', '0964853798', 'truongncph17481@fpt.edu.vn', '20020722', 1, 'truong123.jpg', 1, 1, NULL),
-('PH18383', N'Nguyễn Văn Huy', 'vanhuy123', N'Hà Nội', '0338327433', 'huynvph18383@fpt.edu.vn', '20020222', 1, 'vanhuy123.jpg', 1, 1, NULL),
-('PH17446', N'Nguyễn Tiến Hải', 'tienhai123', N'Hà Nội', '0347766383', 'haintph17446@fpt.edu.vn', '20021223', 1, 'tienhai123.jpg', 1, 1, NULL);
+('PH17245', N'Nguyễn Bá Hà', 'baha123', N'Hà Nội', '0325878373', 'hanbph17245@fpt.edu.vn', '20020516', 1, 'baha123.jpg', 1, 1, NULL, 'CCFFFF'),
+('PH17417', N'Nguyễn Phú Quang', 'quang123', N'Hà Nội', '0936352884', 'quangnpph17417@fpt.edu.vn', '20021004', 1, 'quang123.jpg', 1, 1, NULL, 'CCFFFF'),
+('PH17481', N'Nguyễn Công Trường', 'truong123', N'Hà Nội', '0964853798', 'truongncph17481@fpt.edu.vn', '20020722', 1, 'truong123.jpg', 1, 1, NULL, 'CCFFFF'),
+('PH18383', N'Nguyễn Văn Huy', 'vanhuy123', N'Hà Nội', '0338327433', 'huynvph18383@fpt.edu.vn', '20020222', 1, 'vanhuy123.jpg', 1, 1, NULL, 'CCFFFF'),
+('PH17446', N'Nguyễn Tiến Hải', 'tienhai123', N'Hà Nội', '0347766383', 'haintph17446@fpt.edu.vn', '20021223', 1, 'tienhai123.jpg', 1, 1, NULL, 'CCFFFF');
 
 CREATE TABLE MauSac(
 TenMau NVARCHAR(20) PRIMARY KEY,
@@ -109,6 +110,7 @@ MaSP VARCHAR(10) PRIMARY KEY,
 MaThuongHieu VARCHAR(10) NOT NULL,
 TenSanPham NVARCHAR(50) NOT NULL,
 GiaBan MONEY NOT NULL,
+GiaNhap MONEY NOT NULL,
 SoLuong INT NOT NULL,
 Mau NVARCHAR(20) NOT NULL,
 Size INT NOT NULL,
@@ -124,72 +126,72 @@ FOREIGN KEY (MaKM) REFERENCES dbo.KhuyenMai(MaKM),
 FOREIGN KEY (MaThuongHieu) REFERENCES dbo.ThuongHieu(MaThuongHieu),
 );
 
-INSERT INTO SanPham(MaSP,MaThuongHieu,TenSanPham,GiaBan,SoLuong,Mau,Size,MaKM,MaNCC,AnhSP,ChiTiet,TrangThai) VALUES
-('SP001TR40', 'TH001', N'UltraBoost 21', 5000000, 10, N'Trắng', 40, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
-('SP001TR41', 'TH001', N'UltraBoost 21', 5000000, 11, N'Trắng', 41, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
-('SP001TR42', 'TH001', N'UltraBoost 21', 5000000, 10, N'Trắng', 42, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
-('SP001DEN40', 'TH001', N'UltraBoost 21', 5000000, 10, N'Đen', 40, '10%', 'NCC011', 'sp001den.png', NULL, 1),
-('SP001DEN41', 'TH001', N'UltraBoost 21', 5000000, 10, N'Đen', 41, '10%', 'NCC011', 'sp001den.png', NULL, 1),
-('SP001DEN42', 'TH001', N'UltraBoost 21', 5000000, 10, N'Đen', 42, '10%', 'NCC011', 'sp001den.png', NULL, 1),
-('SP002DEN36', 'TH001', N'Alphabounce', 3000000, 10, N'Đen', 36, '20%', 'NCC055', 'sp002den.png', NULL, 1),
-('SP002DEN37', 'TH001', N'Alphabounce', 3000000, 10, N'Đen', 37, '20%', 'NCC055', 'sp002den.png', NULL, 1),
-('SP002DEN38', 'TH001', N'Alphabounce', 3000000, 10, N'Đen', 38, '20%', 'NCC055', 'sp002den.png', NULL, 1),
-('SP002DEN39', 'TH001', N'Alphabounce', 3000000, 11, N'Đen', 39, '20%', 'NCC055', 'sp002den.png', NULL, 1),
-('SP002TR39', 'TH001', N'Alphabounce', 3000000, 11, N'Trắng', 39, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
-('SP002TR40', 'TH001', N'Alphabounce', 3000000, 11, N'Trắng', 40, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
-('SP002TR41', 'TH001', N'Alphabounce', 3000000, 11, N'Trắng', 41, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
-('SP003DEN41', 'TH001', N'ZX 1K Boost', 2500000, 11, N'Đen', 41, '10%', 'NCC022', 'sp003den.png', NULL, 1),
-('SP003DEN42', 'TH001', N'ZX 1K Boost', 2500000, 12, N'Đen', 42, '10%', 'NCC022', 'sp003den.png', NULL, 1),
-('SP003DEN43', 'TH001', N'ZX 1K Boost', 2500000, 10, N'Đen', 43, '10%', 'NCC022', 'sp003den.png', NULL, 1),
-('SP003DEN44', 'TH001', N'ZX 1K Boost', 2500000, 10, N'Đen', 44, '10%', 'NCC022', 'sp003den.png', NULL, 1),
-('SP003TR41', 'TH001', N'ZX 1K Boost', 2500000, 12, N'Trắng', 41, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
-('SP003TR42', 'TH001', N'ZX 1K Boost', 2500000, 11, N'Trắng', 42, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
-('SP003TR43', 'TH001', N'ZX 1K Boost', 2500000, 11, N'Trắng', 43, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
-('SP004XA40', 'TH002', N'Nike Revolution 5 Nam', 1790000, 14, N'Xanh Nước', 40, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
-('SP004XA41', 'TH002', N'Nike Revolution 5 Nam', 1790000, 13, N'Xanh Nước', 41, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
-('SP004XA42', 'TH002', N'Nike Revolution 5 Nam', 1790000, 15, N'Xanh Nước', 42, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
-('SP004XA43', 'TH002', N'Nike Revolution 5 Nam', 1790000, 12, N'Xanh Nước', 43, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
-('SP004XA44', 'TH002', N'Nike Revolution 5 Nam', 1790000, 10, N'Xanh Nước', 44, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
-('SP004DEN39', 'TH002', N'Nike Revolution 5 Nam', 1790000, 14, N'Đen', 39, '30%', 'NCC033', 'sp004den.png', NULL, 1),
-('SP004DEN40', 'TH002', N'Nike Revolution 5 Nam', 1790000, 13, N'Đen', 40, '30%', 'NCC033', 'sp004den.png', NULL, 1),
-('SP004DEN41', 'TH002', N'Nike Revolution 5 Nam', 1790000, 12, N'Đen', 41, '30%', 'NCC033', 'sp004den.png', NULL, 1),
-('SP005HO36', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 13, N'Hồng', 36, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
-('SP005HO37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 14, N'Hồng', 37, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
-('SP005HO38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 14, N'Hồng', 38, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
-('SP005HO39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 14, N'Hồng', 39, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
-('SP005TR37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 13, N'Trắng', 37, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
-('SP005TR38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 14, N'Trắng', 38, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
-('SP005TR39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 14, N'Trắng', 39, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
-('SP005DEN37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 14, N'Đen', 37, '20%', 'NCC022', 'sp005den.png', NULL, 1),
-('SP005DEN38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 14, N'Đen', 38, '20%', 'NCC022', 'sp005den.png', NULL, 1),
-('SP005DEN39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 14, N'Đen', 39, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
-('SP006TR37', 'TH003', N'D21 KHAKI WASH', 282000, 19, N'Trắng', 37, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
-('SP006TR38', 'TH003', N'D21 KHAKI WASH', 282000, 18, N'Trắng', 38, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
-('SP006TR39', 'TH003', N'D21 KHAKI WASH', 282000, 19, N'Trắng', 39, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
-('SP006TR40', 'TH003', N'D21 KHAKI WASH', 282000, 19, N'Trắng', 40, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
-('SP006DEN38', 'TH003', N'D21 KHAKI WASH', 282000, 17, N'Đen', 38, '00%', 'NCC011', 'sp006den.png', NULL, 1),
-('SP006DEN39', 'TH003', N'D21 KHAKI WASH', 282000, 17, N'Đen', 39, '00%', 'NCC011', 'sp006den.png', NULL, 1),
-('SP006DEN40', 'TH003', N'D21 KHAKI WASH', 282000, 19, N'Đen', 40, '00%', 'NCC011', 'sp006den.png', NULL, 1),
-('SP006XA39', 'TH003', N'D21 KHAKI WASH', 282000, 19, N'Xanh Nước', 39, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
-('SP006XA40', 'TH003', N'D21 KHAKI WASH', 282000, 16, N'Xanh Nước', 40, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
-('SP006XA41', 'TH003', N'D21 KHAKI WASH', 282000, 19, N'Xanh Nước', 41, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
-('SP007TR40', 'TH004', N'Puma Ralph Sampson', 1770000, 12, N'Trắng', 40, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
-('SP007TR41', 'TH004', N'Puma Ralph Sampson', 1770000, 13, N'Trắng', 41, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
-('SP007TR42', 'TH004', N'Puma Ralph Sampson', 1770000, 12, N'Trắng', 42, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
-('SP007TR43', 'TH004', N'Puma Ralph Sampson', 1770000, 12, N'Trắng', 43, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
-('SP007DEN39', 'TH004', N'Puma Ralph Sampson', 1770000, 14, N'Đen', 39, '10%', 'NCC022', 'sp007den.png', NULL, 1),
-('SP007DEN40', 'TH004', N'Puma Ralph Sampson', 1770000, 13, N'Đen', 40, '10%', 'NCC022', 'sp007den.png', NULL, 1),
-('SP007DEN41', 'TH004', N'Puma Ralph Sampson', 1770000, 13, N'Đen', 41, '10%', 'NCC022', 'sp007den.png', NULL, 1),
-('SP007DEN42', 'TH004', N'Puma Ralph Sampson', 1770000, 12, N'Đen', 42, '10%', 'NCC022', 'sp007den.png', NULL, 1),
-('SP007XA40', 'TH004', N'Puma Ralph Sampson', 1770000, 13, N'Xanh Nước', 40, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
-('SP007XA41', 'TH004', N'Puma Ralph Sampson', 1770000, 14, N'Xanh Nước', 41, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
-('SP007XA42', 'TH004', N'Puma Ralph Sampson', 1770000, 13, N'Xanh Nước', 42, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
-('SP008TR40', 'TH004', N'Puma Clyde Stitch', 1990000, 13, N'Trắng', 40, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
-('SP008TR41', 'TH004', N'Puma Clyde Stitch', 1990000, 14, N'Trắng', 41, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
-('SP008TR42', 'TH004', N'Puma Clyde Stitch', 1990000, 13, N'Trắng', 42, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
-('SP008DEN41', 'TH004', N'Puma Clyde Stitch', 1990000, 12, N'Đen', 41, '10%', 'NCC044', 'sp008den.png', NULL, 1),
-('SP008DEN42', 'TH004', N'Puma Clyde Stitch', 1990000, 13, N'Đen', 42, '10%', 'NCC044', 'sp008den.png', NULL, 1),
-('SP008DEN43', 'TH004', N'Puma Clyde Stitch', 1990000, 13, N'Đen', 43, '10%', 'NCC044', 'sp008den.png', NULL, 1);
+INSERT INTO SanPham(MaSP,MaThuongHieu,TenSanPham,GiaBan,GiaNhap,SoLuong,Mau,Size,MaKM,MaNCC,AnhSP,ChiTiet,TrangThai) VALUES
+('SP001TR40', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Trắng', 40, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
+('SP001TR41', 'TH001', N'UltraBoost 21', 5000000, 3500000, 11, N'Trắng', 41, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
+('SP001TR42', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Trắng', 42, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
+('SP001DEN40', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Đen', 40, '10%', 'NCC011', 'sp001den.png', NULL, 1),
+('SP001DEN41', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Đen', 41, '10%', 'NCC011', 'sp001den.png', NULL, 1),
+('SP001DEN42', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Đen', 42, '10%', 'NCC011', 'sp001den.png', NULL, 1),
+('SP002DEN36', 'TH001', N'Alphabounce', 3000000, 2000000, 10, N'Đen', 36, '20%', 'NCC055', 'sp002den.png', NULL, 1),
+('SP002DEN37', 'TH001', N'Alphabounce', 3000000, 2000000, 10, N'Đen', 37, '20%', 'NCC055', 'sp002den.png', NULL, 1),
+('SP002DEN38', 'TH001', N'Alphabounce', 3000000, 2000000, 10, N'Đen', 38, '20%', 'NCC055', 'sp002den.png', NULL, 1),
+('SP002DEN39', 'TH001', N'Alphabounce', 3000000, 2000000, 11, N'Đen', 39, '20%', 'NCC055', 'sp002den.png', NULL, 1),
+('SP002TR39', 'TH001', N'Alphabounce', 3000000, 2000000, 11, N'Trắng', 39, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
+('SP002TR40', 'TH001', N'Alphabounce', 3000000, 2000000, 11, N'Trắng', 40, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
+('SP002TR41', 'TH001', N'Alphabounce', 3000000, 2000000, 11, N'Trắng', 41, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
+('SP003DEN41', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 11, N'Đen', 41, '10%', 'NCC022', 'sp003den.png', NULL, 1),
+('SP003DEN42', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 12, N'Đen', 42, '10%', 'NCC022', 'sp003den.png', NULL, 1),
+('SP003DEN43', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 10, N'Đen', 43, '10%', 'NCC022', 'sp003den.png', NULL, 1),
+('SP003DEN44', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 10, N'Đen', 44, '10%', 'NCC022', 'sp003den.png', NULL, 1),
+('SP003TR41', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 12, N'Trắng', 41, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
+('SP003TR42', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 11, N'Trắng', 42, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
+('SP003TR43', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 11, N'Trắng', 43, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
+('SP004XA40', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 14, N'Xanh Nước', 40, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
+('SP004XA41', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 13, N'Xanh Nước', 41, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
+('SP004XA42', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 15, N'Xanh Nước', 42, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
+('SP004XA43', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 12, N'Xanh Nước', 43, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
+('SP004XA44', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 10, N'Xanh Nước', 44, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
+('SP004DEN39', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 14, N'Đen', 39, '30%', 'NCC033', 'sp004den.png', NULL, 1),
+('SP004DEN40', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 13, N'Đen', 40, '30%', 'NCC033', 'sp004den.png', NULL, 1),
+('SP004DEN41', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 12, N'Đen', 41, '30%', 'NCC033', 'sp004den.png', NULL, 1),
+('SP005HO36', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 13, N'Hồng', 36, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
+('SP005HO37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Hồng', 37, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
+('SP005HO38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Hồng', 38, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
+('SP005HO39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Hồng', 39, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
+('SP005TR37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 13, N'Trắng', 37, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
+('SP005TR38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Trắng', 38, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
+('SP005TR39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Trắng', 39, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
+('SP005DEN37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Đen', 37, '20%', 'NCC022', 'sp005den.png', NULL, 1),
+('SP005DEN38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Đen', 38, '20%', 'NCC022', 'sp005den.png', NULL, 1),
+('SP005DEN39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Đen', 39, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
+('SP006TR37', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Trắng', 37, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
+('SP006TR38', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 18, N'Trắng', 38, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
+('SP006TR39', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Trắng', 39, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
+('SP006TR40', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Trắng', 40, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
+('SP006DEN38', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 17, N'Đen', 38, '00%', 'NCC011', 'sp006den.png', NULL, 1),
+('SP006DEN39', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 17, N'Đen', 39, '00%', 'NCC011', 'sp006den.png', NULL, 1),
+('SP006DEN40', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Đen', 40, '00%', 'NCC011', 'sp006den.png', NULL, 1),
+('SP006XA39', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Xanh Nước', 39, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
+('SP006XA40', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 16, N'Xanh Nước', 40, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
+('SP006XA41', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Xanh Nước', 41, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
+('SP007TR40', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 12, N'Trắng', 40, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
+('SP007TR41', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Trắng', 41, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
+('SP007TR42', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 12, N'Trắng', 42, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
+('SP007TR43', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 12, N'Trắng', 43, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
+('SP007DEN39', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 14, N'Đen', 39, '10%', 'NCC022', 'sp007den.png', NULL, 1),
+('SP007DEN40', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Đen', 40, '10%', 'NCC022', 'sp007den.png', NULL, 1),
+('SP007DEN41', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Đen', 41, '10%', 'NCC022', 'sp007den.png', NULL, 1),
+('SP007DEN42', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 12, N'Đen', 42, '10%', 'NCC022', 'sp007den.png', NULL, 1),
+('SP007XA40', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Xanh Nước', 40, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
+('SP007XA41', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 14, N'Xanh Nước', 41, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
+('SP007XA42', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Xanh Nước', 42, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
+('SP008TR40', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 13, N'Trắng', 40, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
+('SP008TR41', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 14, N'Trắng', 41, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
+('SP008TR42', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 13, N'Trắng', 42, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
+('SP008DEN41', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 12, N'Đen', 41, '10%', 'NCC044', 'sp008den.png', NULL, 1),
+('SP008DEN42', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 13, N'Đen', 42, '10%', 'NCC044', 'sp008den.png', NULL, 1),
+('SP008DEN43', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 13, N'Đen', 43, '10%', 'NCC044', 'sp008den.png', NULL, 1);
 
 CREATE TABLE KhachHang(
 MaKH VARCHAR(10) PRIMARY KEY,
@@ -384,11 +386,11 @@ INSERT INTO ChiTietHoaDonNhapHang(MaHDNhapHang,MaSP,GiaNhap,SoLuong) VALUES
 ('211022873JSA', 'SP004XA44', 1000000, 11);
 
 INSERT INTO dbo.NhanVien VALUES
-('PH17000', N'Nguyễn Bá A', 'baha123', N'Hà Nội', '0325878373', 'hanbph17245@fpt.edu.vn', '20020516', 1, 'baha123.jpg', 0, 1, NULL),
-('PH17001', N'Nguyễn Phú B', 'quang123', N'Hà Nội', '0936352884', 'quangnpph17417@fpt.edu.vn', '20021004', 1, 'quang123.jpg', 0, 1, NULL),
-('PH17002', N'Nguyễn Công C', 'truong123', N'Hà Nội', '0964853798', 'truongncph17481@fpt.edu.vn', '20020722', 1, 'truong123.jpg', 0, 1, NULL),
-('PH18003', N'Nguyễn Văn D', 'vanhuy123', N'Hà Nội', '0338327433', 'huynvph18383@fpt.edu.vn', '20020222', 1, 'vanhuy123.jpg', 0, 1, NULL),
-('PH17004', N'Nguyễn Tiến E', 'tienhai123', N'Hà Nội', '0347766383', 'haintph17446@fpt.edu.vn', '20021223', 1, 'tienhai123.jpg', 0, 1, NULL);
+('PH17000', N'Nguyễn Bá A', 'baha123', N'Hà Nội', '0325878373', 'hanbph17245@fpt.edu.vn', '20020516', 1, 'baha123.jpg', 0, 1, NULL, 'CCFFFF'),
+('PH17001', N'Nguyễn Phú B', 'quang123', N'Hà Nội', '0936352884', 'quangnpph17417@fpt.edu.vn', '20021004', 1, 'quang123.jpg', 0, 1, NULL, 'CCFFFF'),
+('PH17002', N'Nguyễn Công C', 'truong123', N'Hà Nội', '0964853798', 'truongncph17481@fpt.edu.vn', '20020722', 1, 'truong123.jpg', 0, 1, NULL, 'CCFFFF'),
+('PH18003', N'Nguyễn Văn D', 'vanhuy123', N'Hà Nội', '0338327433', 'huynvph18383@fpt.edu.vn', '20020222', 1, 'vanhuy123.jpg', 0, 1, NULL, 'CCFFFF'),
+('PH17004', N'Nguyễn Tiến E', 'tienhai123', N'Hà Nội', '0347766383', 'haintph17446@fpt.edu.vn', '20021223', 1, 'tienhai123.jpg', 0, 1, NULL, 'CCFFFF');
 
 INSERT INTO KhachHang(MaKH,TenKH,SDT,Email,NgaySinh,GioiTinh,TichDiem,MaNV,TrangThai) VALUES
 ('KH016', N'Nguyễn Xuân A', '0999888766', 'xdieu1114@gmail.com', '19900228', 0, 300, 'PH18383', 0),
@@ -438,6 +440,7 @@ ORDER BY MaSP OFFSET 0 * 20 ROWS FETCH NEXT 20 ROWS ONLY;
 
 select * from HoaDonThanhToan
 SELECT * FROM dbo.ChiTietHoaDonThanhToan 
+SELECT SUM(DonGia*SoLuong) FROM dbo.ChiTietHoaDonThanhToan WHERE MaHDThanhToan = '211115A8H35S'
 WHERE MaNhanVien LIKE '%PH17417%'
 	  AND DAY(NgayThanhToan) LIKE ?
 	  AND MONTH(NgayThanhToan) LIKE ?
@@ -448,6 +451,7 @@ FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.SanPham B ON B.MaSP = A.MaSanPham
 WHERE MaHDThanhToan=?
 ORDER BY MaHDThanhToan OFFSET ? * 5 ROWS FETCH NEXT 5 ROWS ONLY;
 
+SELECT DonGia*SoLuong AS 'Tổng Tiền' FROM dbo.ChiTietHoaDonThanhToan WHERE MaHDThanhToan = '2111151HUS9A'
 SELECT A.MaHDThanhToan, A.MaSanPham, B.TenSanPham, B.Mau, B.Size, A.DonGia, A.SoLuong, B.MaKM
 FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.SanPham B ON B.MaSP = A.MaSanPham
 				WHERE A.MaHDThanhToan='211115A8H35S' AND A.TrangThai=1
@@ -475,18 +479,99 @@ ORDER BY A.MaSP OFFSET ? * 8 ROWS FETCH NEXT 8 ROWS ONLY;
 SELECT * FROM dbo.ChiTietHoaDonNhapHang
 SELECT * FROM dbo.SanPham
 SELECT * FROM dbo.HoaDonNhapHang
+SELECT * FROM dbo.NhaCungCap
+SELECT * FROM dbo.ChiTietHoaDonThanhToan
+SELECT * FROM dbo.HoaDonThanhToan
+SELECT * FROM dbo.NhanVien
+SELECT * FROM dbo.KhachHang
+SELECT * FROM dbo.ThuongHieu
 
 SELECT A.MaHDThanhToan, A.MaSanPham, B.TenSanPham, B.Mau, B.Size, A.DonGia, A.SoLuong, B.MaKM
 FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.SanPham B ON B.MaSP = A.MaSanPham
 WHERE A.MaHDThanhToan='211201NVQXTH' AND A.TrangThai=1
 ORDER BY A.MaSanPham OFFSET 0 * 5 ROWS FETCH NEXT 5 ROWS ONLY;
 
-SELECT * FROM dbo.ChiTietHoaDonThanhToan
-SELECT * FROM dbo.HoaDonThanhToan
-SELECT * FROM dbo.SanPham
-SELECT * FROM dbo.KhachHang
+
 
 UPDATE dbo.SanPham SET SoLuong=Soluong-1 WHERE MaSP='SP001DEN42'
 
 UPDATE dbo.ChiTietHoaDonThanhToan SET TrangThai=0 WHERE MaHDThanhToan=? AND MaSanPham=?
-UPDATE dbo.ChiTietHoaDonThanhToan SET SoLuong=SoLuong-? WHERE MaHDThanhToan=? AND MaSanPham=?
+UPDATE dbo.ChiTietHoaDonThanhToan SET SoLuong=SoLuong-? WHERE MaHDThanhToan=? AND MaSanPham=?;
+
+SELECT A.MaThuongHieu, D.TenThuongHieu, A.MaSP, A.TenSanPham, A.GiaBan, A.Mau, A.Size, B.GiaNhap, A.AnhSP, A.SoLuong, A.MaKM, A.ChiTiet 
+FROM dbo.SanPham A JOIN dbo.ChiTietHoaDonNhapHang B ON B.MaSP = A.MaSP 
+JOIN dbo.NhaCungCap C ON C.MaNCC = A.MaNCC JOIN dbo.ThuongHieu D ON D.MaThuongHieu = A.MaThuongHieu
+WHERE A.MaNCC=? ORDER BY MaSP OFFSET ? * 20 ROWS FETCH NEXT 20 ROWS ONLY
+
+SELECT A.MaThuongHieu, D.TenThuongHieu, A.MaSP, A.TenSanPham, A.GiaBan, A.Mau, A.Size, B.GiaNhap, A.AnhSP, A.SoLuong, A.MaKM, A.ChiTiet 
+FROM dbo.SanPham A JOIN dbo.ChiTietHoaDonNhapHang B ON B.MaSP = A.MaSP 
+JOIN dbo.NhaCungCap C ON C.MaNCC = A.MaNCC JOIN dbo.ThuongHieu D ON D.MaThuongHieu = A.MaThuongHieu
+WHERE A.MaThuongHieu LIKE ?
+AND A.Mau LIKE ?
+AND A.Size LIKE ?
+AND A.GiaBan BETWEEN ? AND ?
+AND A.TenSanPham LIKE ?
+ORDER BY A.MaSP OFFSET ? * 6 ROWS FETCH NEXT 6 ROWS ONLY;
+
+SELECT MauNen FROM dbo.NhanVien WHERE MaNV = 'PH17417'
+SELECT * FROM dbo.NhanVien WHERE MaNV='PH17417' AND TrangThai=1
+
+SELECT * FROM dbo.ChiTietHoaDonNhapHang
+SELECT * FROM dbo.HoaDonNhapHang
+SELECT * FROM dbo.ChiTietHoaDonThanhToan
+SELECT * FROM dbo.HoaDonThanhToan
+
+SELECT MaHDThanhToan, MaKhachHang, MaNhanVien, NgayThanhToan, DiemThuong, DoiDiem, GhiChu, TrangThai, COUNT(MaHDThanhToan) 
+FROM dbo.HoaDonThanhToan 
+GROUP BY MaHDThanhToan, MaKhachHang, MaNhanVien, NgayThanhToan, DiemThuong, DoiDiem, GhiChu, TrangThai
+HAVING NgayThanhToan = '20211115'
+
+SELECT B.NgayThanhToan, SUM(A.SoLuong*A.DonGia) 
+FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
+GROUP BY B.NgayThanhToan
+
+SELECT B.NgayNhapHang, SUM(A.SoLuong*A.GiaNhap) 
+FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.HoaDonNhapHang B ON B.MaHDNhapHang = A.MaHDNhapHang
+GROUP BY B.NgayNhapHang
+
+SELECT * FROM dbo.ChiTietHoaDonThanhToan WHERE MaHDThanhToan=? AND A.TrangThai=1 ORDER BY MaSanPham
+
+SELECT * FROM 
+(
+(SELECT B.NgayThanhToan, SUM(A.SoLuong*A.DonGia) AS 'TienBan' 
+FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
+GROUP BY B.NgayThanhToan) C FULL JOIN (SELECT B.NgayNhapHang, SUM(A.SoLuong*A.GiaNhap) AS 'TienNhap' 
+FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.HoaDonNhapHang B ON B.MaHDNhapHang = A.MaHDNhapHang
+GROUP BY B.NgayNhapHang) D ON D.NgayNhapHang = C.NgayThanhToan
+)
+
+SELECT * FROM 
+(
+(SELECT MONTH(B.NgayThanhToan) AS 'Tháng', SUM(A.SoLuong*A.DonGia) AS 'TienBan' 
+FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
+GROUP BY MONTH(B.NgayThanhToan)) C FULL JOIN (SELECT MONTH(B.NgayNhapHang) AS 'Tháng', SUM(A.SoLuong*A.GiaNhap) AS 'TienNhap' 
+FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.HoaDonNhapHang B ON B.MaHDNhapHang = A.MaHDNhapHang
+GROUP BY MONTH(B.NgayNhapHang)) D ON D.Tháng = C.Tháng
+) ORDER BY C.Tháng, D.Tháng 
+
+SELECT * FROM 
+(
+(SELECT YEAR(B.NgayThanhToan) AS 'Năm', SUM(A.SoLuong*A.DonGia) AS 'TienBan' 
+FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
+GROUP BY YEAR(B.NgayThanhToan)) C FULL JOIN (SELECT YEAR(B.NgayNhapHang) AS 'Năm', SUM(A.SoLuong*A.GiaNhap) AS 'TienNhap' 
+FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.HoaDonNhapHang B ON B.MaHDNhapHang = A.MaHDNhapHang
+GROUP BY YEAR(B.NgayNhapHang)) D ON D.Năm = C.Năm
+)
+
+SELECT * FROM dbo.ChiTietHoaDonNhapHang
+SELECT * FROM dbo.HoaDonNhapHang
+
+SELECT * FROM dbo.HoaDonThanhToan
+SELECT * FROM dbo.ChiTietHoaDonThanhToan
+
+SELECT B.MaHDThanhToan, B.NgayThanhToan, D.TenKH, B.MaNhanVien, E.TenNV, F.TenThuongHieu, A.MaSanPham,
+C.TenSanPham, A.DonGia, A.SoLuong, A.KhuyenMai, A.DonGia*A.SoLuong AS 'TienThanhToan', B.DiemThuong, B.DoiDiem
+FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
+JOIN dbo.SanPham C ON C.MaSP = A.MaSanPham JOIN dbo.KhachHang D ON D.MaKH = B.MaKhachHang 
+JOIN dbo.NhanVien E ON E.MaNV = B.MaNhanVien JOIN dbo.ThuongHieu F ON  F.MaThuongHieu = C.MaThuongHieu
+WHERE B.MaHDThanhToan = '2111151HUS9A'
