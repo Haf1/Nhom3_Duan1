@@ -1,5 +1,6 @@
 package StartUp;
 
+import DAO.NhanVienDAO;
 import helper.ShareHelper;
 import helper.MsgBoxHelper;
 import java.awt.Color;
@@ -8,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.ImageIcon;
-import javax.swing.JColorChooser;
 import javax.swing.Timer;
 
 public class ShoesSysJFrame extends javax.swing.JFrame {
@@ -22,6 +22,9 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
     ThungRacJInternalFrame thungrac;
     DoiMatKhauJInternalFrame doimatkhau;
     GioHangJInternalFrame giohang;
+    ThongTinJInternalFrame thongtin;
+    NhapHangJInternalFrame nhaphang;
+    ThongKeJInternalFrame thongke;
     Color color;
     ImageIcon dangnhap = new ImageIcon("src/icon/Key.png");
     ImageIcon quenmk = new ImageIcon("src/icon/Unlock.png");
@@ -29,6 +32,8 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
     ImageIcon User = new ImageIcon("src/icon/Unknown person.png");
     ImageIcon doimk = new ImageIcon("src/icon/Refresh.png");
     ImageIcon dangxuat = new ImageIcon("src/icon/log out.png");
+
+    NhanVienDAO dao = new NhanVienDAO();
 
     public ShoesSysJFrame() {
         initComponents();
@@ -43,7 +48,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
 
         desktop = new javax.swing.JDesktopPane();
         pn1 = new javax.swing.JPanel();
-        jToolBar1 = new javax.swing.JToolBar();
+        ToolBar = new javax.swing.JToolBar();
         btnGioHang = new javax.swing.JButton();
         btnNhapHang = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
@@ -69,8 +74,8 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         mnuThietLap = new javax.swing.JMenu();
-        mniChuDe = new javax.swing.JMenuItem();
         mniThungRac = new javax.swing.JMenuItem();
+        mniThongTin = new javax.swing.JMenuItem();
         mnuUser = new javax.swing.JMenu();
         mniDangXuat = new javax.swing.JMenuItem();
         mniDoiMatKhau = new javax.swing.JMenuItem();
@@ -82,9 +87,11 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
 
         pn1.setBackground(new java.awt.Color(51, 204, 255));
 
-        jToolBar1.setForeground(new java.awt.Color(255, 255, 255));
-        jToolBar1.setRollover(true);
+        ToolBar.setBackground(new java.awt.Color(204, 255, 204));
+        ToolBar.setForeground(new java.awt.Color(255, 255, 255));
+        ToolBar.setRollover(true);
 
+        btnGioHang.setBackground(new java.awt.Color(204, 255, 204));
         btnGioHang.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnGioHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Basket.png"))); // NOI18N
         btnGioHang.setText("Giỏ Hàng");
@@ -105,7 +112,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                 btnGioHangActionPerformed(evt);
             }
         });
-        jToolBar1.add(btnGioHang);
+        ToolBar.add(btnGioHang);
 
         btnNhapHang.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Add to basket.png"))); // NOI18N
@@ -114,10 +121,15 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
         btnNhapHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnNhapHang.setMargin(new java.awt.Insets(2, 16, 2, 16));
         btnNhapHang.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(btnNhapHang);
+        btnNhapHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNhapHangActionPerformed(evt);
+            }
+        });
+        ToolBar.add(btnNhapHang);
 
         jSeparator2.setForeground(new java.awt.Color(255, 255, 0));
-        jToolBar1.add(jSeparator2);
+        ToolBar.add(jSeparator2);
 
         btnNhanVien.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Users.png"))); // NOI18N
@@ -131,7 +143,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                 btnNhanVienActionPerformed(evt);
             }
         });
-        jToolBar1.add(btnNhanVien);
+        ToolBar.add(btnNhanVien);
 
         btnKhachHang.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/User.png"))); // NOI18N
@@ -145,7 +157,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                 btnKhachHangActionPerformed(evt);
             }
         });
-        jToolBar1.add(btnKhachHang);
+        ToolBar.add(btnKhachHang);
 
         btnNhaCungCap.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Industry.png"))); // NOI18N
@@ -158,7 +170,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                 btnNhaCungCapActionPerformed(evt);
             }
         });
-        jToolBar1.add(btnNhaCungCap);
+        ToolBar.add(btnNhaCungCap);
 
         btnSanPham.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Box.png"))); // NOI18N
@@ -172,10 +184,10 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                 btnSanPhamActionPerformed(evt);
             }
         });
-        jToolBar1.add(btnSanPham);
+        ToolBar.add(btnSanPham);
 
         jSeparator3.setForeground(new java.awt.Color(255, 255, 0));
-        jToolBar1.add(jSeparator3);
+        ToolBar.add(jSeparator3);
 
         btnThongKe.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Bar chart.png"))); // NOI18N
@@ -184,7 +196,12 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
         btnThongKe.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnThongKe.setMargin(new java.awt.Insets(2, 16, 2, 16));
         btnThongKe.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(btnThongKe);
+        btnThongKe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThongKeActionPerformed(evt);
+            }
+        });
+        ToolBar.add(btnThongKe);
 
         btnLSGD.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnLSGD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/lsgd.png"))); // NOI18N
@@ -198,21 +215,21 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                 btnLSGDActionPerformed(evt);
             }
         });
-        jToolBar1.add(btnLSGD);
+        ToolBar.add(btnLSGD);
 
         javax.swing.GroupLayout pn1Layout = new javax.swing.GroupLayout(pn1);
         pn1.setLayout(pn1Layout);
         pn1Layout.setHorizontalGroup(
             pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn1Layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 30, Short.MAX_VALUE))
         );
         pn1Layout.setVerticalGroup(
             pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pnNen.setBackground(new java.awt.Color(255, 204, 204));
@@ -333,18 +350,9 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
         jMenuBar1.add(mni);
 
         mnuThietLap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Gear.png"))); // NOI18N
-        mnuThietLap.setText("Thiết lập");
+        mnuThietLap.setText("Thông tin");
         mnuThietLap.setToolTipText("-13382401");
         mnuThietLap.setPreferredSize(new java.awt.Dimension(100, 24));
-
-        mniChuDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/draw.png"))); // NOI18N
-        mniChuDe.setText("Chủ đề");
-        mniChuDe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mniChuDeActionPerformed(evt);
-            }
-        });
-        mnuThietLap.add(mniChuDe);
 
         mniThungRac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Trash.png"))); // NOI18N
         mniThungRac.setText("Thùng Rác");
@@ -354,6 +362,15 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
             }
         });
         mnuThietLap.add(mniThungRac);
+
+        mniThongTin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Clien list.png"))); // NOI18N
+        mniThongTin.setText("Thông Tin NV");
+        mniThongTin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniThongTinActionPerformed(evt);
+            }
+        });
+        mnuThietLap.add(mniThongTin);
 
         jMenuBar1.add(mnuThietLap);
 
@@ -410,10 +427,6 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
         openGioHang();
     }//GEN-LAST:event_btnGioHangActionPerformed
 
-    private void mniChuDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniChuDeActionPerformed
-        chonMau();
-    }//GEN-LAST:event_mniChuDeActionPerformed
-
     private void btnLSGDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLSGDActionPerformed
         openLichSuGiaoDich();
     }//GEN-LAST:event_btnLSGDActionPerformed
@@ -454,6 +467,18 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
         mniOpenThungRac();
     }//GEN-LAST:event_mniThungRacActionPerformed
 
+    private void mniThongTinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniThongTinActionPerformed
+        mniOpenThongTin();
+    }//GEN-LAST:event_mniThongTinActionPerformed
+
+    private void btnNhapHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhapHangActionPerformed
+        OpenNhapHang();
+    }//GEN-LAST:event_btnNhapHangActionPerformed
+
+    private void btnThongKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThongKeActionPerformed
+        OpenThongKe();
+    }//GEN-LAST:event_btnThongKeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -493,6 +518,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToolBar ToolBar;
     private javax.swing.JButton btnGioHang;
     private javax.swing.JButton btnKhachHang;
     private javax.swing.JButton btnLSGD;
@@ -509,16 +535,15 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblDongHo;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblInfo;
     private javax.swing.JMenu mni;
-    private javax.swing.JMenuItem mniChuDe;
     private javax.swing.JMenuItem mniDangXuat;
     private javax.swing.JMenuItem mniDoiMatKhau;
     private javax.swing.JMenuItem mniGioiThieu;
     private javax.swing.JMenuItem mniHuongDan;
+    private javax.swing.JMenuItem mniThongTin;
     private javax.swing.JMenuItem mniThungRac;
     private javax.swing.JMenu mnu;
     private javax.swing.JMenu mnuThietLap;
@@ -542,7 +567,27 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
             mniDangXuat.setIcon(dangnhap);
             mniDoiMatKhau.setText("Quên Mật Khẩu");
             mniDoiMatKhau.setIcon(quenmk);
+            ToolBar.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+            pn2.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+            btnGioHang.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+            btnNhapHang.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+            btnNhanVien.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+            btnKhachHang.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+            btnNhaCungCap.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+            btnSanPham.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+            btnThongKe.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
+            btnLSGD.setBackground(new Color(Integer.parseInt("CCFFFF", 16)));
         } else {
+            ToolBar.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
+            pn2.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
+            btnGioHang.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
+            btnNhapHang.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
+            btnNhanVien.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
+            btnKhachHang.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
+            btnNhaCungCap.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
+            btnSanPham.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
+            btnThongKe.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
+            btnLSGD.setBackground(new Color(Integer.parseInt(dao.selectById(ShareHelper.user.getMaNV()).getMauNen(), 16)));
             mnuUser.setText(ShareHelper.user.getMaNV());
             mnuUser.setIcon(User);
             mniDangXuat.setIcon(dangxuat);
@@ -566,15 +611,6 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
         t.start();
     }
 
-    private void chonMau() {
-        color = JColorChooser.showDialog(this, "Chọn Màu", null);
-        if (color == null) {
-        } else {
-            pn1.setBackground(color);
-            pn2.setBackground(color);
-        }
-    }
-
     private void openLichSuGiaoDich() {
         if (ShareHelper.isLogin()) {
             if (!ShareHelper.isManager()) {
@@ -584,7 +620,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                     lichsugiaodich.setClosed(true);
                 } catch (Exception e) {
                 }
-                lichsugiaodich = new LSGDJInternalFrame(color);
+                lichsugiaodich = new LSGDJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
                 int x = this.getWidth() / 2 - lichsugiaodich.getWidth() / 2;
                 int y = (this.getHeight() - 40) / 2 - lichsugiaodich.getHeight() / 2 - 40;
                 lichsugiaodich.setLocation(x, y);
@@ -605,7 +641,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                     quanlisanpham.setClosed(true);
                 } catch (Exception e) {
                 }
-                quanlisanpham = new SanPhamJInternalFrame(color);
+                quanlisanpham = new SanPhamJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
                 int x = this.getWidth() / 2 - quanlisanpham.getWidth() / 2;
                 int y = (this.getHeight() - 40) / 2 - quanlisanpham.getHeight() / 2 - 40;
                 quanlisanpham.setLocation(x, y);
@@ -623,7 +659,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                 quanlikhachhang.setClosed(true);
             } catch (Exception e) {
             }
-            quanlikhachhang = new KhachHangJInternalFrame(color);
+            quanlikhachhang = new KhachHangJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
             int x = this.getWidth() / 2 - quanlikhachhang.getWidth() / 2;
             int y = (this.getHeight() - 40) / 2 - quanlikhachhang.getHeight() / 2 - 40;
             quanlikhachhang.setLocation(x, y);
@@ -643,7 +679,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                     quanlinhacungcap.setClosed(true);
                 } catch (Exception e) {
                 }
-                quanlinhacungcap = new NhaCungCapJInternalFrame(color);
+                quanlinhacungcap = new NhaCungCapJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
                 int x = this.getWidth() / 2 - quanlinhacungcap.getWidth() / 2;
                 int y = (this.getHeight() - 40) / 2 - quanlinhacungcap.getHeight() / 2 - 40;
                 quanlinhacungcap.setLocation(x, y);
@@ -664,7 +700,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                     quanlinhanvien.setClosed(true);
                 } catch (Exception e) {
                 }
-                quanlinhanvien = new NhanVienJInternalFrame(color);
+                quanlinhanvien = new NhanVienJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
                 int x = this.getWidth() / 2 - quanlinhanvien.getWidth() / 2;
                 int y = (this.getHeight() - 40) / 2 - quanlinhanvien.getHeight() / 2 - 40;
                 quanlinhanvien.setLocation(x, y);
@@ -682,7 +718,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                 thungrac.setClosed(true);
             } catch (Exception e) {
             }
-            thungrac = new ThungRacJInternalFrame(color);
+            thungrac = new ThungRacJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
             int x = this.getWidth() / 2 - thungrac.getWidth() / 2;
             int y = (this.getHeight() - 40) / 2 - thungrac.getHeight() / 2 - 40;
             thungrac.setLocation(x, y);
@@ -739,12 +775,67 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
                 giohang.setClosed(true);
             } catch (Exception e) {
             }
-            giohang = new GioHangJInternalFrame();
+            giohang = new GioHangJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
             int x = this.getWidth() / 2 - giohang.getWidth() / 2;
             int y = (this.getHeight() - 40) / 2 - giohang.getHeight() / 2 - 40;
             giohang.setLocation(x, y);
             desktop.add(giohang);
             giohang.setVisible(true);
+        } else {
+            MsgBoxHelper.alert(this, "Vui lòng đăng nhập !");
+        }
+    }
+
+    void mniOpenThongTin() {
+        if (ShareHelper.isLogin()) {
+            try {
+                thongtin.setClosed(true);
+            } catch (Exception e) {
+            }
+            thongtin = new ThongTinJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
+            int x = this.getWidth() / 2 - thongtin.getWidth() / 2;
+            int y = (this.getHeight() - 40) / 2 - thongtin.getHeight() / 2 - 40;
+            thongtin.setLocation(x, y);
+            desktop.add(thongtin);
+            thongtin.setVisible(true);
+        } else {
+            MsgBoxHelper.alert(this, "Vui lòng đăng nhập !");
+        }
+    }
+
+    void OpenNhapHang() {
+        if (ShareHelper.isLogin()) {
+            try {
+                nhaphang.setClosed(true);
+            } catch (Exception e) {
+            }
+            nhaphang = new NhapHangJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
+            int x = this.getWidth() / 2 - nhaphang.getWidth() / 2;
+            int y = (this.getHeight() - 40) / 2 - nhaphang.getHeight() / 2 - 40;
+            nhaphang.setLocation(x, y);
+            desktop.add(nhaphang);
+            nhaphang.setVisible(true);
+        } else {
+            MsgBoxHelper.alert(this, "Vui lòng đăng nhập !");
+        }
+    }
+    
+    void OpenThongKe(){
+        if (ShareHelper.isLogin()) {
+            if (!ShareHelper.isManager()) {
+                MsgBoxHelper.alert(this, "Bạn ko có quyền truy cập !");
+            } else {
+                try {
+                    thongke.setClosed(true);
+                } catch (Exception e) {
+                }
+                thongke = new ThongKeJInternalFrame(dao.selectById(ShareHelper.user.getMaNV()).getMauNen());
+                int x = this.getWidth() / 2 - thongke.getWidth() / 2;
+                int y = (this.getHeight() - 40) / 2 - thongke.getHeight() / 2 - 40;
+                thongke.setLocation(x, y);
+                desktop.add(thongke);
+                thongke.setVisible(true);
+            }
         } else {
             MsgBoxHelper.alert(this, "Vui lòng đăng nhập !");
         }

@@ -33,13 +33,14 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
     int index = 0;
     int check;
 
-    public NhanVienJInternalFrame(Color color) {
+    public NhanVienJInternalFrame(String color) {
         initComponents();
         init();
-        pn2.setBackground(color);
-        pn3.setBackground(color);
-        pn4.setBackground(color);
-        pn5.setBackground(color);
+        pn1.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn2.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn3.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn4.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn5.setBackground(new Color(Integer.parseInt(color, 16)));
     }
 
     @SuppressWarnings("unchecked")
@@ -49,7 +50,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        pn1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tabs = new javax.swing.JTabbedPane();
         pn2 = new javax.swing.JPanel();
@@ -93,7 +94,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setTitle("ShoesSys StartUp - Quản Lí Nhân Viên");
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        pn1.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Quản Lý Nhân Viên");
@@ -460,19 +461,19 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
 
         tabs.addTab("Chi Tiết", pn3);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pn1Layout = new javax.swing.GroupLayout(pn1);
+        pn1.setLayout(pn1Layout);
+        pn1Layout.setHorizontalGroup(
+            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tabs)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pn1Layout.createSequentialGroup()
                 .addGap(194, 194, 194)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pn1Layout.setVerticalGroup(
+            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -483,11 +484,11 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -659,11 +660,11 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblChiSo;
     private javax.swing.JLabel lblHinhAnh;
+    private javax.swing.JPanel pn1;
     private javax.swing.JPanel pn2;
     private javax.swing.JPanel pn3;
     private javax.swing.JPanel pn4;
@@ -841,6 +842,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
             index--;
             fillTable(index);
             updatePage();
+            btnNextPage.setEnabled(true);
         }
     }
 
@@ -866,7 +868,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
 //            lblHinhAnh.setIcon(XImage.read(cd.getHinhAnh()));
             try {
                 BufferedImage img;
-                img = ImageIO.read(new File("C:\\Users\\huyan\\OneDrive\\Documents\\GitHub\\GitHub\\Nhom3_Duan1\\src\\AnhNV", nv.getAnhNV()));
+                img = ImageIO.read(new File("C:\\Nhom3_Duan1\\src\\AnhNV", nv.getAnhNV()));
                 Image dimg = img.getScaledInstance(lblHinhAnh.getWidth(), lblHinhAnh.getHeight(),
                         Image.SCALE_SMOOTH);
                 ImageIcon imageIcon = new ImageIcon(dimg);
@@ -978,7 +980,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
     }
 
     void chonAnh() {
-        JFileChooser jfc = new JFileChooser("C:\\Users\\huyan\\OneDrive\\Documents\\GitHub\\GitHub\\Nhom3_Duan1\\src\\AnhNV");
+        JFileChooser jfc = new JFileChooser("C:\\Nhom3_Duan1\\src\\AnhNV");
         if (jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File file = jfc.getSelectedFile();
             BufferedImage img;
