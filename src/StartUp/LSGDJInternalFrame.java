@@ -8,11 +8,18 @@ import helper.DateHelper;
 import helper.MsgBoxHelper;
 import helper.currency;
 import java.awt.Color;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.ChiTietHoaDonThanhToan;
 import model.HoaDonThanhToan;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
 
@@ -50,7 +57,7 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
         btnPreHD = new javax.swing.JButton();
         btnNextHD = new javax.swing.JButton();
         lblChiSoHD = new javax.swing.JLabel();
-        btnXuatHD = new javax.swing.JButton();
+        btnXuatExcel = new javax.swing.JButton();
         DCNgayBD = new com.toedter.calendar.JDateChooser();
         DCNgayKetThuc = new com.toedter.calendar.JDateChooser();
         btnLoc = new javax.swing.JButton();
@@ -65,7 +72,6 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         txtMaNhanVien = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        btnXuatFileEX = new javax.swing.JButton();
         txtDiemThuong = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtNgayThanhToan = new javax.swing.JTextField();
@@ -165,9 +171,14 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
         lblChiSoHD.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblChiSoHD.setText("1");
 
-        btnXuatHD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnXuatHD.setText("Xuất hóa đơn");
-        btnXuatHD.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatExcel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnXuatExcel.setText("Xuất báo cáo");
+        btnXuatExcel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatExcel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnXuatExcelMouseClicked(evt);
+            }
+        });
 
         btnLoc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnLoc.setText("Lọc");
@@ -190,7 +201,7 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                             .addComponent(pn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnXuatHD, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnXuatExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pn1Layout.createSequentialGroup()
                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pn1Layout.createSequentialGroup()
@@ -237,7 +248,7 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnPreHD)
                     .addComponent(btnNextHD)
                     .addComponent(lblChiSoHD)
-                    .addComponent(btnXuatHD, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnXuatExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -307,15 +318,6 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Điểm Thưởng");
 
-        btnXuatFileEX.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnXuatFileEX.setText("Xuất file Excel");
-        btnXuatFileEX.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnXuatFileEX.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXuatFileEXActionPerformed(evt);
-            }
-        });
-
         txtDiemThuong.setEditable(false);
         txtDiemThuong.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -359,18 +361,6 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
             .addGroup(pn2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pn2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnTraHang)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnXuatFileEX, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
                         .addComponent(pn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(10, 10, 10))
@@ -394,7 +384,15 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel11)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtNgayThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(25, 25, 25))))
+                        .addGap(25, 25, 25))
+                    .addGroup(pn2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnTraHang)
+                            .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel12)
+                                .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -440,11 +438,9 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnXuatFileEX, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTraHang, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnTraHang, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         tabs.addTab("Chi Tiết Thanh Toán", pn2);
@@ -484,10 +480,6 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnXuatFileEXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatFileEXActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnXuatFileEXActionPerformed
 
     private void txtTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyReleased
         this.fillTableHD(0);
@@ -667,6 +659,70 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnTraHangActionPerformed
 
+    private void btnXuatExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXuatExcelMouseClicked
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet("Lịch sử giao dịch");
+
+        XSSFRow row = null;
+        Cell cell = null;
+
+        row = sheet.createRow((short) 2);
+        row.setHeight((short) 500);
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("STT");
+        cell = row.createCell(1, CellType.STRING);
+        cell.setCellValue("Mã hóa đơn thanh toán");
+        cell = row.createCell(2, CellType.STRING);
+        cell.setCellValue("Tên khách hàng");
+        cell = row.createCell(3, CellType.STRING);
+        cell.setCellValue("Mã nhân viên");
+        cell = row.createCell(4, CellType.STRING);
+        cell.setCellValue("Ngày thanh toán");
+        cell = row.createCell(5, CellType.STRING);
+        cell.setCellValue("Điểm thưởng");
+        cell = row.createCell(6, CellType.STRING);
+        cell.setCellValue("Ghi chú");
+
+        if (list != null) {
+            FileOutputStream fis = null;
+            try {
+                int s = list.size();
+                for (int i = 0; i < s; i++) {
+                    HoaDonThanhToan hd1 = list.get(i);
+                    row = sheet.createRow((short) 4 + i);
+                    cell = row.createCell(0, CellType.NUMERIC);
+                    cell.setCellValue(i + 1);
+
+                    cell = row.createCell(1, CellType.STRING);
+                    cell.setCellValue(hd1.getMaHDThanhToan());
+
+                    cell = row.createCell(2, CellType.STRING);
+                    cell.setCellValue(hd1.getMaKH());
+
+                    cell = row.createCell(3, CellType.STRING);
+                    cell.setCellValue(hd1.getMaNV());
+
+                    cell = row.createCell(4, CellType.STRING);
+                    cell.setCellValue(hd1.getNgayThanhToan());
+
+                    cell = row.createCell(5, CellType.STRING);
+                    cell.setCellValue(hd1.getDiemThuong());
+
+                    cell = row.createCell(6, CellType.STRING);
+                    cell.setCellValue(hd1.getGhiChu());
+
+                }
+                //save file
+                File f = new File("src/lichsugiaodich.xlsx");
+                fis = new FileOutputStream(f);
+                workbook.write(fis);
+                fis.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_btnXuatExcelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DCNgayBD;
@@ -675,8 +731,7 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNextHD;
     private javax.swing.JButton btnPreHD;
     private javax.swing.JButton btnTraHang;
-    private javax.swing.JButton btnXuatFileEX;
-    private javax.swing.JButton btnXuatHD;
+    private javax.swing.JButton btnXuatExcel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
