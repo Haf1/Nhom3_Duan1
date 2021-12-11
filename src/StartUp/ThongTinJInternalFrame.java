@@ -404,7 +404,7 @@ public class ThongTinJInternalFrame extends javax.swing.JInternalFrame {
     }
 
     void chonAnh() {
-        JFileChooser jfc = new JFileChooser("C:\\SOF2041\\GitHub\\Nhom3_Duan1\\src\\AnhNV");
+        JFileChooser jfc = new JFileChooser("C:\\Nhom3_Duan1\\src\\AnhNV");
         if (jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             File file = jfc.getSelectedFile();
             BufferedImage img;
