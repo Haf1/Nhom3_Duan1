@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
+import java.util.Random;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import org.apache.poi.ss.usermodel.Cell;
@@ -206,6 +207,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Mã Khách Hàng");
 
+        txtMaKhachHang.setEditable(false);
         txtMaKhachHang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -646,14 +648,17 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         txtMaNV.setText(ShareHelper.user.getMaNV());
 
         TableColumnModel mol = tblDanhSach.getColumnModel();
-        mol.getColumn(0).setMaxWidth(55);
-        mol.getColumn(1).setMaxWidth(170);
-        mol.getColumn(2).setMaxWidth(115);
-        mol.getColumn(3).setMaxWidth(160);
+        mol.getColumn(0).setMaxWidth(105);
+        mol.getColumn(0).setMinWidth(105);
+        mol.getColumn(1).setMaxWidth(160);
+        mol.getColumn(1).setMinWidth(120);
+        mol.getColumn(2).setMaxWidth(80);
+        mol.getColumn(2).setMinWidth(80);
+        mol.getColumn(3).setMaxWidth(150);
         mol.getColumn(4).setMaxWidth(80);
-        mol.getColumn(5).setMaxWidth(70);
-        mol.getColumn(6).setMaxWidth(50);
-        mol.getColumn(7).setMaxWidth(80);
+        mol.getColumn(5).setMaxWidth(60);
+        mol.getColumn(6).setMaxWidth(45);
+        mol.getColumn(7).setMaxWidth(65);
         tblDanhSach.setColumnModel(mol);
 
     }
@@ -713,7 +718,32 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
     }
 
     void clearForm() {
-        txtMaKhachHang.setText("");
+        String kytu = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        String chuoi1 = "";
+        int soluong = 6;
+        Random rd = new Random();
+        char[] text1 = new char[soluong];
+        for (int i = 0; i < soluong; i++) {
+            text1[i] = kytu.charAt(rd.nextInt(kytu.length()));
+        }
+        for (int i = 0; i < text1.length; i++) {
+            chuoi1 += text1[i];
+        }
+        while (true) {
+            KhachHang kh = dao.selectById(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi1);
+            if (kh != null) {
+                chuoi1 = "";
+                for (int i = 0; i < soluong; i++) {
+                    text1[i] = kytu.charAt(rd.nextInt(kytu.length()));
+                }
+                for (int i = 0; i < text1.length; i++) {
+                    chuoi1 += text1[i];
+                }
+            } else {
+                break;
+            }
+        }
+        txtMaKhachHang.setText(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi1);
         txtTenKhachHang.setText("");
         txtSDT.setText("");
         txtEmail.setText("");
@@ -856,11 +886,6 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
             txtMaKhachHang.requestFocus();
             check = 0;
             return;
-        } else if (txtMaKhachHang.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống mã khách hàng !!");
-            txtMaKhachHang.requestFocus();
-            check = 0;
-            return;
         } else {
             check = 1;
         }
@@ -879,13 +904,25 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         } else {
             check = 1;
         }
-        if (txtSDT.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống số điện thoại !!");
-            txtTenKhachHang.requestFocus();
+        if (txtSDT.getText().matches("0[0-9]{9}")) {
+            KhachHang kh1 = dao.selectBySDT(txtSDT.getText());
+            if (kh1 != null) {
+                if (!txtMaKhachHang.getText().equals(kh1.getMaKH())) {
+                    MsgBoxHelper.alert(this, "Số điện thoại này thuộc quyền của nhân viên khác !!");
+                    txtSDT.requestFocus();
+                    check = 0;
+                    return;
+                } else {
+                    check = 1;
+                }
+            } else {
+                check = 1;
+            }
+        } else {
+            MsgBoxHelper.alert(this, "Số điện thoại không đúng định dạng !!");
+            txtSDT.requestFocus();
             check = 0;
             return;
-        } else {
-            check = 1;
         }
     }
 
@@ -896,11 +933,6 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
             txtMaKhachHang.requestFocus();
             check = 0;
             return;
-        } else if (txtMaKhachHang.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống mã khách hàng !!");
-            txtMaKhachHang.requestFocus();
-            check = 0;
-            return;
         } else {
             check = 1;
         }
@@ -919,13 +951,21 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
         } else {
             check = 1;
         }
-        if (txtSDT.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống số điện thoại !!");
-            txtTenKhachHang.requestFocus();
+        if (txtSDT.getText().matches("0[0-9]{9}")) {
+            KhachHang kh2 = dao.selectBySDT(txtSDT.getText());
+            if (kh2 != null) {
+                MsgBoxHelper.alert(this, "Số điện thoại đã được liên kết với một khách hàng khác !!");
+                txtSDT.requestFocus();
+                check = 0;
+                return;
+            } else {
+                check = 1;
+            }
+        } else {
+            MsgBoxHelper.alert(this, "Số điện thoại không đúng định dạng !!");
+            txtSDT.requestFocus();
             check = 0;
             return;
-        } else {
-            check = 1;
         }
     }
 }

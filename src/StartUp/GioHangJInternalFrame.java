@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import model.ChiTietHoaDonThanhToan;
 import model.HoaDonThanhToan;
 import model.KhachHang;
@@ -500,6 +501,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Tên Khách Hàng");
 
+        txtMaKhachHang.setEditable(false);
         txtMaKhachHang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         txtTenKH.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -688,11 +690,6 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
                             .addGroup(pn10Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pn10Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtMaKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
                     .addGroup(pn10Layout.createSequentialGroup()
                         .addGroup(pn10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -705,11 +702,13 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
                             .addComponent(DCNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(145, 145, 145))
                     .addGroup(pn10Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtMaKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtTenKH, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72))))
+                        .addComponent(txtTenKH, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         pn10Layout.setVerticalGroup(
             pn10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -891,7 +890,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
-        if (txtSDT.getText().matches("^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$")) {
+        if (txtSDT.getText().matches("0[0-9]{9}")) {
             checkSDT();
         } else {
             MsgBoxHelper.alert(this, "Số điện thoại không hợp lệ !!");
@@ -927,6 +926,9 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             lblChiSoSP.setText(1 + "");
             btnPreSP.setEnabled(false);
             btnNextSP.setEnabled(true);
+            HoaDonThanhToan tt = new HoaDonThanhToan();
+            tt.setTongTien(Double.parseDouble(currency.toInt(txtTongThanhToan.getText()) + ""));
+            tt.setTienThanhToan(Double.parseDouble(currency.toInt(txtTienThanhToan.getText()) + ""));
             clearForm();
             MsgBoxHelper.alert(this, "Xuất hóa đơn thành công !!");
         }
@@ -1046,6 +1048,17 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         cboDoiDiem.addItem("5000");
         cboDoiDiem.addItem("10000");
         cboDoiDiem.setSelectedIndex(0);
+        
+        TableColumnModel mol_ds = tblSanPham.getColumnModel();
+        mol_ds.getColumn(0).setMaxWidth(110);
+        mol_ds.getColumn(1).setMaxWidth(200);
+        mol_ds.getColumn(2).setMaxWidth(100);
+        mol_ds.getColumn(3).setMaxWidth(100);
+        mol_ds.getColumn(4).setMaxWidth(70);
+        mol_ds.getColumn(5).setMaxWidth(110);
+        mol_ds.getColumn(6).setMaxWidth(90);
+        mol_ds.getColumn(7).setMaxWidth(90);
+        tblSanPham.setColumnModel(mol_ds);
     }
 
     List<SanPham> listsp;
@@ -1244,6 +1257,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         tabs.setSelectedIndex(1);
         String kytu = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         String chuoi1 = "";
+        String chuoi2 = "";
         int soluong = 6;
         Random rd = new Random();
         char[] text1 = new char[soluong];
@@ -1252,6 +1266,13 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         }
         for (int i = 0; i < text1.length; i++) {
             chuoi1 += text1[i];
+        }
+        char[] text2 = new char[soluong];
+        for (int i = 0; i < soluong; i++) {
+            text2[i] = kytu.charAt(rd.nextInt(kytu.length()));
+        }
+        for (int i = 0; i < text2.length; i++) {
+            chuoi2 += text2[i];
         }
         while (true) {
             HoaDonThanhToan hd = daohd.selectById(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi1);
@@ -1267,7 +1288,22 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
                 break;
             }
         }
+        while (true) {
+            KhachHang kh = daokh.selectById(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi2);
+            if (kh != null) {
+                chuoi2 = "";
+                for (int i = 0; i < soluong; i++) {
+                    text2[i] = kytu.charAt(rd.nextInt(kytu.length()));
+                }
+                for (int i = 0; i < text2.length; i++) {
+                    chuoi2 += text2[i];
+                }
+            } else {
+                break;
+            }
+        }
         txtMaHoaDon.setText(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi1);
+        txtMaKhachHang.setText(DateHelper.toString(new java.util.Date(), "yyMMdd") + chuoi2);
         txtMaNhanVien.setText(ShareHelper.user.getMaNV());
         DefaultTableModel mol_tbl = (DefaultTableModel) tblBangSP.getModel();
         mol_tbl.setRowCount(0);
@@ -1392,17 +1428,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
     }
 
     void checkFormKH() {
-        if (txtMaKhachHang.getText().length() == 0) {
-            MsgBoxHelper.alert(this, "Mã khách hàng không được để trống !!");
-            txtMaKhachHang.requestFocus();
-            check = 0;
-            return;
-        } else if (txtMaKhachHang.getText().length() > 10) {
-            MsgBoxHelper.alert(this, "Mã khách hàng quá dài (<= 10 kí tự) !!");
-            txtMaKhachHang.requestFocus();
-            check = 0;
-            return;
-        } else if (txtTenKH.getText().length() == 0) {
+        if (txtTenKH.getText().length() == 0) {
             MsgBoxHelper.alert(this, "Tên khách hàng không được để trống !!");
             txtTenKH.requestFocus();
             check = 0;
@@ -1417,18 +1443,28 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             txtTenKH.requestFocus();
             check = 0;
             return;
-        } else if (!txtSDT.getText().matches("^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$")) {
+        } else {
+            check = 1;
+        }
+        if (txtSDT.getText().matches("0[0-9]{9}")) {
+            String makh = daokh.selectBySDT(txtSDT.getText()).getMaKH();
+            if (makh != null) {
+                if (!txtMaKhachHang.getText().equals(makh)) {
+                    MsgBoxHelper.alert(this, "Số điện thoại này đã thuộc khách hàng khác !!");
+                    txtSDT.requestFocus();
+                    check = 0;
+                    return;
+                } else {
+                    check = 1;
+                }
+            } else {
+                check = 1;
+            }
+        } else {
             MsgBoxHelper.alert(this, "Số Điện Thoại không đúng định dạng !!");
             txtSDT.requestFocus();
             check = 0;
             return;
-        } else if (txtSDT.getText().length() == 0) {
-            MsgBoxHelper.alert(this, "Số Điện Thoại không được để trống !!");
-            txtSDT.requestFocus();
-            check = 0;
-            return;
-        } else {
-            check = 1;
         }
     }
 
@@ -1479,13 +1515,4 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         txtDiemThuong.setText("");
         txtTongThanhToan.setText("");
     }
-
-//    void XuatHoaDon(){
-//        String link = "C:\\SOF2041\\GitHub\\Nhom3_Duan1\\src\\StartUp\\xpXuatHoaDon.jrxml";
-//        try {
-//            JasperReport jr = Jasper
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
