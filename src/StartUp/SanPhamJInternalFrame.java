@@ -1091,8 +1091,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnThemKMActionPerformed
 
     private void btnQRCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQRCodeActionPerformed
-        QR qr = new QR();
-        qr.setVisible(true);
+       new QR().setVisible(true);
     }//GEN-LAST:event_btnQRCodeActionPerformed
 
 
