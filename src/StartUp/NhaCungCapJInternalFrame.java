@@ -553,11 +553,16 @@ public class NhaCungCapJInternalFrame extends javax.swing.JInternalFrame {
         this.updateStatus();
 
         TableColumnModel mol = tblDanhSach.getColumnModel();
-        mol.getColumn(0).setMaxWidth(70);
-        mol.getColumn(1).setMaxWidth(170);
-        mol.getColumn(2).setMaxWidth(120);
-        mol.getColumn(3).setMaxWidth(100);
-        mol.getColumn(4).setMaxWidth(130);
+        mol.getColumn(0).setMaxWidth(60);
+        mol.getColumn(0).setMinWidth(60);
+        mol.getColumn(1).setMaxWidth(200);
+        mol.getColumn(1).setMinWidth(160);
+        mol.getColumn(2).setMinWidth(90);
+        mol.getColumn(2).setMaxWidth(150);
+        mol.getColumn(3).setMaxWidth(90);
+        mol.getColumn(3).setMinWidth(90);
+        mol.getColumn(4).setMinWidth(130);
+        mol.getColumn(4).setMaxWidth(190);
         tblDanhSach.setColumnModel(mol);
 
         TableColumnModel molsp = tblSanPham.getColumnModel();

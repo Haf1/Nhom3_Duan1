@@ -105,17 +105,17 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
 
         tblDanhSach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã NV", "Tên NV", "SĐT", "Ngày Sinh", "Giới Tính", "Vai Trò"
+                "Mã NV", "Tên NV", "SĐT", "Email", "Ngày Sinh", "Giới Tính", "Vai Trò"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -202,7 +202,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFirst.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnFirst.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnFirst.setText("|<");
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,7 +291,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
                 .addComponent(rdoNhanVien))
         );
 
-        btnPre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnPre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnPre.setText("<<");
         btnPre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,7 +299,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNext.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnNext.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnNext.setText(">>");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,7 +307,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnLast.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLast.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnLast.setText(">|");
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,7 +315,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnThem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnThem.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,15 +323,15 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSua.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnSua.setText("Sửa");
+        btnSua.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSua.setText("Cấp Quyền");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSuaActionPerformed(evt);
             }
         });
 
-        btnVoHieuHoa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnVoHieuHoa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnVoHieuHoa.setText("Vô Hiệu Hóa");
         btnVoHieuHoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -339,7 +339,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnMoi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnMoi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnMoi.setText("Mới");
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,21 +364,21 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn3Layout.createSequentialGroup()
-                        .addComponent(btnThem)
+                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSua)
+                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVoHieuHoa)
+                        .addComponent(btnVoHieuHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMoi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                        .addComponent(btnFirst)
+                        .addComponent(btnMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(btnFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPre)
+                        .addComponent(btnPre, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNext)
+                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLast))
+                        .addComponent(btnLast, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pn3Layout.createSequentialGroup()
                         .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pn3Layout.createSequentialGroup()
@@ -690,12 +690,16 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         updateStatus();
 
         TableColumnModel mol_nv = tblDanhSach.getColumnModel();
-        mol_nv.getColumn(0).setMaxWidth(70);
-        mol_nv.getColumn(1).setMaxWidth(250);
-        mol_nv.getColumn(2).setMaxWidth(140);
-        mol_nv.getColumn(3).setMaxWidth(110);
-        mol_nv.getColumn(4).setMaxWidth(90);
-        mol_nv.getColumn(5).setMaxWidth(110);
+        mol_nv.getColumn(0).setMaxWidth(65);
+        mol_nv.getColumn(0).setMinWidth(65);
+        mol_nv.getColumn(1).setMaxWidth(160);
+        mol_nv.getColumn(1).setMinWidth(130);
+        mol_nv.getColumn(2).setMaxWidth(80);
+        mol_nv.getColumn(2).setMinWidth(80);
+        mol_nv.getColumn(3).setMaxWidth(180);
+        mol_nv.getColumn(4).setMaxWidth(75);
+        mol_nv.getColumn(5).setMaxWidth(65);
+        mol_nv.getColumn(6).setMaxWidth(70);
         tblDanhSach.setColumnModel(mol_nv);
     }
 
@@ -816,7 +820,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         try {
             List<NhanVien> list = dao.selectPage(index);
             for (NhanVien nv : list) {
-                Object[] row = {nv.getMaNV(), nv.getTenNV(), nv.getsDT(), nv.getNgaySinh(),
+                Object[] row = {nv.getMaNV(), nv.getTenNV(), nv.getsDT(), nv.getEmail(), nv.getNgaySinh(),
                     nv.isGioiTinh() ? "Nam" : "Nữ", nv.isVaiTro() ? "Quản Lý" : "Nhân Viên"};
                 mol.addRow(row);
             }
@@ -861,7 +865,9 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         txtEmail.setText(nv.getEmail());
         DCNgaySinh.setDate(DateHelper.toDate(nv.getNgaySinh(), "yyyy-MM-dd"));
         rdoNam.setSelected(nv.isGioiTinh());
+        rdoNu.setSelected(!nv.isGioiTinh());
         rdoQuanLy.setSelected(nv.isVaiTro());
+        rdoNhanVien.setSelected(!nv.isVaiTro());
         txtDiaChi.setText(nv.getDiaChi());
         if (nv.getAnhNV() != null) {
             lblHinhAnh.setToolTipText(nv.getAnhNV());
@@ -897,6 +903,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
             nv.setAnhNV(null);
         }
         nv.setVaiTro(rdoQuanLy.isSelected());
+        nv.setMauNen(ShareHelper.user.getMauNen());
         return nv;
     }
 
@@ -907,6 +914,12 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         //trạng thái form
         txtMaNV.setEditable(!edit);
         txtEmail.setEditable(!edit);
+        txtTenNV.setEditable(!edit);
+        txtSDT.setEditable(!edit);
+        DCNgaySinh.setEnabled(!edit);
+        rdoNam.setEnabled(!edit);
+        rdoNu.setEnabled(!edit);
+        lblHinhAnh.setEnabled(!edit);
         btnThem.setEnabled(!edit);
         btnSua.setEnabled(edit);
         btnVoHieuHoa.setEnabled(edit);
@@ -932,7 +945,6 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         } else {
             check = 1;
         }
-
         if (txtTenNV.getText().equals("")) {
             MsgBoxHelper.alert(this, "Không để trống họ tên !!");
             txtTenNV.requestFocus();
@@ -941,8 +953,41 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         } else {
             check = 1;
         }
+        if (txtSDT.getText().matches("0[0-9]{9}")) {
+            NhanVien nv1 = dao.selectBySDT(txtSDT.getText());
+            if (nv1 != null) {
+                MsgBoxHelper.alert(this, "Số điện thoại này thuộc quyền của nhân viên khác !!");
+                txtSDT.requestFocus();
+                check = 0;
+                return;
+            } else {
+                check = 1;
+            }
+        } else {
+            MsgBoxHelper.alert(this, "Số điện thoại không đúng định dạng !!");
+            txtSDT.requestFocus();
+            check = 0;
+            return;
+        }
+        if (txtEmail.getText().matches("^([a-zA-Z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$")) {
+            NhanVien nv2 = dao.selectByEmail(txtEmail.getText());
+            if (nv2 != null) {
+                MsgBoxHelper.alert(this, "Email này thuộc quyền của nhân viên khác !!");
+                txtEmail.requestFocus();
+                check = 0;
+                return;
+            } else {
+                check = 1;
+            }
+        } else {
+            MsgBoxHelper.alert(this, "Email không đúng định dạng !!");
+            txtSDT.requestFocus();
+            check = 0;
+            return;
+        }
 
-        if (DCNgaySinh.getDate() == null) {
+        if (DCNgaySinh.getDate()
+                == null) {
             MsgBoxHelper.alert(this, "Không để trống ngày sinh!!");
             check = 0;
             return;
@@ -972,6 +1017,21 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         if (txtTenNV.getText().equals("")) {
             MsgBoxHelper.alert(this, "Không để trống họ tên !!");
             txtTenNV.requestFocus();
+            check = 0;
+            return;
+        } else {
+            check = 1;
+        }
+        if (!txtSDT.getText().matches("0[0-9]{9}")) {
+            MsgBoxHelper.alert(this, "Số điện thoại không đúng định dạng !!");
+            txtSDT.requestFocus();
+            check = 0;
+            return;
+        } else {
+            check = 1;
+        }
+        if (DCNgaySinh.getDate() == null) {
+            MsgBoxHelper.alert(this, "Không để trống ngày sinh!!");
             check = 0;
             return;
         } else {

@@ -30,7 +30,6 @@ import model.SanPham;
 import model.SizeSanPham;
 import model.ThuongHieu;
 
-
 public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
 
     SanPhamDAO daosp = new SanPhamDAO();
@@ -56,6 +55,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         pn7.setBackground(new Color(Integer.parseInt(color, 16)));
         pn8.setBackground(new Color(Integer.parseInt(color, 16)));
         pn9.setBackground(new Color(Integer.parseInt(color, 16)));
+        pn10.setBackground(new Color(Integer.parseInt(color, 16)));
     }
 
     @SuppressWarnings("unchecked")
@@ -137,7 +137,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
+        pn10 = new javax.swing.JPanel();
         btnThemKM = new javax.swing.JButton();
         cboKhuyenMaiBS = new javax.swing.JComboBox<>();
         txtGiaTri = new javax.swing.JTextField();
@@ -152,23 +152,6 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Sản Phẩm");
-
-        javax.swing.GroupLayout pn1Layout = new javax.swing.GroupLayout(pn1);
-        pn1.setLayout(pn1Layout);
-        pn1Layout.setHorizontalGroup(
-            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(269, 269, 269))
-        );
-        pn1Layout.setVerticalGroup(
-            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         tabs.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -687,33 +670,34 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pn7Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
+                        .addGap(85, 85, 85)
                         .addComponent(btnPreBS)
                         .addGap(18, 18, 18)
                         .addComponent(lblChiSoBS)
                         .addGap(18, 18, 18)
                         .addComponent(btnNextBS)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pn7Layout.createSequentialGroup()
-                        .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTenThuongHieu)
-                            .addGroup(pn7Layout.createSequentialGroup()
-                                .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMaThuongHieu, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 157, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn7Layout.createSequentialGroup()
-                        .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnThemTH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSuaTH, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
+                        .addComponent(btnSuaTH, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnVoHieuHoaTH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMoiTH, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38))))
+                        .addGap(38, 38, 38))
+                    .addGroup(pn7Layout.createSequentialGroup()
+                        .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(txtMaThuongHieu, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pn7Layout.createSequentialGroup()
+                        .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTenThuongHieu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                            .addGroup(pn7Layout.createSequentialGroup()
+                                .addComponent(btnThemTH, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         pn7Layout.setVerticalGroup(
             pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -721,26 +705,28 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pn7Layout.createSequentialGroup()
                         .addComponent(jLabel12)
+                        .addGap(5, 5, 5)
+                        .addComponent(txtMaThuongHieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMaThuongHieu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTenThuongHieu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
+                        .addComponent(txtTenThuongHieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnThemTH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnMoiTH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnVoHieuHoaTH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblChiSoBS)
-                                .addComponent(btnNextBS)
-                                .addComponent(btnPreBS))
                             .addComponent(btnSuaTH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pn7Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblChiSoBS)
+                            .addComponent(btnNextBS)
+                            .addComponent(btnPreBS))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pn8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Màu Sắc", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -837,10 +823,15 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Khuyến Mãi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        pn10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Khuyến Mãi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         btnThemKM.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemKM.setText("Thêm");
+        btnThemKM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemKMActionPerformed(evt);
+            }
+        });
 
         cboKhuyenMaiBS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -849,11 +840,11 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel18.setText("Giá Trị");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pn10Layout = new javax.swing.GroupLayout(pn10);
+        pn10.setLayout(pn10Layout);
+        pn10Layout.setHorizontalGroup(
+            pn10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cboKhuyenMaiBS, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -864,13 +855,13 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
                 .addComponent(btnThemKM, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pn10Layout.setVerticalGroup(
+            pn10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn10Layout.createSequentialGroup()
                 .addComponent(cboKhuyenMaiBS, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn10Layout.createSequentialGroup()
+                .addGroup(pn10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThemKM, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addComponent(txtGiaTri)
                     .addComponent(jLabel18))
@@ -887,42 +878,56 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator2)
             .addComponent(jSeparator3)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pn10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pn6Layout.setVerticalGroup(
             pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn6Layout.createSequentialGroup()
-                .addComponent(pn7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pn7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pn9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pn9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pn10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         tabs.addTab("Bổ Sung", pn6);
+
+        javax.swing.GroupLayout pn1Layout = new javax.swing.GroupLayout(pn1);
+        pn1.setLayout(pn1Layout);
+        pn1Layout.setHorizontalGroup(
+            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tabs, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(268, 268, 268))
+        );
+        pn1Layout.setVerticalGroup(
+            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tabs)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -960,19 +965,19 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_lblHinhAnhMouseClicked
 
     private void cboThuongHieuCTItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboThuongHieuCTItemStateChanged
-        
+
     }//GEN-LAST:event_cboThuongHieuCTItemStateChanged
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         checkFormInsertSP();
-        if(checksp == 1){
+        if (checksp == 1) {
             insert();
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         checkFormUpdateSP();
-        if(checksp == 1){
+        if (checksp == 1) {
             update();
         }
     }//GEN-LAST:event_btnSuaActionPerformed
@@ -1054,6 +1059,23 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_cboMauBSItemStateChanged
 
+    private void btnThemKMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemKMActionPerformed
+        try {
+            int giatri = Integer.parseInt(txtGiaTri.getText());
+            if (giatri > 0) {
+                insertKM();
+            } else {
+                MsgBoxHelper.alert(this, "Giá Trị phải là số nguyên dương !!");
+                txtGiaTri.requestFocus();
+                return;
+            }
+        } catch (Exception e) {
+            MsgBoxHelper.alert(this, "Giá Trị phải là số nguyên dương !!");
+            txtGiaTri.requestFocus();
+            return;
+        }
+    }//GEN-LAST:event_btnThemKMActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFirst;
@@ -1102,7 +1124,6 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1113,6 +1134,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblChiSoDS;
     private javax.swing.JLabel lblHinhAnh;
     private javax.swing.JPanel pn1;
+    private javax.swing.JPanel pn10;
     private javax.swing.JPanel pn2;
     private javax.swing.JPanel pn3;
     private javax.swing.JPanel pn4;
@@ -1155,15 +1177,22 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         lblChiSoBS.setText(index1 + 1 + "");
         this.row = -1;
         updateStatus();
-        
+        updateStatusTH();
+
         TableColumnModel mol_ds = tblDanhSach.getColumnModel();
-        mol_ds.getColumn(0).setMaxWidth(100);
+        mol_ds.getColumn(0).setMinWidth(90);
+        mol_ds.getColumn(0).setMaxWidth(90);
         mol_ds.getColumn(1).setMaxWidth(190);
+        mol_ds.getColumn(1).setMinWidth(110);
         mol_ds.getColumn(2).setMaxWidth(100);
+        mol_ds.getColumn(2).setMinWidth(80);
         mol_ds.getColumn(3).setMaxWidth(100);
-        mol_ds.getColumn(4).setMaxWidth(90);
+        mol_ds.getColumn(3).setMinWidth(80);
+        mol_ds.getColumn(4).setMaxWidth(70);
+        mol_ds.getColumn(4).setMinWidth(70);
         mol_ds.getColumn(5).setMaxWidth(80);
-        mol_ds.getColumn(6).setMaxWidth(80);
+        mol_ds.getColumn(5).setMinWidth(70);
+        mol_ds.getColumn(6).setMaxWidth(60);
         tblDanhSach.setColumnModel(mol_ds);
     }
 
@@ -1186,19 +1215,19 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         mol_cbo.removeAllElements();
         listth = daoth.selectAll();
         for (ThuongHieu th : listth) {
-            mol_cbo.addElement(th.getMaThuongHieu()+"-"+th.getTenThuongHieu());
+            mol_cbo.addElement(th.getMaThuongHieu() + "-" + th.getTenThuongHieu());
         }
     }
 
     List<SanPham> list = daosp.selectAll();
     double count = (list.size() / 20);
-    
+
     void fillTableSP(int index) {
         DefaultTableModel mol_tbl = (DefaultTableModel) tblDanhSach.getModel();
         mol_tbl.setRowCount(0);
         try {
             String keyword = txtTimKiem.getText();
-            List<SanPham> list = daosp.selectPage(listth.get(cboThuongHieuDS.getSelectedIndex()).getMaThuongHieu(),keyword,index);
+            List<SanPham> list = daosp.selectPage(listth.get(cboThuongHieuDS.getSelectedIndex()).getMaThuongHieu(), keyword, index);
             for (SanPham sp : list) {
                 Object[] row = {sp.getMaSP(), sp.getTenSP(), currency.toCurrency(sp.getDonGia()), currency.toCurrency(sp.getGiaNhap()), sp.getSoLuong(), sp.getMaKM(), sp.getChiTiet()};
                 mol_tbl.addRow(row);
@@ -1208,7 +1237,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             MsgBoxHelper.alert(this, "Lỗi truy vấn dữ liệu !");
         }
     }
-    
+
     void updatePageDS() {
         boolean page = (this.index >= 0);
         boolean fpage = (this.index == 0);
@@ -1254,16 +1283,16 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             lblHinhAnh.setToolTipText(file.getName());
         }
     }
-    
+
     void fillComboBoxThuongHieuCT() {
         DefaultComboBoxModel mol_cbo = (DefaultComboBoxModel) cboThuongHieuCT.getModel();
         mol_cbo.removeAllElements();
         listth = daoth.selectAll();
         for (ThuongHieu th : listth) {
-            mol_cbo.addElement(th.getMaThuongHieu()+"-"+th.getTenThuongHieu());
+            mol_cbo.addElement(th.getMaThuongHieu() + "-" + th.getTenThuongHieu());
         }
     }
-    
+
     void fillComboBoxMauSacCT() {
         DefaultComboBoxModel mol_cbo = (DefaultComboBoxModel) cboMauSacCT.getModel();
         mol_cbo.removeAllElements();
@@ -1272,7 +1301,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             mol_cbo.addElement(mau.getTenMau());
         }
     }
-    
+
     void fillComboBoxSizeCT() {
         DefaultComboBoxModel mol_cbo = (DefaultComboBoxModel) cboSizeCT.getModel();
         mol_cbo.removeAllElements();
@@ -1281,7 +1310,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             mol_cbo.addElement(sz.getSize());
         }
     }
-    
+
     void fillComboBoxMauSacBS() {
         DefaultComboBoxModel mol_cbo = (DefaultComboBoxModel) cboMauBS.getModel();
         mol_cbo.removeAllElements();
@@ -1290,7 +1319,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             mol_cbo.addElement(mau.getTenMau());
         }
     }
-    
+
     void fillComboBoxSizeBS() {
         DefaultComboBoxModel mol_cbo = (DefaultComboBoxModel) cboSizeBS.getModel();
         mol_cbo.removeAllElements();
@@ -1299,16 +1328,16 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             mol_cbo.addElement(sz.getSize());
         }
     }
-    
+
     void fillComboBoxKhuyenMaiBS() {
-        DefaultComboBoxModel mol_cbo = (DefaultComboBoxModel) cboKhuyenMai.getModel();
+        DefaultComboBoxModel mol_cbo = (DefaultComboBoxModel) cboKhuyenMaiBS.getModel();
         mol_cbo.removeAllElements();
         listkm = daokm.selectAll();
         for (KhuyenMai km : listkm) {
             mol_cbo.addElement(km.getMaKM());
         }
     }
-    
+
     void fillComboBoxKhuyenMai() {
         DefaultComboBoxModel mol_cbo = (DefaultComboBoxModel) cboKhuyenMai.getModel();
         mol_cbo.removeAllElements();
@@ -1317,7 +1346,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             mol_cbo.addElement(km.getMaKM());
         }
     }
-    
+
     void fillComboBoxNCC() {
         DefaultComboBoxModel mol_cbo = (DefaultComboBoxModel) cboNhaCungCap.getModel();
         mol_cbo.removeAllElements();
@@ -1326,9 +1355,9 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             mol_cbo.addElement(ncc.getMaNCC());
         }
     }
-    
+
     void setFormSP(SanPham sp) {
-        int row = tblDanhSach.getSelectedRow()-1;
+        int row = tblDanhSach.getSelectedRow() - 1;
         txtMaSP.setText(sp.getMaSP());
         txtTenSP.setText(sp.getTenSP());
         txtSoLuong.setText(String.valueOf(sp.getSoLuong()));
@@ -1339,7 +1368,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         cboKhuyenMai.setSelectedItem(sp.getMaKM());
         cboNhaCungCap.setSelectedItem(sp.getMaNCC());
         txtChiTietSP.setText(sp.getChiTiet());
-        if (sp.getAnhSP()!= null) {
+        if (sp.getAnhSP() != null) {
             lblHinhAnh.setToolTipText(sp.getAnhSP());
 //            lblHinhAnh.setIcon(XImage.read(cd.getHinhAnh()));
             try {
@@ -1455,7 +1484,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         tabs.setSelectedIndex(1);
         updateStatus();
     }
-    
+
     void first() {
         this.row = 0;
         this.edit();
@@ -1479,7 +1508,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         this.row = tblDanhSach.getRowCount() - 1;
         this.edit();
     }
-    
+
     void fillTableTH(int index1) {
         DefaultTableModel mol = (DefaultTableModel) tblThuongHieu.getModel();
         mol.setRowCount(0);
@@ -1494,14 +1523,14 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             MsgBoxHelper.alert(this, "Lỗi truy vấn dữ liệu !");
         }
     }
-    
+
     List<ThuongHieu> list1 = daoth.selectAll();
-    double count1 = (list1.size() / 5);
-    
+    double count1 = (list1.size() / 8);
+
     void updatePageTH() {
         boolean page = (this.index1 >= 0);
         boolean fpage = (this.index1 == 0);
-        boolean lpage = (tblThuongHieu.getRowCount() <= 3);
+        boolean lpage = (tblThuongHieu.getRowCount() <= 6);
         btnNextBS.setEnabled(page && !lpage);
         btnPreBS.setEnabled(page && !fpage);
     }
@@ -1524,7 +1553,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
     }
 
     void setFormTH(ThuongHieu th) {
-        int row = tblThuongHieu.getSelectedRow()-1;
+        int row = tblThuongHieu.getSelectedRow() - 1;
         txtMaThuongHieu.setText(th.getMaThuongHieu());
         txtTenThuongHieu.setText(th.getTenThuongHieu());
     }
@@ -1548,9 +1577,9 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         boolean first = (this.row == 0);
         boolean last = (this.row == tblThuongHieu.getRowCount() - 1);
         //trạng thái form
-        btnThem.setEnabled(!edit);
-        btnSua.setEnabled(edit);
-        btnVoHieuHoa.setEnabled(edit);
+        btnThemTH.setEnabled(!edit);
+        btnSuaTH.setEnabled(edit);
+        btnVoHieuHoaTH.setEnabled(edit);
     }
 
     void insertTH() {
@@ -1607,7 +1636,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         mau.setTenMau(txtTenMau.getText());
         return mau;
     }
- 
+
     void insertMau() {
         MauSanPham mau = getFormMau();
         try {
@@ -1620,17 +1649,17 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             MsgBoxHelper.alert(this, "Thêm mới thất bại !!");
         }
     }
-    
+
     void clearFormMau() {
         txtTenMau.setText("");
     }
-    
+
     SizeSanPham getFormSize() {
         SizeSanPham size = new SizeSanPham();
         size.setSize(Integer.parseInt(txtSize.getText()));
         return size;
     }
- 
+
     void insertSize() {
         SizeSanPham size = getFormSize();
         try {
@@ -1643,21 +1672,21 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             MsgBoxHelper.alert(this, "Thêm mới thất bại !!");
         }
     }
-    
-    void clearFormSize(){
+
+    void clearFormSize() {
         txtSize.setText("");
     }
-    
+
     KhuyenMai getFormKM() {
         KhuyenMai KM = new KhuyenMai();
-        KM.setMaKM(txtGiaTri.getText());
+        KM.setMaKM(txtGiaTri.getText() + "%");
         KM.setMaNV(ShareHelper.user.getMaNV());
         KM.setTenKM(null);
         KM.setNgayTao(DateHelper.toString(new java.util.Date(), "yyyy/MM/dd"));
         KM.setGhiChu(null);
         return KM;
     }
- 
+
     void insertKM() {
         KhuyenMai KM = getFormKM();
         try {
@@ -1670,11 +1699,11 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
             MsgBoxHelper.alert(this, "Thêm mới thất bại !!");
         }
     }
-    
-    void clearFormKM(){
+
+    void clearFormKM() {
         txtGiaTri.setText("");
     }
-    
+
     void checkFormInsertSP() {
         SanPham sp = daosp.selectById(txtMaSP.getText());
         if (sp != null) {
@@ -1701,13 +1730,13 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         try {
             Double giaban = Double.parseDouble(txtGiaBan.getText());
             if (txtGiaBan.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống giá sản phẩm !!");
-            txtGiaBan.requestFocus();
-            checksp = 0;
-            return;
-        } else {
-            checksp = 1;
-        }
+                MsgBoxHelper.alert(this, "Không để trống giá sản phẩm !!");
+                txtGiaBan.requestFocus();
+                checksp = 0;
+                return;
+            } else {
+                checksp = 1;
+            }
         } catch (Exception e) {
             MsgBoxHelper.alert(this, "Giá sản phẩm phải ở dạng số !!");
             txtGiaBan.requestFocus();
@@ -1717,13 +1746,13 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         try {
             Double gianhap = Double.parseDouble(txtGiaNhap.getText());
             if (txtGiaNhap.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống giá nhập !!");
-            txtGiaNhap.requestFocus();
-            checksp = 0;
-            return;
-        } else {
-            checksp = 1;
-        }
+                MsgBoxHelper.alert(this, "Không để trống giá nhập !!");
+                txtGiaNhap.requestFocus();
+                checksp = 0;
+                return;
+            } else {
+                checksp = 1;
+            }
         } catch (Exception e) {
             MsgBoxHelper.alert(this, "Giá nhập phải ở dạng số !!");
             txtGiaNhap.requestFocus();
@@ -1758,13 +1787,13 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         try {
             Double giaban = Double.parseDouble(txtGiaBan.getText());
             if (txtGiaBan.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống giá sản phẩm !!");
-            txtGiaBan.requestFocus();
-            checksp = 0;
-            return;
-        } else {
-            checksp = 1;
-        }
+                MsgBoxHelper.alert(this, "Không để trống giá sản phẩm !!");
+                txtGiaBan.requestFocus();
+                checksp = 0;
+                return;
+            } else {
+                checksp = 1;
+            }
         } catch (Exception e) {
             MsgBoxHelper.alert(this, "Giá sản phẩm phải ở dạng số !!");
             txtGiaBan.requestFocus();
@@ -1774,13 +1803,13 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         try {
             Double gianhap = Double.parseDouble(txtGiaNhap.getText());
             if (txtGiaNhap.getText().equals("")) {
-            MsgBoxHelper.alert(this, "Không để trống giá nhập !!");
-            txtGiaNhap.requestFocus();
-            checksp = 0;
-            return;
-        } else {
-            checksp = 1;
-        }
+                MsgBoxHelper.alert(this, "Không để trống giá nhập !!");
+                txtGiaNhap.requestFocus();
+                checksp = 0;
+                return;
+            } else {
+                checksp = 1;
+            }
         } catch (Exception e) {
             MsgBoxHelper.alert(this, "Giá nhập phải ở dạng số !!");
             txtGiaNhap.requestFocus();
