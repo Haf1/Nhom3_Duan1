@@ -8,14 +8,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.HoaDonNhapHang;
 
-public class HoaDonNhapHangDAO extends ShoesSysDAO<HoaDonNhapHang, String>{
+public class HoaDonNhapHangDAO extends ShoesSysDAO<HoaDonNhapHang, String> {
 
     String SQL_Insert = "INSERT INTO dbo.HoaDonNhapHang (MaHDNhapHang, MaNV, MaNCC, NgayNhapHang, GhiChu)  VALUES (?,?,?,?,?)";
     String SQL_Update = "UPDATE dbo.HoaDonNhapHang SET MaNV=?, MaNCC=?, NgayNhapHang=?, GhiChu=? WHERE MaHDNhapHang=?";
     String SQL_VoHieuHoa = "";
     String SQL_SelectALL = "SELECT * FROM dbo.HoaDonNhapHang";
     String SQL_SelectID = "SELECT * FROM dbo.HoaDonNhapHang WHERE MaHDNhapHang=?";
-    
+
     @Override
     public void insert(HoaDonNhapHang entity) {
         try {
@@ -72,16 +72,17 @@ public class HoaDonNhapHangDAO extends ShoesSysDAO<HoaDonNhapHang, String>{
             throw new RuntimeException(e);
         }
     }
-    
+
     public HoaDonNhapHang selectNCC(String mancc) {
         List<HoaDonNhapHang> list = this.selectBySql("SELECT * FROM dbo.HoaDonNhapHang WHERE MaNCC=?\n", mancc);
         return list.isEmpty() ? null : list.get(0);
     }
-    
-//    public List<HoaDonNhapHang> selectNhapHang(String mancc, int index) {
-//        String sql = "SELECT * FROM dbo.HoaDonNhapHang\n"
-//                + "WHERE MaNCC=?\n"
-//                + "ORDER BY MaHDNhapHang OFFSET ? * 5 ROWS FETCH NEXT 5 ROWS ONLY";
-//        return this.selectBySql(sql, mancc, index);
-//    }
+
+    public List<HoaDonNhapHang> selectPage(String keyword, String ngaybd, String ngaykt, int index) {
+        String sql = "SELECT * FROM dbo.HoaDonNhapHang\n"
+                + "WHERE MaHDNhapHang LIKE ?\n"
+                + "AND NgayNhapHang BETWEEN ? AND ?\n"
+                + "ORDER BY MaHDNhapHang OFFSET ? * 20 ROWS FETCH NEXT 20 ROWS ONLY";
+        return this.selectBySql(sql, "%" + keyword + "%", ngaybd, ngaykt, index);
+    }
 }

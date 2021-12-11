@@ -34,11 +34,21 @@ MauNen VARCHAR(10) NOT NULL,
 );
 
 INSERT INTO dbo.NhanVien VALUES
-('PH17245', N'Nguyễn Bá Hà', 'baha123', N'Hà Nội', '0325878373', 'hanbph17245@fpt.edu.vn', '20020516', 1, 'baha123.jpg', 1, 1, NULL, 'CCFFFF'),
+('PH17245', N'Nguyễn Bá Hà', 'baha123', N'Nam Định', '0325878373', 'hanbph17245@fpt.edu.vn', '20020516', 1, 'baha123.jpg', 1, 1, NULL, 'CCFFFF'),
 ('PH17417', N'Nguyễn Phú Quang', 'quang123', N'Hà Nội', '0936352884', 'quangnpph17417@fpt.edu.vn', '20021004', 1, 'quang123.jpg', 1, 1, NULL, 'CCFFFF'),
 ('PH17481', N'Nguyễn Công Trường', 'truong123', N'Hà Nội', '0964853798', 'truongncph17481@fpt.edu.vn', '20020722', 1, 'truong123.jpg', 1, 1, NULL, 'CCFFFF'),
-('PH18383', N'Nguyễn Văn Huy', 'vanhuy123', N'Hà Nội', '0338327433', 'huynvph18383@fpt.edu.vn', '20020222', 1, 'vanhuy123.jpg', 1, 1, NULL, 'CCFFFF'),
-('PH17446', N'Nguyễn Tiến Hải', 'tienhai123', N'Hà Nội', '0347766383', 'haintph17446@fpt.edu.vn', '20021223', 1, 'tienhai123.jpg', 1, 1, NULL, 'CCFFFF');
+('PH18383', N'Nguyễn Văn Huy', 'vanhuy123', N'Bắc Ninh', '0338327433', 'huynvph18383@fpt.edu.vn', '20020222', 1, 'vanhuy123.jpg', 1, 1, NULL, 'CCFFFF'),
+('PH17446', N'Nguyễn Tiến Hải', 'tienhai123', N'Hải Dương', '0347766383', 'haintph17446@fpt.edu.vn', '20021223', 1, 'tienhai123.jpg', 1, 1, NULL, 'CCFFFF'),
+('PH17777', N'Nguyễn Phú Huỳnh', 'huynh123', N'Thanh Hóa', '0325878991', 'huynhnpph17777@fpt.edu.vn', '20010612', 1, NULL, 1, 0, NULL, 'CCFFFF'),
+('PH18888', N'Nguyễn Quang Toan', 'toan123', N'Hải Phòng', '0936327379', 'toannqph18888@fpt.edu.vn', '20030519', 1, NULL, 0, 0, NULL, 'CCFFFF'),
+('PH19999', N'Nguyễn Thị Quỳnh', 'quynh123', N'Bắc Giang', '0964857182', 'quynhntph19999@fpt.edu.vn', '20020302', 1, NULL, 0, 0, NULL, 'CCFFFF'),
+('PH16666', N'Nguyễn Văn Sơn', 'vanson123', N'Ba Vì', '0338320928', 'sonnvph16666@fpt.edu.vn', '20030409', 1, NULL, 0, 0, NULL, 'CCFFFF'),
+('PH15555', N'Trần Quốc Trường', 'truong123', N'Hà Nội', '0347197418', 'truongtcph15555@fpt.edu.vn', '20011113', 1, NULL, 0, 0, NULL, 'CCFFFF'),
+('PH17118', N'Trịnh Công Minh', 'minh123', N'Hà Nội', '0325878363', 'minhtcph17118@fpt.edu.vn', '20010316', 1, NULL, 0, 0, NULL, 'CCFFFF'),
+('PH17918', N'Nguyễn Quang Hưng', 'hung123', N'Hà Nội', '0936353884', 'hungnqph17918@fpt.edu.vn', '20000904', 1, NULL, 0, 0, NULL, 'CCFFFF'),
+('PH17281', N'Đặng Minh Quang', 'quang123', N'Hà Nội', '0964853898', 'quangdmph17281@fpt.edu.vn', '20031122', 1, NULL, 0, 0, NULL, 'CCFFFF'),
+('PH18613', N'Phùng Văn Huy', 'vanhuy123', N'Hà Nội', '0338327403', 'huypvph18613@fpt.edu.vn', '20020812', 1, NULL, 0, 0, NULL, 'CCFFFF'),
+('PH17746', N'Nguyễn Thị Hoa', 'hoa123', N'Hà Nội', '0347766381', 'hoantph17746@fpt.edu.vn', '20021113', 1, NULL, 0, 0, NULL, 'CCFFFF');
 
 CREATE TABLE MauSac(
 TenMau NVARCHAR(20) PRIMARY KEY,
@@ -80,7 +90,12 @@ INSERT INTO NhaCungCap (MaNCC,TenNCC,DiaChi,SDT,Email,TrangThai) VALUES
 ('NCC022', N'Công ty giày da Xuân Hồng', N'Nam Định', '0979273458', 'xhong1@gmail.com', 1),
 ('NCC033', N'Công ty giày da Bắc Ninh', N'Bắc Ninh', '0234785985', 'bninh23@gmail.com', 1),
 ('NCC044', N'Công ty giày da Thái Bình', N'Thái Bình', '0934879289', 'tbinh2@gmail.com', 1),
-('NCC055', N'Công ty giày da Lào Cai', N'Lào Cai', '0927781923', 'lcai@gmail.com', 1);
+('NCC055', N'Công ty giày da Lào Cai', N'Lào Cai', '0927781923', 'lcai@gmail.com', 1),
+('NCC066', N'Công ty Bình Tiên', N'Hải Dương', '0989237456', 'binhtien@gmail.com', 0),
+('NCC077', N'Công ty giày da Xuân Hồng', N'Nam Định', '0979273458', 'xhong1@gmail.com', 0),
+('NCC088', N'Công ty giày da Bắc Ninh', N'Bắc Ninh', '0234785985', 'bninh23@gmail.com', 0),
+('NCC099', N'Công ty giày da Thái Bình', N'Thái Bình', '0934879289', 'tbinh2@gmail.com', 0),
+('NCC101', N'Công ty giày da Lào Cai', N'Lào Cai', '0927781923', 'lcai@gmail.com', 0);
 
 CREATE TABLE KhuyenMai(
 MaKM VARCHAR(10) PRIMARY KEY,
@@ -127,74 +142,74 @@ FOREIGN KEY (MaThuongHieu) REFERENCES dbo.ThuongHieu(MaThuongHieu),
 );
 
 INSERT INTO SanPham(MaSP,MaThuongHieu,TenSanPham,GiaBan,GiaNhap,SoLuong,Mau,Size,MaKM,MaNCC,AnhSP,ChiTiet,TrangThai) VALUES
-('SP001TR40', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Trắng', 40, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
+('SP001TR40', 'TH001', N'UltraBoost 21', 5000000, 3500000, 11, N'Trắng', 40, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
 ('SP001TR41', 'TH001', N'UltraBoost 21', 5000000, 3500000, 11, N'Trắng', 41, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
-('SP001TR42', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Trắng', 42, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
-('SP001DEN40', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Đen', 40, '10%', 'NCC011', 'sp001den.png', NULL, 1),
-('SP001DEN41', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Đen', 41, '10%', 'NCC011', 'sp001den.png', NULL, 1),
-('SP001DEN42', 'TH001', N'UltraBoost 21', 5000000, 3500000, 10, N'Đen', 42, '10%', 'NCC011', 'sp001den.png', NULL, 1),
-('SP002DEN36', 'TH001', N'Alphabounce', 3000000, 2000000, 10, N'Đen', 36, '20%', 'NCC055', 'sp002den.png', NULL, 1),
-('SP002DEN37', 'TH001', N'Alphabounce', 3000000, 2000000, 10, N'Đen', 37, '20%', 'NCC055', 'sp002den.png', NULL, 1),
-('SP002DEN38', 'TH001', N'Alphabounce', 3000000, 2000000, 10, N'Đen', 38, '20%', 'NCC055', 'sp002den.png', NULL, 1),
+('SP001TR42', 'TH001', N'UltraBoost 21', 5000000, 3500000, 5, N'Trắng', 42, '10%', 'NCC011', 'sp001trang.png', NULL, 1),
+('SP001DEN40', 'TH001', N'UltraBoost 21', 5000000, 3500000, 6, N'Đen', 40, '10%', 'NCC011', 'sp001den.png', NULL, 1),
+('SP001DEN41', 'TH001', N'UltraBoost 21', 5000000, 3500000, 8, N'Đen', 41, '10%', 'NCC011', 'sp001den.png', NULL, 1),
+('SP001DEN42', 'TH001', N'UltraBoost 21', 5000000, 3500000, 7, N'Đen', 42, '10%', 'NCC011', 'sp001den.png', NULL, 1),
+('SP002DEN36', 'TH001', N'Alphabounce', 3000000, 2000000, 7, N'Đen', 36, '20%', 'NCC055', 'sp002den.png', NULL, 1),
+('SP002DEN37', 'TH001', N'Alphabounce', 3000000, 2000000, 12, N'Đen', 37, '20%', 'NCC055', 'sp002den.png', NULL, 1),
+('SP002DEN38', 'TH001', N'Alphabounce', 3000000, 2000000, 11, N'Đen', 38, '20%', 'NCC055', 'sp002den.png', NULL, 1),
 ('SP002DEN39', 'TH001', N'Alphabounce', 3000000, 2000000, 11, N'Đen', 39, '20%', 'NCC055', 'sp002den.png', NULL, 1),
-('SP002TR39', 'TH001', N'Alphabounce', 3000000, 2000000, 11, N'Trắng', 39, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
-('SP002TR40', 'TH001', N'Alphabounce', 3000000, 2000000, 11, N'Trắng', 40, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
-('SP002TR41', 'TH001', N'Alphabounce', 3000000, 2000000, 11, N'Trắng', 41, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
-('SP003DEN41', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 11, N'Đen', 41, '10%', 'NCC022', 'sp003den.png', NULL, 1),
-('SP003DEN42', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 12, N'Đen', 42, '10%', 'NCC022', 'sp003den.png', NULL, 1),
-('SP003DEN43', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 10, N'Đen', 43, '10%', 'NCC022', 'sp003den.png', NULL, 1),
-('SP003DEN44', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 10, N'Đen', 44, '10%', 'NCC022', 'sp003den.png', NULL, 1),
-('SP003TR41', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 12, N'Trắng', 41, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
-('SP003TR42', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 11, N'Trắng', 42, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
-('SP003TR43', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 11, N'Trắng', 43, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
-('SP004XA40', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 14, N'Xanh Nước', 40, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
-('SP004XA41', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 13, N'Xanh Nước', 41, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
-('SP004XA42', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 15, N'Xanh Nước', 42, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
-('SP004XA43', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 12, N'Xanh Nước', 43, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
+('SP002TR39', 'TH001', N'Alphabounce', 3000000, 2000000, 8, N'Trắng', 39, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
+('SP002TR40', 'TH001', N'Alphabounce', 3000000, 2000000, 8, N'Trắng', 40, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
+('SP002TR41', 'TH001', N'Alphabounce', 3000000, 2000000, 8, N'Trắng', 41, '20%', 'NCC055', 'sp002trang.png', NULL, 1),
+('SP003DEN41', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 7, N'Đen', 41, '10%', 'NCC022', 'sp003den.png', NULL, 1),
+('SP003DEN42', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 8, N'Đen', 42, '10%', 'NCC022', 'sp003den.png', NULL, 1),
+('SP003DEN43', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 8, N'Đen', 43, '10%', 'NCC022', 'sp003den.png', NULL, 1),
+('SP003DEN44', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 9, N'Đen', 44, '10%', 'NCC022', 'sp003den.png', NULL, 1),
+('SP003TR41', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 9, N'Trắng', 41, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
+('SP003TR42', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 7, N'Trắng', 42, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
+('SP003TR43', 'TH001', N'ZX 1K Boost', 2500000, 1500000, 9, N'Trắng', 43, '10%', 'NCC022', 'sp003trang.png', NULL, 1),
+('SP004XA40', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 7, N'Xanh Nước', 40, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
+('SP004XA41', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 11, N'Xanh Nước', 41, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
+('SP004XA42', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 8, N'Xanh Nước', 42, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
+('SP004XA43', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 8, N'Xanh Nước', 43, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
 ('SP004XA44', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 10, N'Xanh Nước', 44, '30%', 'NCC033', 'sp004xanh.png', NULL, 1),
-('SP004DEN39', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 14, N'Đen', 39, '30%', 'NCC033', 'sp004den.png', NULL, 1),
-('SP004DEN40', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 13, N'Đen', 40, '30%', 'NCC033', 'sp004den.png', NULL, 1),
-('SP004DEN41', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 12, N'Đen', 41, '30%', 'NCC033', 'sp004den.png', NULL, 1),
-('SP005HO36', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 13, N'Hồng', 36, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
-('SP005HO37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Hồng', 37, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
-('SP005HO38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Hồng', 38, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
-('SP005HO39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Hồng', 39, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
-('SP005TR37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 13, N'Trắng', 37, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
-('SP005TR38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Trắng', 38, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
-('SP005TR39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Trắng', 39, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
-('SP005DEN37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Đen', 37, '20%', 'NCC022', 'sp005den.png', NULL, 1),
-('SP005DEN38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Đen', 38, '20%', 'NCC022', 'sp005den.png', NULL, 1),
-('SP005DEN39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 14, N'Đen', 39, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
-('SP006TR37', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Trắng', 37, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
-('SP006TR38', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 18, N'Trắng', 38, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
-('SP006TR39', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Trắng', 39, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
-('SP006TR40', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Trắng', 40, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
-('SP006DEN38', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 17, N'Đen', 38, '00%', 'NCC011', 'sp006den.png', NULL, 1),
-('SP006DEN39', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 17, N'Đen', 39, '00%', 'NCC011', 'sp006den.png', NULL, 1),
-('SP006DEN40', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Đen', 40, '00%', 'NCC011', 'sp006den.png', NULL, 1),
-('SP006XA39', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Xanh Nước', 39, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
-('SP006XA40', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 16, N'Xanh Nước', 40, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
-('SP006XA41', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 19, N'Xanh Nước', 41, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
-('SP007TR40', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 12, N'Trắng', 40, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
-('SP007TR41', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Trắng', 41, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
-('SP007TR42', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 12, N'Trắng', 42, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
-('SP007TR43', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 12, N'Trắng', 43, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
-('SP007DEN39', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 14, N'Đen', 39, '10%', 'NCC022', 'sp007den.png', NULL, 1),
-('SP007DEN40', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Đen', 40, '10%', 'NCC022', 'sp007den.png', NULL, 1),
-('SP007DEN41', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Đen', 41, '10%', 'NCC022', 'sp007den.png', NULL, 1),
-('SP007DEN42', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 12, N'Đen', 42, '10%', 'NCC022', 'sp007den.png', NULL, 1),
-('SP007XA40', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Xanh Nước', 40, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
-('SP007XA41', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 14, N'Xanh Nước', 41, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
-('SP007XA42', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 13, N'Xanh Nước', 42, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
-('SP008TR40', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 13, N'Trắng', 40, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
-('SP008TR41', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 14, N'Trắng', 41, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
-('SP008TR42', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 13, N'Trắng', 42, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
-('SP008DEN41', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 12, N'Đen', 41, '10%', 'NCC044', 'sp008den.png', NULL, 1),
-('SP008DEN42', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 13, N'Đen', 42, '10%', 'NCC044', 'sp008den.png', NULL, 1),
-('SP008DEN43', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 13, N'Đen', 43, '10%', 'NCC044', 'sp008den.png', NULL, 1);
+('SP004DEN39', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 7, N'Đen', 39, '30%', 'NCC033', 'sp004den.png', NULL, 1),
+('SP004DEN40', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 7, N'Đen', 40, '30%', 'NCC033', 'sp004den.png', NULL, 1),
+('SP004DEN41', 'TH002', N'Nike Revolution 5 Nam', 1790000, 1000000, 8, N'Đen', 41, '30%', 'NCC033', 'sp004den.png', NULL, 1),
+('SP005HO36', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 9, N'Hồng', 36, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
+('SP005HO37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 10, N'Hồng', 37, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
+('SP005HO38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 9, N'Hồng', 38, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
+('SP005HO39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 9, N'Hồng', 39, '20%', 'NCC022', 'sp005hong.png', NULL, 1),
+('SP005TR37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 9, N'Trắng', 37, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
+('SP005TR38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 10, N'Trắng', 38, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
+('SP005TR39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 8, N'Trắng', 39, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
+('SP005DEN37', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 9, N'Đen', 37, '20%', 'NCC022', 'sp005den.png', NULL, 1),
+('SP005DEN38', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 8, N'Đen', 38, '20%', 'NCC022', 'sp005den.png', NULL, 1),
+('SP005DEN39', 'TH002', N'Nike Zoom Fly 3 Nữ', 3690000, 2000000, 8, N'Đen', 39, '20%', 'NCC022', 'sp005trang.png', NULL, 1),
+('SP006TR37', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 8, N'Trắng', 37, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
+('SP006TR38', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 9, N'Trắng', 38, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
+('SP006TR39', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 9, N'Trắng', 39, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
+('SP006TR40', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 12, N'Trắng', 40, '00%', 'NCC011', 'sp006trang.png', NULL, 1),
+('SP006DEN38', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 9, N'Đen', 38, '00%', 'NCC011', 'sp006den.png', NULL, 1),
+('SP006DEN39', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 9, N'Đen', 39, '00%', 'NCC011', 'sp006den.png', NULL, 1),
+('SP006DEN40', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 9, N'Đen', 40, '00%', 'NCC011', 'sp006den.png', NULL, 1),
+('SP006XA39', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 9, N'Xanh Nước', 39, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
+('SP006XA40', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 11, N'Xanh Nước', 40, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
+('SP006XA41', 'TH003', N'D21 KHAKI WASH', 282000, 150000, 9, N'Xanh Nước', 41, '00%', 'NCC011', 'sp006xanh.png', NULL, 1),
+('SP007TR40', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 10, N'Trắng', 40, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
+('SP007TR41', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 9, N'Trắng', 41, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
+('SP007TR42', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 10, N'Trắng', 42, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
+('SP007TR43', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 10, N'Trắng', 43, '10%', 'NCC022', 'sp007trang.png', NULL, 1),
+('SP007DEN39', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 9, N'Đen', 39, '10%', 'NCC022', 'sp007den.png', NULL, 1),
+('SP007DEN40', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 9, N'Đen', 40, '10%', 'NCC022', 'sp007den.png', NULL, 1),
+('SP007DEN41', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 8, N'Đen', 41, '10%', 'NCC022', 'sp007den.png', NULL, 1),
+('SP007DEN42', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 9, N'Đen', 42, '10%', 'NCC022', 'sp007den.png', NULL, 1),
+('SP007XA40', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 9, N'Xanh Nước', 40, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
+('SP007XA41', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 9, N'Xanh Nước', 41, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
+('SP007XA42', 'TH004', N'Puma Ralph Sampson', 1770000, 1200000, 9, N'Xanh Nước', 42, '10%', 'NCC022', 'sp007xanh.png', NULL, 1),
+('SP008TR40', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 8, N'Trắng', 40, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
+('SP008TR41', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 9, N'Trắng', 41, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
+('SP008TR42', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 9, N'Trắng', 42, '10%', 'NCC044', 'sp008trang.png', NULL, 1),
+('SP008DEN41', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 9, N'Đen', 41, '10%', 'NCC044', 'sp008den.png', NULL, 1),
+('SP008DEN42', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 9, N'Đen', 42, '10%', 'NCC044', 'sp008den.png', NULL, 1),
+('SP008DEN43', 'TH004', N'Puma Clyde Stitch', 1990000, 1200000, 9, N'Đen', 43, '10%', 'NCC044', 'sp008den.png', NULL, 1);
 
 CREATE TABLE KhachHang(
-MaKH VARCHAR(10) PRIMARY KEY,
+MaKH VARCHAR(12) PRIMARY KEY,
 TenKH NVARCHAR(50) NOT NULL,
 SDT VARCHAR(15) NOT NULL,
 Email VARCHAR(50) NULL,
@@ -208,25 +223,62 @@ FOREIGN KEY (MaNV) REFERENCES dbo.NhanVien(MaNV),
 );
 
 INSERT INTO KhachHang(MaKH,TenKH,SDT,Email,NgaySinh,GioiTinh,TichDiem,MaNV,TrangThai) VALUES
-('KH001', N'Nguyễn Xuân Diệu', '0999888767', 'xdieu111@gmail.com', '19900228', 0, 100, 'PH18383', 1),
-('KH002', N'Trần Quang Minh', '0990234545', 'quangminh12@gmail.com', '19950321', 1, 100, 'PH18383', 1),
-('KH003', N'Định Thị Quỳnh', '0998563258', 'quynhdinh26@gmail.com', '19920522', 0, 100, 'PH18383', 1),
-('KH004', N'Đặng Quang Đoàn', '0925398765', 'dangdoan22@gmail.com', '19930128', 1, 100, 'PH17417', 1),
-('KH005', N'Ngô Hà Duy', '0909486254', 'haduy22@gmail.com', '19900220', 1, 100, 'PH17417', 1),
-('KH006', N'Bùi Thị Duyên', '0902455322', 'duyen09@gmail.com', '19911109', 0, 100, 'PH17417', 1),
-('KH007', N'Đoàn Văn Trung', '0905683454', 'trung12@gmail.com', '19950810', 1, 100, 'PH17245', 1),
-('KH008', N'Ngô Thùy Linh', '0909737175', 'linh08@gmail.com', '20000215', 0, 100, 'PH17245', 1),
-('KH009', N'Nguyễn Nam Thành', '0903668233', 'thanh001@gmail.com', '19990209', 1, 100, 'PH17245', 1),
-('KH010', N'Đinh Văn Tùng', '0992863432', 'tung88@gmail.com', '19980909', 1, 100, 'PH17481', 1),
-('KH011', N'Đoàn Phú Thái', '0972863432', 'thai321@gmail.com', '20021009', 1, 100, 'PH17481', 1),
-('KH012', N'Trịnh Tiến Lực', '0962862432', 'luc307@gmail.com', '20020209', 1, 100, 'PH17481', 1),
-('KH013', N'Nguyễn Quang Toan', '0777348002', 'toan123@gmail.com', '20021103', 1, 100, 'PH17446', 1),
-('KH014', N'Lý Thị Nga', '0981287652', 'lynnga123@gmail.com', '20020826', 0, 100, 'PH17446', 1),
-('KH015', N'Nguyễn Viết Thiệu', '0902863432', 'thieu28@gmail.com', '20021030', 1, 100, 'PH17446', 1);
+('210915K4AXS1', N'Nguyễn Xuân Diệu', '0999888767', 'xdieu111@gmail.com', '19900228', 0, 100, 'PH18383', 1),
+('210915H2A9DN', N'Trần Quang Minh', '0990234545', 'quangminh12@gmail.com', '19950321', 1, 100, 'PH18383', 1),
+('210916HUAS9Z', N'Định Thị Quỳnh', '0998563258', 'quynhdinh26@gmail.com', '19920522', 0, 100, 'PH18383', 1),
+('2109168HASUX', N'Đặng Quang Đoàn', '0925398765', 'dangdoan22@gmail.com', '19930128', 1, 100, 'PH18383', 1),
+('210916HUA98W', N'Ngô Hà Duy', '0909486254', 'haduy22@gmail.com', '19900220', 1, 100, 'PH18383', 1),
+('210917JHZ97W', N'Bùi Thị Duyên', '0902455322', 'duyen09@gmail.com', '19911109', 0, 100, 'PH17417', 1),
+('210918BYZ98A', N'Đoàn Văn Trung', '0905683454', 'trung12@gmail.com', '19950810', 1, 100, 'PH17417', 1),
+('210919HUAW89', N'Ngô Thùy Linh', '0909737175', 'linh08@gmail.com', '20000215', 0, 100, 'PH17245', 1),
+('210919HUZH7A', N'Nguyễn Nam Thành', '0903668233', 'thanh001@gmail.com', '19990209', 1, 100, 'PH17245', 1),
+('210920HU8Z9A', N'Đinh Văn Tùng', '0992863432', 'tung88@gmail.com', '19980909', 1, 100, 'PH17245', 1),
+('210921HU9JIF', N'Đoàn Phú Thái', '0972863432', 'thai321@gmail.com', '20021009', 1, 100, 'PH17481', 1),
+('210921BJA89W', N'Trịnh Tiến Lực', '0962862432', 'luc307@gmail.com', '20020209', 1, 100, 'PH17481', 1),
+('210922HUJHJ2', N'Nguyễn Quang Toan', '0777348002', 'toan123@gmail.com', '20021103', 1, 100, 'PH17481', 1),
+('210922MNDJR9', N'Lý Thị Nga', '0981287652', 'lynnga123@gmail.com', '20020826', 0, 100, 'PH17481', 1),
+('210922H8A9CA', N'Nguyễn Viết Thiệu', '0902843432', 'thieu28@gmail.com', '20021030', 1, 100, 'PH17481', 1),
+('210927HUAHW9', N'Nguyễn Xuân Hòa', '0999188767', 'xhoa1211@gmail.com', '19950318', 0, 100, 'PH17446', 1),
+('210927JANWJ5', N'Trần Quang Đăng', '0906234545', 'quangdag132@gmail.com', '19950811', 1, 100, 'PH17446', 1),
+('210928HJBAH8', N'Định Thị Thu', '0903563258', 'dinhthu90@gmail.com', '19990112', 0, 100, 'PH17446', 1),
+('210930UH2JN1', N'Đặng Văn Minh', '0845398765', 'vanminh900@gmail.com', '19830519', 1, 100, 'PH18383', 1),
+('211001BSHZI9', N'Ngô Bá Khá', '0902186254', 'khabango81@gmail.com', '19930320', 1, 100, 'PH18383', 1),
+('211001KOI98A', N'Bùi Thị Thu Hương', '0902495322', 'huongthu1907@gmail.com', '20000109', 0, 100, 'PH18383', 1),
+('211002HUHZ8A', N'Đoàn Văn Hậu', '0905683451', 'haudv8716@gmail.com', '19980910', 1, 100, 'PH17417', 1),
+('211006BAJWU9', N'Ngô Thị Thùy', '0908737175', 'thuy0208@gmail.com', '20030615', 0, 100, 'PH17245', 1),
+('211007BHBW8A', N'Nguyễn Nam Trung', '0873668233', 'trungnam29@gmail.com', '20020619', 1, 100, 'PH17245', 1),
+('211008HUH89A', N'Ngô Đình Huy', '08922863432', 'dinhhuy18@gmail.com', '19930409', 1, 100, 'PH17481', 1),
+('211015H389AS', N'Nguyễn Quang Hải', '0964863432', 'hai9171@gmail.com', '20010909', 1, 100, 'PH17446', 1),
+('211015HUAWH8', N'Trịnh Công Quang', '0969862432', 'quang8163@gmail.com', '19960209', 1, 100, 'PH17446', 1),
+('211016AHUW8X', N'Đinh Viết Nam', '0992841432', 'nam9812@gmail.com', '19950709', 1, 100, 'PH17446', 1),
+('211019H8W98S', N'Nguyễn Thị Hương', '0912863432', 'huongnguyen87@gmail.com', '20041009', 0, 100, 'PH18383', 1),
+('211021H8A89A', N'Lý Thị Dương', '0962862232', 'duongly187@gmail.com', '20010529', 0, 100, 'PH17417', 1),
+('211022HU89XA', N'Nguyễn Quang Huy', '0757348002', 'huyquang197@gmail.com', '20021123', 1, 100, 'PH17417', 1),
+('211024HI3928', N'Dương Văn Long', '0981187652', 'long8162@gmail.com', '20010326', 1, 100, 'PH17245', 1),
+('211025HUHU8A', N'Trần Công Toàn', '0902853432', 'toan816@gmail.com', '19981020', 1, 100, 'PH17245', 1),
+('211028HUA7AX', N'Đỗ Đức Toàn', '0999818767', 'ductoan1870@gmail.com', '19990318', 1, 100, 'PH17481', 1),
+('211031HUW89A', N'Nguyễn Văn An', '0902534545', 'vanan81612@gmail.com', '19910411', 1, 100, 'PH17446', 1),
+('211031HHA821', N'Đào Thị Quỳnh Anh', '09083563258', 'qanh8172@gmail.com', '20030822', 1, 100, 'PH17446', 1),
+('211101HU898W', N'Nguyễn Thục Anh', '0902341765', 'thucanh901@gmail.com', '19970818', 0, 100, 'PH17446', 1),
+('211107HUH898', N'Nguyễn Văn Sơn', '0909481204', 'sonng183@gmail.com', '19890720', 1, 100, 'PH18383', 1),
+('211109UUH89Q', N'Bùi Thị Huyền', '0902289322', 'huyen12s@gmail.com', '19971029', 0, 100, 'PH17417', 1),
+('211115GY87AS', N'Nguyễn Quỳnh Trang', '0903683454', 'trang8173@gmail.com', '20010320', 0, 100, 'PH17245', 1),
+('211116HU89AW', N'Ngô Thùy Chi', '0909137175', 'chingo973@gmail.com', '20000715', 0, 100, 'PH17245', 1),
+('211126G89AWS', N'Nguyễn Văn Hoàng', '0903668233', 'hoang118@gmail.com', '19961209', 1, 100, 'PH17481', 1),
+('211130KJH828', N'Nguyễn Quang Tùng', '0902863432', 'tungquang9128@gmail.com', '19930819', 1, 100, 'PH17446', 1),
+('211202HUH8SX', N'Đoàn Văn Sơn', '0972963432', 'sondoan1999@gmail.com', '20011129', 1, 100, 'PH18383', 1),
+('211202HUA8ZZ', N'Nguyễn Phú Chiến', '0962132432', 'chien838@gmail.com', '20021202', 1, 100, 'PH18383', 1),
+('211205UHWUGB', N'Dương Văn Trọng', '0917348002', 'trongvan19@gmail.com', '19981223', 1, 100, 'PH17417', 1),
+('211206HUAHUK', N'Lý Thị Quỳnh', '0781287652', 'quynhly828@gmail.com', '20010916', 0, 100, 'PH17417', 1),
+('211004JIHU1K', N'Nguyễn Xuân Dũng', '0819274711', 'xdung1214@gmail.com', '19980418', 1, 0, 'PH18383', 0),
+('211019ASU1HZ', N'Trần Quang Đăng', '0869127643', 'quangdang194@gmail.com', '20010911', 1, 0, 'PH18383', 0),
+('211109AHU1JN', N'Định Thị Mai', '0908471891', 'maidinh204@gmail.com', '19990812', 0, 0, 'PH18383', 0),
+('211124BJAJ2H', N'Đặng Quang Hưng', '0901788127', 'danghung0189@gmail.com', '19971118', 1, 0, 'PH17417', 0),
+('211206JIAU2H', N'Ngô Hà Cường', '0918017284', 'hacuong910@gmail.com', '20030310', 1, 0, 'PH17417', 0);
 
 CREATE TABLE HoaDonThanhToan(
 MaHDThanhToan VARCHAR(12) PRIMARY KEY,
-MaKhachHang VARCHAR(10) NOT NULL,
+MaKhachHang VARCHAR(12) NOT NULL,
 MaNhanVien VARCHAR(10) NOT NULL,
 NgayThanhToan DATE NULL,
 DiemThuong INT NOT NULL,
@@ -239,21 +291,163 @@ FOREIGN KEY (MaNhanVien) REFERENCES dbo.NhanVien(MaNV),
 );
 
 INSERT INTO dbo.HoaDonThanhToan (MaHDThanhToan,MaKhachHang,MaNhanVien,NgayThanhToan,DiemThuong,DoiDiem,GhiChu,TrangThai) VALUES
-('211115A8H35S', 'KH001', 'PH18383', '20211115', 100, 0, NULL, 1),
-('211115UE18SA', 'KH002', 'PH18383', '20211115', 100, 0, NULL, 1),
-('2111151HUS9A', 'KH003', 'PH18383', '20211115', 100, 0, NULL, 1),
-('2111167SAJHX', 'KH004', 'PH17417', '20211116', 100, 0, NULL, 1),
-('211116HU18SA', 'KH005', 'PH17417', '20211116', 100, 0, NULL, 1),
-('211116H1US9A', 'KH006', 'PH17417', '20211116', 100, 0, NULL, 1),
-('211117HU1A9Z', 'KH007', 'PH17245', '20211117', 100, 0, NULL, 1),
-('211117HU198S', 'KH008', 'PH17245', '20211117', 100, 0, NULL, 1),
-('211117JZU82A', 'KH009', 'PH17245', '20211117', 100, 0, NULL, 1),
-('211118UHX1UA', 'KH010', 'PH17481', '20211118', 100, 0, NULL, 1),
-('211118H1U9SA', 'KH011', 'PH17481', '20211118', 100, 0, NULL, 1),
-('211118HXU981', 'KH012', 'PH17481', '20211118', 100, 0, NULL, 1),
-('211119KCO813', 'KH013', 'PH17446', '20211119', 100, 0, NULL, 1),
-('211119ZIXUA9', 'KH014', 'PH17446', '20211119', 100, 0, NULL, 1),
-('211119N1JS90', 'KH015', 'PH17446', '20211119', 100, 0, NULL, 1);
+('210915A8H35S', '210915H2A9DN', 'PH18383', '20210915', 100, 0, NULL, 1),
+('210915UE18SA', '210915K4AXS1', 'PH18383', '20210915', 100, 0, NULL, 1),
+('2109161HUS9A', '210916HUAS9Z', 'PH18383', '20210916', 100, 0, NULL, 1),
+('2109167SAJHX', '2109168HASUX', 'PH18383', '20210916', 100, 0, NULL, 1),
+('210916HU18SA', '210916HUA98W', 'PH18383', '20210916', 100, 0, NULL, 1),
+('210917H1US9A', '210917JHZ97W', 'PH17417', '20210917', 100, 0, NULL, 1),
+('210917K2HUZS', '210915K4AXS1', 'PH17417', '20210917', 100, 0, NULL, 1),
+('210918HU1A9Z', '210918BYZ98A', 'PH17417', '20210918', 100, 0, NULL, 1),
+('210918OI8XJA', '210915H2A9DN', 'PH17417', '20210918', 100, 0, NULL, 1),
+('210918BXU9AU', '210916HUAS9Z', 'PH17417', '20210918', 100, 0, NULL, 1),
+('210919HU198S', '210919HUAW89', 'PH17245', '20210919', 100, 0, NULL, 1),
+('210919JZU82A', '210919HUZH7A', 'PH17245', '20210919', 100, 0, NULL, 1),
+('210919198DUI', '210916HUA98W', 'PH17245', '20210919', 100, 0, NULL, 1),
+('210920UHX1UA', '210920HU8Z9A', 'PH17245', '20210920', 100, 0, NULL, 1),
+('210920UIH89A', '210918BYZ98A', 'PH17245', '20210920', 100, 0, NULL, 1),
+('210920WHUJZ8', '210917JHZ97W', 'PH17245', '20210920', 100, 0, NULL, 1),
+('210921H1U9SA', '210921BJA89W', 'PH17481', '20210921', 100, 0, NULL, 1),
+('210921HXU981', '210921HU9JIF', 'PH17481', '20210921', 100, 0, NULL, 1),
+('210921HO81ZA', '2109168HASUX', 'PH17481', '20210921', 100, 0, NULL, 1),
+('210922KCO813', '210922H8A9CA', 'PH17481', '20210922', 100, 0, NULL, 1),
+('210922ZIXUA9', '210922HUJHJ2', 'PH17481', '20210922', 100, 0, NULL, 1),
+('210922N1JS90', '210922MNDJR9', 'PH17481', '20210922', 100, 0, NULL, 1),
+('210922HUAIUX', '210916HUA98W', 'PH17481', '20210922', 100, 0, NULL, 1),
+('210922992NKZ', '2109168HASUX', 'PH17481', '20210922', 100, 0, NULL, 1),
+('21092390UJHU', '210918BYZ98A', 'PH17417', '20210923', 100, 0, NULL, 1),
+('21092391J8HJ', '210919HUZH7A', 'PH17417', '20210923', 100, 0, NULL, 1),
+('210925898AKZ', '210915H2A9DN', 'PH17417', '20210925', 100, 0, NULL, 1),
+('210925HI1OOS', '210915K4AXS1', 'PH17417', '20210925', 100, 0, NULL, 1),
+('210925H89HJZ', '210918BYZ98A', 'PH17417', '20210925', 100, 0, NULL, 1),
+('210927HUJIAZ', '210927HUAHW9', 'PH17446', '20210927', 100, 0, NULL, 1),
+('210927910KZA', '210927JANWJ5', 'PH17446', '20210927', 100, 0, NULL, 1),
+('210927JKU8NA', '210921HU9JIF', 'PH17446', '20210927', 100, 0, NULL, 1),
+('210928HUJIAZ', '210928HJBAH8', 'PH17446', '20210928', 100, 0, NULL, 1),
+('210928JHU9AB', '210922H8A9CA', 'PH17446', '20210928', 100, 0, NULL, 1),
+('210929OIHUW7', '210915H2A9DN', 'PH17446', '20210929', 100, 0, NULL, 1),
+('21092987JBJZ', '2109168HASUX', 'PH17446', '20210929', 100, 0, NULL, 1),
+('210929I18YAZ', '210919HUZH7A', 'PH17446', '20210929', 100, 0, NULL, 1),
+('2109308HPOJI', '210930UH2JN1', 'PH18383', '20210930', 100, 0, NULL, 1),
+('210930H81A9A', '210922H8A9CA', 'PH18383', '20210930', 100, 0, NULL, 1),
+('210930U8WY81', '210922MNDJR9', 'PH18383', '20210930', 100, 0, NULL, 1),
+('211001NU872A', '211001BSHZI9', 'PH18383', '20211001', 100, 0, NULL, 1),
+('211001ZH88Y8', '211001KOI98A', 'PH18383', '20211001', 100, 0, NULL, 1),
+('211001H89QUA', '2109168HASUX', 'PH18383', '20211001', 100, 0, NULL, 1),
+('211002H81A9A', '210918BYZ98A', 'PH17417', '20211002', 100, 0, NULL, 1),
+('211002U8WY81', '211002HUHZ8A', 'PH17417', '20211002', 100, 0, NULL, 1),
+('211002NU872A', '210920HU8Z9A', 'PH17417', '20211002', 100, 0, NULL, 1),
+('211003ZH88Y8', '210921BJA89W', 'PH17417', '20211003', 100, 0, NULL, 1),
+('211003H89QUA', '210915H2A9DN', 'PH17417', '20211003', 100, 0, NULL, 1),
+('211004HUYZ99', '210915K4AXS1', 'PH17446', '20211004', 100, 0, NULL, 1),
+('211004HU1HZZ', '2109168HASUX', 'PH17446', '20211004', 100, 0, NULL, 1),
+('211005WQ8Y81', '210919HUZH7A', 'PH17446', '20211005', 100, 0, NULL, 1),
+('211005MVX8MN', '210921BJA89W', 'PH17446', '20211005', 100, 0, NULL, 1),
+('211006IO989Q', '210916HUA98W', 'PH17245', '20211006', 100, 0, NULL, 1),
+('211006KLOIW1', '211006BAJWU9', 'PH17245', '20211006', 100, 0, NULL, 1),
+('211006LZJIU1', '210917JHZ97W', 'PH17245', '20211006', 100, 0, NULL, 1),
+('211007XYUQ82', '210920HU8Z9A', 'PH17245', '20211007', 100, 0, NULL, 1),
+('211007B818UZ', '211007BHBW8A', 'PH17245', '20211007', 100, 0, NULL, 1),
+('211008HBUHI1', '211008HUH89A', 'PH17481', '20211008', 100, 0, NULL, 1),
+('211008XNJS1K', '210922H8A9CA', 'PH17481', '20211008', 100, 0, NULL, 1),
+('211009JHIO91', '210922HUJHJ2', 'PH17481', '20211009', 100, 0, NULL, 1),
+('211009NSIHZ8', '210918BYZ98A', 'PH17481', '20211009', 100, 0, NULL, 1),
+('211009HBUHI1', '210916HUA98W', 'PH18383', '20211009', 100, 0, NULL, 1),
+('211010XNJS1K', '210922MNDJR9', 'PH18383', '20211010', 100, 0, NULL, 1),
+('211010JHIO91', '210927HUAHW9', 'PH18383', '20211010', 100, 0, NULL, 1),
+('211011NSIHZ8', '210927JANWJ5', 'PH17417', '20211011', 100, 0, NULL, 1),
+('211011HBUHI1', '210918BYZ98A', 'PH17417', '20211011', 100, 0, NULL, 1),
+('211012XNJS1K', '210921BJA89W', 'PH17417', '20211012', 100, 0, NULL, 1),
+('211013JHIO91', '210922HUJHJ2', 'PH17245', '20211013', 100, 0, NULL, 1),
+('211014NSIHZ8', '210916HUA98W', 'PH17245', '20211014', 100, 0, NULL, 1),
+('211015WUQOU9', '210927HUAHW9', 'PH17446', '20211015', 100, 0, NULL, 1),
+('211015AIOQ91', '211015H389AS', 'PH17446', '20211015', 100, 0, NULL, 1),
+('211015BU9810', '210922H8A9CA', 'PH17446', '20211015', 100, 0, NULL, 1),
+('211015BXHC8A', '211015HUAWH8', 'PH17446', '20211015', 100, 0, NULL, 1),
+('2110160198ZX', '211016AHUW8X', 'PH17446', '20211016', 100, 0, NULL, 1),
+('211016ASU198', '211016AHUW8X', 'PH17446', '20211016', 100, 0, NULL, 1),
+('211016SIDJ19', '210916HUA98W', 'PH17446', '20211016', 100, 0, NULL, 1),
+('21101798HAU1', '211001BSHZI9', 'PH17481', '20211017', 100, 0, NULL, 1),
+('211018HUSH8Z', '210930UH2JN1', 'PH17481', '20211018', 100, 0, NULL, 1),
+('211018HDO1LA', '211006BAJWU9', 'PH17481', '20211018', 100, 0, NULL, 1),
+('211019OP1O0A', '211019H8W98S', 'PH18383', '20211019', 100, 0, NULL, 1),
+('211019PPAOWJ', '2109168HASUX', 'PH18383', '20211019', 100, 0, NULL, 1),
+('211020ZJLA1S', '210917JHZ97W', 'PH18383', '20211020', 100, 0, NULL, 1),
+('211020KLAN1M', '210915K4AXS1', 'PH18383', '20211020', 100, 0, NULL, 1),
+('211021HUASH1', '211021H8A89A', 'PH17417', '20211021', 100, 0, NULL, 1),
+('211021O9Q98Z', '210927HUAHW9', 'PH17417', '20211021', 100, 0, NULL, 1),
+('211022PABQU9', '211001BSHZI9', 'PH17417', '20211022', 100, 0, NULL, 1),
+('211022198ZJA', '211022HU89XA', 'PH17417', '20211022', 100, 0, NULL, 1),
+('2110221ZHASV', '211006BAJWU9', 'PH17417', '20211022', 100, 0, NULL, 1),
+('211023NUA91A', '210915H2A9DN', 'PH17245', '20211023', 100, 0, NULL, 1),
+('211024BBSUI1', '211024HI3928', 'PH17417', '20211024', 100, 0, NULL, 1),
+('2110241BAUJB', '211002HUHZ8A', 'PH17417', '20211024', 100, 0, NULL, 1),
+('211025H1AOZI', '211019H8W98S', 'PH17417', '20211025', 100, 0, NULL, 1),
+('2110251HU099', '211025HUHU8A', 'PH17417', '20211025', 100, 0, NULL, 1),
+('211027HSHAOZ', '210916HUA98W', 'PH17481', '20211027', 100, 0, NULL, 1),
+('2110282HUZSN', '210919HUAW89', 'PH17481', '20211028', 100, 0, NULL, 1),
+('211028ANMIQ1', '211028HUA7AX', 'PH17481', '20211028', 100, 0, NULL, 1),
+('211029DJKEL3', '210921BJA89W', 'PH17481', '20211029', 100, 0, NULL, 1),
+('211029NJD8AZ', '210922MNDJR9', 'PH17481', '20211029', 100, 0, NULL, 1),
+('211031HUAS81', '211031HHA821', 'PH17446', '20211031', 100, 0, NULL, 1),
+('211031ZKXN1A', '210919HUAW89', 'PH17446', '20211031', 100, 0, NULL, 1),
+('211031SZMN21', '211031HUW89A', 'PH17446', '20211031', 100, 0, NULL, 1),
+('211101MSNZ1O', '210930UH2JN1', 'PH17446', '20211101', 100, 0, NULL, 1),
+('211101INZK12', '211101HU898W', 'PH17446', '20211101', 100, 0, NULL, 1),
+('211101CXNM1K', '211001BSHZI9', 'PH17446', '20211101', 100, 0, NULL, 1),
+('211102HUS9ZX', '211002HUHZ8A', 'PH18383', '20211102', 100, 0, NULL, 1),
+('211102ASI1JK', '211006BAJWU9', 'PH18383', '20211102', 100, 0, NULL, 1),
+('211103SAJK1L', '2109168HASUX', 'PH18383', '20211103', 100, 0, NULL, 1),
+('211104JXIA8A', '210915H2A9DN', 'PH18383', '20211104', 100, 0, NULL, 1),
+('211105AHSU87', '210918BYZ98A', 'PH18383', '20211105', 100, 0, NULL, 1),
+('211105XHCAJB', '210916HUA98W', 'PH18383', '20211105', 100, 0, NULL, 1),
+('211106ZLKS91', '210920HU8Z9A', 'PH18383', '20211106', 100, 0, NULL, 1),
+('211107SHU1MX', '211022HU89XA', 'PH18383', '20211107', 100, 0, NULL, 1),
+('211107SAHH1K', '211107HUH898', 'PH18383', '20211107', 100, 0, NULL, 1),
+('211107LA91JX', '211015H389AS', 'PH18383', '20211107', 100, 0, NULL, 1),
+('211108JZBJ1A', '211007BHBW8A', 'PH17417', '20211108', 100, 0, NULL, 1),
+('211109SNJZXO', '211109UUH89Q', 'PH17417', '20211109', 100, 0, NULL, 1),
+('211109NMB1U9', '2109168HASUX', 'PH17417', '20211109', 100, 0, NULL, 1),
+('211110ANSJ1L', '210915H2A9DN', 'PH17417', '20211110', 100, 0, NULL, 1),
+('211110ANSJ19', '211021H8A89A', 'PH17417', '20211110', 100, 0, NULL, 1),
+('211111ZXN1I3', '210916HUA98W', 'PH17417', '20211111', 100, 0, NULL, 1),
+('211112SNAXB1', '210920HU8Z9A', 'PH17417', '20211112', 100, 0, NULL, 1),
+('211113ASL1IX', '210930UH2JN1', 'PH17417', '20211113', 100, 0, NULL, 1),
+('211114B1BJ0A', '211101HU898W', 'PH17417', '20211114', 100, 0, NULL, 1),
+('211114SABN1K', '211001BSHZI9', 'PH17417', '20211114', 100, 0, NULL, 1),
+('211115SKLZXJ', '211002HUHZ8A', 'PH17245', '20211115', 100, 0, NULL, 1),
+('211115SAJK19', '211115GY87AS', 'PH17245', '20211115', 100, 0, NULL, 1),
+('211115ASNJ10', '2109168HASUX', 'PH17245', '20211115', 100, 0, NULL, 1),
+('211116HUAS1I', '211116HU89AW', 'PH17245', '20211116', 100, 0, NULL, 1),
+('211117SAJIO1', '210918BYZ98A', 'PH17245', '20211117', 100, 0, NULL, 1),
+('211118ASNXI1', '210916HUA98W', 'PH17245', '20211118', 100, 0, NULL, 1),
+('211119ASHIX9', '210920HU8Z9A', 'PH17245', '20211119', 100, 0, NULL, 1),
+('211119ASHJXU', '210930UH2JN1', 'PH17245', '20211119', 100, 0, NULL, 1),
+('2111201H98ZJ', '211101HU898W', 'PH17245', '20211120', 100, 0, NULL, 1),
+('211121ASJH1U', '211001BSHZI9', 'PH17245', '20211121', 100, 0, NULL, 1),
+('211121AO1OLA', '211002HUHZ8A', 'PH17245', '20211121', 100, 0, NULL, 1),
+('211122WIO8XC', '211006BAJWU9', 'PH17245', '20211122', 100, 0, NULL, 1),
+('211122NMWIO1', '2109168HASUX', 'PH17245', '20211122', 100, 0, NULL, 1),
+('211123L1IUA9', '210915H2A9DN', 'PH17245', '20211123', 100, 0, NULL, 1),
+('211124OPYQ9X', '210918BYZ98A', 'PH17245', '20211124', 100, 0, NULL, 1),
+('211125XHCAJB', '210916HUA98W', 'PH17245', '20211125', 100, 0, NULL, 1),
+('211126PQOWI9', '210920HU8Z9A', 'PH17481', '20211126', 100, 0, NULL, 1),
+('211126PJQ1UH', '211126G89AWS', 'PH17481', '20211126', 100, 0, NULL, 1),
+('211126WOAL1X', '211101HU898W', 'PH17481', '20211126', 100, 0, NULL, 1),
+('211127AJLQK2', '211001BSHZI9', 'PH17481', '20211127', 100, 0, NULL, 1),
+('2111288UAIXJ', '211002HUHZ8A', 'PH17481', '20211128', 100, 0, NULL, 1),
+('211129AN1KJ2', '211006BAJWU9', 'PH17481', '20211129', 100, 0, NULL, 1),
+('211130SLJ1JA', '2109168HASUX', 'PH17446', '20211130', 100, 0, NULL, 1),
+('211130XNJAI1', '211130KJH828', 'PH17446', '20211130', 100, 0, NULL, 1),
+('211202ASMXH1', '211202HUH8SX', 'PH18383', '20211202', 100, 0, NULL, 1),
+('211202ALXI1J', '211202HUA8ZZ', 'PH18383', '20211202', 100, 0, NULL, 1),
+('211203SAJIXI', '210920HU8Z9A', 'PH17446', '20211203', 100, 0, NULL, 1),
+('211204ASN1MB', '210930UH2JN1', 'PH17446', '20211204', 100, 0, NULL, 1),
+('211205XNAH11', '211205UHWUGB', 'PH17417', '20211205', 100, 0, NULL, 1),
+('211205SIO1UX', '211001BSHZI9', 'PH17417', '20211205', 100, 0, NULL, 1),
+('211206ZXIJ1H', '211002HUHZ8A', 'PH17417', '20211206', 100, 0, NULL, 1),
+('2112061JSIA9', '211206HUAHUK', 'PH17417', '20211206', 100, 0, NULL, 1),
+('211206ASHJ1B', '2109168HASUX', 'PH17417', '20211206', 100, 0, NULL, 1);
 
 CREATE TABLE ChiTietHoaDonThanhToan(
 MaHDThanhToan VARCHAR(12) NOT NULL,
@@ -269,24 +463,248 @@ PRIMARY KEY (MaHDThanhToan, MaSanPham),
 );
 
 INSERT INTO dbo.ChiTietHoaDonThanhToan (MaHDThanhToan,MaSanPham,DonGia,SoLuong,KhuyenMai,TrangThai) VALUES
-('211115A8H35S', 'SP001TR40', 5000000, 1, '10%', 1),
-('211115A8H35S', 'SP001TR41', 5000000, 1, '10%', 1),
-('211115A8H35S', 'SP002DEN36', 3000000, 2, '20%', 1),
-('211115A8H35S', 'SP002DEN39', 3000000, 1, '20%', 1),
-('211115UE18SA', 'SP002DEN38', 3000000, 1, '20%', 1),
-('2111151HUS9A', 'SP003DEN41', 2500000, 1, '10%', 1),
-('2111167SAJHX', 'SP006TR40', 282000, 1, '00%', 1),
-('211116HU18SA', 'SP007DEN41', 1770000, 1, '10%', 1),
-('211116H1US9A', 'SP004XA44', 1790000, 1, '30%', 1),
-('211117HU1A9Z', 'SP001TR42', 5000000, 1, '10%', 1),
-('211117HU198S', 'SP005HO38', 3690000, 1, '20%', 1),
-('211117JZU82A', 'SP002DEN39', 3000000, 1, '20%', 1),
-('211118UHX1UA', 'SP004XA41', 1790000, 1, '30%', 1),
-('211118H1U9SA', 'SP002DEN37', 3000000, 1, '20%', 1),
-('211118HXU981', 'SP001DEN41', 5000000, 1, '10%', 1),
-('211119KCO813', 'SP006XA40', 282000, 1, '00%', 1),
-('211119ZIXUA9', 'SP007DEN42', 1770000, 1, '10%', 1),
-('211119N1JS90', 'SP003DEN43', 2500000, 1, '10%', 1);
+('210915A8H35S', 'SP001DEN40', 5000000, 1, '10%', 1),
+('210915A8H35S', 'SP007DEN40', 1770000, 1, '10%', 1),
+('210915A8H35S', 'SP002DEN36', 3000000, 1, '20%', 1),
+('210915UE18SA', 'SP002DEN37', 3000000, 1, '20%', 1),
+('210915UE18SA', 'SP003DEN41', 2500000, 1, '10%', 1),
+('2109161HUS9A', 'SP006DEN38', 282000, 1, '00%', 1),
+('2109161HUS9A', 'SP007DEN41', 1770000, 1, '10%', 1),
+('2109167SAJHX', 'SP004XA43', 1790000, 1, '30%', 1),
+('2109167SAJHX', 'SP001DEN41', 5000000, 1, '10%', 1),
+('2109167SAJHX', 'SP005HO38', 3690000, 1, '20%', 1),
+('210916HU18SA', 'SP002DEN38', 3000000, 1, '20%', 1),
+('210916HU18SA', 'SP004XA41', 1790000, 1, '30%', 1),
+('210917H1US9A', 'SP002DEN39', 3000000, 1, '20%', 1),
+('210917H1US9A', 'SP001DEN42', 5000000, 1, '10%', 1),
+('210917H1US9A', 'SP006DEN39', 282000, 1, '00%', 1),
+('210917K2HUZS', 'SP007DEN42', 1770000, 1, '10%', 1),
+('210917K2HUZS', 'SP001TR40', 5000000, 1, '10%', 1),
+('210918BXU9AU', 'SP001TR41', 5000000, 1, '10%', 1),
+('210918BXU9AU', 'SP002TR39', 3000000, 2, '20%', 1),
+('210918HU1A9Z', 'SP002TR40', 3000000, 1, '20%', 1),
+('210918OI8XJA', 'SP002TR41', 3000000, 1, '20%', 1),
+('210918OI8XJA', 'SP003DEN41', 2500000, 1, '10%', 1),
+('210918OI8XJA', 'SP006DEN40', 282000, 1, '00%', 1),
+('210919198DUI', 'SP007DEN41', 1770000, 1, '10%', 1),
+('210919HU198S', 'SP004XA42', 1790000, 1, '30%', 1),
+('210919HU198S', 'SP001TR42', 5000000, 1, '10%', 1),
+('210919JZU82A', 'SP005DEN37', 3690000, 1, '20%', 1),
+('210919JZU82A', 'SP002DEN37', 3000000, 1, '20%', 1),
+('210920UHX1UA', 'SP004XA41', 1790000, 1, '30%', 1),
+('210920UHX1UA', 'SP002DEN36', 3000000, 1, '20%', 1),
+('210920UHX1UA', 'SP001DEN40', 5000000, 1, '10%', 1),
+('210920UIH89A', 'SP006TR37', 282000, 1, '00%', 1),
+('210920WHUJZ8', 'SP007DEN42', 1770000, 1, '10%', 1),
+('210920WHUJZ8', 'SP001DEN41', 5000000, 1, '10%', 1),
+('210921H1U9SA', 'SP001DEN42', 5000000, 1, '10%', 1),
+('210921H1U9SA', 'SP002DEN38', 3000000, 2, '20%', 1),
+('210921HO81ZA', 'SP002DEN39', 3000000, 1, '20%', 1),
+('210921HO81ZA', 'SP003DEN44', 2500000, 1, '10%', 1),
+('210921HXU981', 'SP003TR42', 2500000, 1, '10%', 1),
+('210921HXU981', 'SP006TR38', 282000, 1, '00%', 1),
+('210922992NKZ', 'SP007DEN41', 1770000, 1, '10%', 1),
+('210922HUAIUX', 'SP004XA40', 1790000, 1, '30%', 1),
+('210922HUAIUX', 'SP001TR40', 5000000, 1, '10%', 1),
+('210922KCO813', 'SP005DEN38', 3690000, 1, '20%', 1),
+('210922KCO813', 'SP002TR39', 3000000, 1, '20%', 1),
+('210922N1JS90', 'SP004XA41', 1790000, 1, '30%', 1),
+('210922ZIXUA9', 'SP002DEN37', 3000000, 1, '20%', 1),
+('21092390UJHU', 'SP001TR41', 5000000, 1, '10%', 1),
+('21092390UJHU', 'SP006TR39', 282000, 1, '00%', 1),
+('21092391J8HJ', 'SP007DEN42', 1770000, 1, '10%', 1),
+('21092391J8HJ', 'SP001TR42', 5000000, 1, '10%', 1),
+('210925898AKZ', 'SP001DEN40', 5000000, 1, '10%', 1),
+('210925H89HJZ', 'SP002TR40', 3000000, 2, '20%', 1),
+('210925H89HJZ', 'SP004DEN39', 1790000, 1, '30%', 1),
+('210925HI1OOS', 'SP002DEN38', 3000000, 1, '20%', 1),
+('210925HI1OOS', 'SP003DEN41', 2500000, 1, '10%', 1),
+('210927910KZA', 'SP006TR40', 282000, 1, '00%', 1),
+('210927HUJIAZ', 'SP007DEN41', 1770000, 1, '10%', 1),
+('210927JKU8NA', 'SP004DEN39', 1790000, 1, '30%', 1),
+('210927JKU8NA', 'SP001DEN41', 5000000, 1, '10%', 1),
+('210928HUJIAZ', 'SP005DEN39', 3690000, 1, '20%', 1),
+('210928HUJIAZ', 'SP002DEN39', 3000000, 1, '20%', 1),
+('210928JHU9AB', 'SP004XA41', 1790000, 1, '30%', 1),
+('21092987JBJZ', 'SP002TR41', 3000000, 1, '20%', 1),
+('210929I18YAZ', 'SP001DEN42', 5000000, 1, '10%', 1),
+('210929OIHUW7', 'SP006XA39', 282000, 1, '00%', 1),
+('2109308HPOJI', 'SP007DEN42', 1770000, 1, '10%', 1),
+('2109308HPOJI', 'SP001TR40', 5000000, 1, '10%', 1),
+('210930H81A9A', 'SP005DEN38', 3690000, 1, '20%', 1),
+('210930U8WY81', 'SP002DEN36', 3000000, 2, '20%', 1),
+('211001H89QUA', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211001H89QUA', 'SP005DEN39', 3690000, 1, '20%', 1),
+('211001NU872A', 'SP003DEN42', 2500000, 1, '10%', 1),
+('211001ZH88Y8', 'SP006XA41', 282000, 1, '00%', 1),
+('211001ZH88Y8', 'SP007DEN41', 1770000, 1, '10%', 1),
+('211002H81A9A', 'SP004DEN40', 1790000, 1, '30%', 1),
+('211002NU872A', 'SP007DEN39', 1770000, 1, '10%', 1),
+('211002U8WY81', 'SP005HO36', 3690000, 1, '20%', 1),
+('211002U8WY81', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211003H89QUA', 'SP004XA41', 1790000, 1, '30%', 1),
+('211003ZH88Y8', 'SP002DEN37', 3000000, 1, '20%', 1),
+('211004HU1HZZ', 'SP001DEN41', 5000000, 1, '10%', 1),
+('211004HU1HZZ', 'SP006XA40', 282000, 1, '00%', 1),
+('211004HUYZ99', 'SP007DEN42', 1770000, 1, '10%', 1),
+('211004HUYZ99', 'SP001TR40', 5000000, 1, '10%', 1),
+('211004HUYZ99', 'SP001TR41', 5000000, 1, '10%', 1),
+('211005MVX8MN', 'SP006TR37', 282000, 2, '00%', 1),
+('211005MVX8MN', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211005WQ8Y81', 'SP002DEN38', 3000000, 1, '20%', 1),
+('211006IO989Q', 'SP003DEN41', 2500000, 1, '10%', 1),
+('211006KLOIW1', 'SP006TR40', 282000, 1, '00%', 1),
+('211006KLOIW1', 'SP007DEN41', 1770000, 1, '10%', 1),
+('211006LZJIU1', 'SP004XA42', 1790000, 1, '30%', 1),
+('211007B818UZ', 'SP001TR42', 5000000, 1, '10%', 1),
+('211007B818UZ', 'SP005HO37', 3690000, 1, '20%', 1),
+('211007XYUQ82', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211007XYUQ82', 'SP004XA41', 1790000, 1, '30%', 1),
+('211007XYUQ82', 'SP002DEN37', 3000000, 1, '20%', 1),
+('211008HBUHI1', 'SP001DEN41', 5000000, 1, '10%', 1),
+('211008HBUHI1', 'SP006XA40', 282000, 1, '00%', 1),
+('211008XNJS1K', 'SP007DEN42', 1770000, 1, '10%', 1),
+('211009HBUHI1', 'SP001TR40', 5000000, 1, '10%', 1),
+('211009JHIO91', 'SP001TR41', 5000000, 1, '10%', 1),
+('211009JHIO91', 'SP002DEN36', 3000000, 2, '20%', 1),
+('211009NSIHZ8', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211010JHIO91', 'SP002DEN38', 3000000, 1, '20%', 1),
+('211010JHIO91', 'SP003DEN41', 2500000, 1, '10%', 1),
+('211010XNJS1K', 'SP006TR39', 282000, 1, '00%', 1),
+('211010XNJS1K', 'SP007DEN41', 1770000, 1, '10%', 1),
+('211011HBUHI1', 'SP004XA44', 1790000, 1, '30%', 1),
+('211011HBUHI1', 'SP001TR42', 5000000, 1, '10%', 1),
+('211011NSIHZ8', 'SP005HO39', 3690000, 1, '20%', 1),
+('211012XNJS1K', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211012XNJS1K', 'SP004DEN41', 1790000, 1, '30%', 1),
+('211013JHIO91', 'SP002DEN37', 3000000, 1, '20%', 1),
+('211014NSIHZ8', 'SP001DEN41', 5000000, 1, '10%', 1),
+('211014NSIHZ8', 'SP006XA40', 282000, 1, '00%', 1),
+('211015AIOQ91', 'SP007DEN42', 1770000, 1, '10%', 1),
+('211015AIOQ91', 'SP001TR40', 5000000, 1, '10%', 1),
+('211015BU9810', 'SP001TR41', 5000000, 1, '10%', 1),
+('211015BXHC8A', 'SP002DEN36', 3000000, 1, '20%', 1),
+('211015WUQOU9', 'SP002DEN39', 3000000, 1, '20%', 1),
+('2110160198ZX', 'SP002DEN38', 3000000, 1, '20%', 1),
+('2110160198ZX', 'SP003DEN41', 2500000, 1, '10%', 1),
+('211016ASU198', 'SP006TR40', 282000, 1, '00%', 1),
+('211016SIDJ19', 'SP007DEN41', 1770000, 1, '10%', 1),
+('21101798HAU1', 'SP004XA44', 1790000, 1, '30%', 1),
+('21101798HAU1', 'SP001TR42', 5000000, 1, '10%', 1),
+('211018HDO1LA', 'SP005HO38', 3690000, 1, '20%', 1),
+('211018HUSH8Z', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211018HUSH8Z', 'SP004XA41', 1790000, 1, '30%', 1),
+('211019OP1O0A', 'SP002DEN37', 3000000, 1, '20%', 1),
+('211019PPAOWJ', 'SP001DEN41', 5000000, 1, '10%', 1),
+('211020KLAN1M', 'SP006XA40', 282000, 1, '00%', 1),
+('211020ZJLA1S', 'SP007DEN42', 1770000, 1, '10%', 1),
+('211020ZJLA1S', 'SP001TR40', 5000000, 1, '10%', 1),
+('211021HUASH1', 'SP001TR41', 5000000, 1, '10%', 1),
+('211021O9Q98Z', 'SP002DEN36', 3000000, 1, '20%', 1),
+('211021O9Q98Z', 'SP007TR41', 1770000, 1, '10%', 1),
+('211022198ZJA', 'SP002DEN38', 3000000, 1, '20%', 1),
+('2110221ZHASV', 'SP003DEN41', 2500000, 1, '10%', 1),
+('2110221ZHASV', 'SP006TR40', 282000, 1, '00%', 1),
+('211022PABQU9', 'SP007DEN41', 1770000, 1, '10%', 1),
+('211023NUA91A', 'SP004XA40', 1790000, 1, '30%', 1),
+('211023NUA91A', 'SP001TR42', 5000000, 1, '10%', 1),
+('2110241BAUJB', 'SP005HO38', 3690000, 1, '20%', 1),
+('211024BBSUI1', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211024BBSUI1', 'SP004XA41', 1790000, 1, '30%', 1),
+('2110251HU099', 'SP002DEN37', 3000000, 1, '20%', 1),
+('2110251HU099', 'SP001DEN41', 5000000, 1, '10%', 1),
+('211025H1AOZI', 'SP006XA40', 282000, 1, '00%', 1),
+('211025H1AOZI', 'SP007DEN42', 1770000, 1, '10%', 1),
+('211027HSHAOZ', 'SP003DEN42', 2500000, 1, '10%', 1),
+('2110282HUZSN', 'SP001TR41', 5000000, 1, '10%', 1),
+('2110282HUZSN', 'SP002DEN36', 3000000, 1, '20%', 1),
+('211028ANMIQ1', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211029DJKEL3', 'SP002DEN38', 3000000, 1, '20%', 1),
+('211029NJD8AZ', 'SP003DEN43', 2500000, 1, '10%', 1),
+('211029NJD8AZ', 'SP006TR40', 282000, 1, '00%', 1),
+('211031HUAS81', 'SP007XA40', 1770000, 1, '10%', 1),
+('211031HUAS81', 'SP004XA44', 1790000, 1, '30%', 1),
+('211031SZMN21', 'SP001TR42', 5000000, 1, '10%', 1),
+('211031ZKXN1A', 'SP005TR37', 3690000, 1, '20%', 1),
+('211031ZKXN1A', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211101CXNM1K', 'SP004XA41', 1790000, 1, '30%', 1),
+('211101INZK12', 'SP002DEN37', 3000000, 1, '20%', 1),
+('211101MSNZ1O', 'SP004DEN40', 1790000, 1, '30%', 1),
+('211102ASI1JK', 'SP006XA40', 282000, 1, '00%', 1),
+('211102HUS9ZX', 'SP007XA41', 1770000, 1, '10%', 1),
+('211103SAJK1L', 'SP001TR40', 5000000, 1, '10%', 1),
+('211104JXIA8A', 'SP001TR41', 5000000, 1, '10%', 1),
+('211104JXIA8A', 'SP002DEN36', 3000000, 1, '20%', 1),
+('211105AHSU87', 'SP003DEN41', 2500000, 1, '10%', 1),
+('211105AHSU87', 'SP002DEN38', 3000000, 1, '20%', 1),
+('211105XHCAJB', 'SP003TR41', 2500000, 1, '10%', 1),
+('211106ZLKS91', 'SP006TR40', 282000, 1, '00%', 1),
+('211107LA91JX', 'SP007DEN41', 1770000, 1, '10%', 1),
+('211107LA91JX', 'SP004XA44', 1790000, 1, '30%', 1),
+('211107LA91JX', 'SP008TR40', 1990000, 1, '10%', 1),
+('211107LA91JX', 'SP005TR38', 3690000, 1, '20%', 1),
+('211107SAHH1K', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211107SHU1MX', 'SP004XA41', 1790000, 1, '30%', 1),
+('211108JZBJ1A', 'SP002DEN37', 3000000, 1, '20%', 1),
+('211108JZBJ1A', 'SP001DEN41', 5000000, 1, '10%', 1),
+('211109NMB1U9', 'SP006XA40', 282000, 1, '00%', 1),
+('211109SNJZXO', 'SP007DEN42', 1770000, 1, '10%', 1),
+('211109SNJZXO', 'SP003DEN43', 2500000, 1, '10%', 1),
+('211110ANSJ19', 'SP007XA42', 1770000, 1, '10%', 1),
+('211110ANSJ19', 'SP004DEN39', 1790000, 1, '30%', 1),
+('211110ANSJ1L', 'SP003TR42', 2500000, 1, '10%', 1),
+('211111ZXN1I3', 'SP005TR39', 3690000, 1, '20%', 1),
+('211111ZXN1I3', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211112SNAXB1', 'SP004DEN40', 1790000, 1, '30%', 1),
+('211113ASL1IX', 'SP002DEN37', 3000000, 1, '20%', 1),
+('211114B1BJ0A', 'SP001DEN41', 5000000, 1, '10%', 1),
+('211114SABN1K', 'SP006XA40', 282000, 1, '00%', 1),
+('211115ASNJ10', 'SP007DEN42', 1770000, 1, '10%', 1),
+('211115SAJK19', 'SP008TR42', 1990000, 1, '10%', 1),
+('211115SKLZXJ', 'SP001TR41', 5000000, 1, '10%', 1),
+('211115SKLZXJ', 'SP002DEN36', 3000000, 1, '20%', 1),
+('211116HUAS1I', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211116HUAS1I', 'SP002DEN38', 3000000, 1, '20%', 1),
+('211117SAJIO1', 'SP003TR43', 2500000, 1, '10%', 1),
+('211118ASNXI1', 'SP006TR40', 282000, 1, '00%', 1),
+('211119ASHIX9', 'SP007DEN41', 1770000, 1, '10%', 1),
+('211119ASHIX9', 'SP008TR41', 1990000, 1, '10%', 1),
+('211119ASHJXU', 'SP001TR42', 5000000, 1, '10%', 1),
+('211119ASHJXU', 'SP005TR39', 3690000, 1, '20%', 1),
+('2111201H98ZJ', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211121AO1OLA', 'SP004DEN41', 1790000, 1, '30%', 1),
+('211121ASJH1U', 'SP002DEN37', 3000000, 1, '20%', 1),
+('211121ASJH1U', 'SP001DEN41', 5000000, 1, '10%', 1),
+('211122NMWIO1', 'SP006XA40', 282000, 1, '00%', 1),
+('211122WIO8XC', 'SP008TR40', 1990000, 1, '10%', 1),
+('211123L1IUA9', 'SP007DEN42', 1770000, 1, '10%', 1),
+('211124OPYQ9X', 'SP001TR40', 5000000, 1, '10%', 1),
+('211125XHCAJB', 'SP001TR41', 5000000, 1, '10%', 1),
+('211125XHCAJB', 'SP002DEN36', 3000000, 1, '20%', 1),
+('211126PJQ1UH', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211126PJQ1UH', 'SP008DEN43', 1990000, 1, '10%', 1),
+('211126PQOWI9', 'SP003TR42', 2500000, 1, '10%', 1),
+('211126WOAL1X', 'SP006TR40', 282000, 1, '00%', 1),
+('211127AJLQK2', 'SP007DEN41', 1770000, 1, '10%', 1),
+('211127AJLQK2', 'SP004XA40', 1790000, 1, '30%', 1),
+('2111288UAIXJ', 'SP001TR42', 5000000, 1, '10%', 1),
+('2111288UAIXJ', 'SP005HO38', 3690000, 1, '20%', 1),
+('211129AN1KJ2', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211130SLJ1JA', 'SP004XA43', 1790000, 1, '30%', 1),
+('211130XNJAI1', 'SP002DEN37', 3000000, 1, '20%', 1),
+('211130XNJAI1', 'SP001DEN41', 5000000, 1, '10%', 1),
+('211202ALXI1J', 'SP003DEN41', 2500000, 1, '10%', 1),
+('211202ASMXH1', 'SP006TR40', 282000, 1, '00%', 1),
+('211203SAJIXI', 'SP007DEN41', 1770000, 1, '10%', 1),
+('211203SAJIXI', 'SP004XA44', 1790000, 1, '30%', 1),
+('211204ASN1MB', 'SP001TR42', 5000000, 1, '10%', 1),
+('211204ASN1MB', 'SP005HO38', 3690000, 1, '20%', 1),
+('211205SIO1UX', 'SP002DEN39', 3000000, 1, '20%', 1),
+('211205XNAH11', 'SP004XA42', 1790000, 1, '30%', 1),
+('2112061JSIA9', 'SP001TR42', 5000000, 1, '10%', 1),
+('211206ASHJ1B', 'SP008DEN41', 1990000, 1, '10%', 1),
+('211206ZXIJ1H', 'SP008DEN42', 1990000, 1, '10%', 1),
+('211206ZXIJ1H', 'SP001DEN40', 5000000, 1, '10%', 0);
 
 CREATE TABLE HoaDonNhapHang(
 MaHDNhapHang VARCHAR(12) PRIMARY KEY,
@@ -300,13 +718,20 @@ FOREIGN KEY (MaNCC) REFERENCES dbo.NhaCungCap(MaNCC),
 );
 
 INSERT INTO HoaDonNhapHang (MaHDNhapHang,MaNV,MaNCC,NgayNhapHang,GhiChu) VALUES
-('210810US828A', 'PH18383', 'NCC011', '20210810', NULL),
-('210818USHU9X', 'PH17245', 'NCC022', '20210818', NULL),
-('210910HUAO8X', 'PH17417', 'NCC022', '20210910', NULL),
-('210928HAUSU9', 'PH17481', 'NCC055', '20210928', NULL),
-('211002AHUX9A', 'PH17446', 'NCC044', '20211002', NULL),
-('211022873JSA', 'PH17417', 'NCC033', '20211022', NULL);
- 
+('210909US828A', 'PH18383', 'NCC011', '20210909', NULL),
+('210909HU18SA', 'PH18383', 'NCC022', '20210909', NULL),
+('210910NX819Z', 'PH17417', 'NCC033', '20210910', NULL),
+('210910MSKNC9', 'PH17417', 'NCC044', '20210910', NULL),
+('210910N19ZJA', 'PH17417', 'NCC055', '20210910', NULL),
+('211019UHW1ZX', 'PH17446', 'NCC011', '20211019', NULL),
+('211019JSBJ1K', 'PH17446', 'NCC022', '20211019', NULL),
+('211019CKL1HA', 'PH17446', 'NCC033', '20211019', NULL),
+('211020BCJS91', 'PH18383', 'NCC055', '20211020', NULL),
+('211129ASHJ1X', 'PH17481', 'NCC011', '20211129', NULL),
+('211129S12H3A', 'PH17481', 'NCC022', '20211129', NULL),
+('21113012BJZX', 'PH17446', 'NCC033', '20211130', NULL),
+('211130938XJK', 'PH17446', 'NCC055', '20211130', NULL);
+
 CREATE TABLE ChiTietHoaDonNhapHang(
 MaHDNhapHang VARCHAR(12) NOT NULL,
 MaSP VARCHAR(10) NOT NULL,
@@ -319,259 +744,93 @@ PRIMARY KEY (MaHDNhapHang, MaSP),
 );
 
 INSERT INTO ChiTietHoaDonNhapHang(MaHDNhapHang,MaSP,GiaNhap,SoLuong) VALUES
-('210810US828A', 'SP001TR40', 3500000, 11),
-('210810US828A', 'SP001TR41', 3500000, 11),
-('210810US828A', 'SP001TR42', 3500000, 11),
-('210810US828A', 'SP001DEN40', 3500000, 10),
-('210810US828A', 'SP001DEN41', 3500000, 11),
-('210810US828A', 'SP001DEN42', 3500000, 10),
-('210810US828A', 'SP006DEN38', 150000, 17),
-('210810US828A', 'SP006DEN39', 150000, 17),
-('210810US828A', 'SP006DEN40', 150000, 19),
-('210810US828A', 'SP006TR37', 150000, 19),
-('210810US828A', 'SP006TR38', 150000, 18),
-('210810US828A', 'SP006TR39', 150000, 19),
-('210810US828A', 'SP006TR40', 150000, 20),
-('210810US828A', 'SP006XA39', 150000, 19),
-('210810US828A', 'SP006XA40', 150000, 17),
-('210810US828A', 'SP006XA41', 150000, 19),
-('210818USHU9X', 'SP003DEN41', 1500000, 12),
-('210818USHU9X', 'SP003DEN42', 1500000, 12),
-('210818USHU9X', 'SP003DEN43', 1500000, 11),
-('210818USHU9X', 'SP003DEN44', 1500000, 10),
-('210818USHU9X', 'SP003TR41', 1500000, 12),
-('210818USHU9X', 'SP003TR42', 1500000, 11),
-('210818USHU9X', 'SP003TR43', 1500000, 11),
-('210818USHU9X', 'SP005DEN37', 2000000, 14),
-('210818USHU9X', 'SP005DEN38', 2000000, 14),
-('210818USHU9X', 'SP005DEN39', 2000000, 14),
-('210818USHU9X', 'SP005HO36', 2000000, 13),
-('210818USHU9X', 'SP005HO37', 2000000, 14),
-('210818USHU9X', 'SP005HO38', 2000000, 15),
-('210818USHU9X', 'SP005HO39', 2000000, 14),
-('210818USHU9X', 'SP005TR37', 2000000, 13),
-('210818USHU9X', 'SP005TR38', 2000000, 14),
-('210818USHU9X', 'SP005TR39', 2000000, 14),
-('210910HUAO8X', 'SP007DEN39', 1200000, 14),
-('210910HUAO8X', 'SP007DEN40', 1200000, 13),
-('210910HUAO8X', 'SP007DEN41', 1200000, 14),
-('210910HUAO8X', 'SP007DEN42', 1200000, 13),
-('210910HUAO8X', 'SP007TR40', 1200000, 12),
-('210910HUAO8X', 'SP007TR41', 1200000, 13),
-('210910HUAO8X', 'SP007TR42', 1200000, 12),
-('210910HUAO8X', 'SP007TR43', 1200000, 12),
-('210910HUAO8X', 'SP007XA40', 1200000, 13),
-('210910HUAO8X', 'SP007XA41', 1200000, 14),
-('210910HUAO8X', 'SP007XA42', 1200000, 13),
-('210928HAUSU9', 'SP002DEN36', 2000000, 10),
-('210928HAUSU9', 'SP002DEN37', 2000000, 11),
-('210928HAUSU9', 'SP002DEN38', 2000000, 11),
-('210928HAUSU9', 'SP002DEN39', 2000000, 12),
-('210928HAUSU9', 'SP002TR39', 2000000, 11),
-('210928HAUSU9', 'SP002TR40', 2000000, 11),
-('210928HAUSU9', 'SP002TR41', 2000000, 11),
-('211002AHUX9A', 'SP008DEN41', 1200000, 12),
-('211002AHUX9A', 'SP008DEN42', 1200000, 13),
-('211002AHUX9A', 'SP008DEN43', 1200000, 13),
-('211002AHUX9A', 'SP008TR40', 1200000, 13),
-('211002AHUX9A', 'SP008TR41', 1200000, 14),
-('211002AHUX9A', 'SP008TR42', 1200000, 13),
-('211022873JSA', 'SP004DEN39', 1000000, 14),
-('211022873JSA', 'SP004DEN40', 1000000, 12),
-('211022873JSA', 'SP004DEN41', 1000000, 13),
-('211022873JSA', 'SP004XA40', 1000000, 14),
-('211022873JSA', 'SP004XA41', 1000000, 14),
-('211022873JSA', 'SP004XA42', 1000000, 15),
-('211022873JSA', 'SP004XA43', 1000000, 12),
-('211022873JSA', 'SP004XA44', 1000000, 11);
-
-INSERT INTO dbo.NhanVien VALUES
-('PH17000', N'Nguyễn Bá A', 'baha123', N'Hà Nội', '0325878373', 'hanbph17245@fpt.edu.vn', '20020516', 1, 'baha123.jpg', 0, 1, NULL, 'CCFFFF'),
-('PH17001', N'Nguyễn Phú B', 'quang123', N'Hà Nội', '0936352884', 'quangnpph17417@fpt.edu.vn', '20021004', 1, 'quang123.jpg', 0, 1, NULL, 'CCFFFF'),
-('PH17002', N'Nguyễn Công C', 'truong123', N'Hà Nội', '0964853798', 'truongncph17481@fpt.edu.vn', '20020722', 1, 'truong123.jpg', 0, 1, NULL, 'CCFFFF'),
-('PH18003', N'Nguyễn Văn D', 'vanhuy123', N'Hà Nội', '0338327433', 'huynvph18383@fpt.edu.vn', '20020222', 1, 'vanhuy123.jpg', 0, 1, NULL, 'CCFFFF'),
-('PH17004', N'Nguyễn Tiến E', 'tienhai123', N'Hà Nội', '0347766383', 'haintph17446@fpt.edu.vn', '20021223', 1, 'tienhai123.jpg', 0, 1, NULL, 'CCFFFF');
-
-INSERT INTO KhachHang(MaKH,TenKH,SDT,Email,NgaySinh,GioiTinh,TichDiem,MaNV,TrangThai) VALUES
-('KH016', N'Nguyễn Xuân A', '0999888766', 'xdieu1114@gmail.com', '19900228', 0, 300, 'PH18383', 0),
-('KH017', N'Trần Quang B', '0990234545', 'quangminh124@gmail.com', '19950321', 1, 500, 'PH18383', 0),
-('KH018', N'Định Thị C', '0998563257', 'quynhdinh264@gmail.com', '19920522', 0, 400, 'PH18383', 0),
-('KH019', N'Đặng Quang D', '0925398766', 'dangdoan224@gmail.com', '19930128', 1, 200, 'PH17417', 0),
-('KH020', N'Ngô Hà E', '0909486251', 'haduy224@gmail.com', '19900220', 1, 300, 'PH17417', 0),
-('KH021', N'Bùi Thị F', '0902455321', 'duyen094@gmail.com', '19911109', 0, 1100, 'PH17417', 0),
-('KH022', N'Đoàn Văn G', '0905683451', 'trung124@gmail.com', '19950810', 1, 900, 'PH17245', 0),
-('KH023', N'Ngô Thùy H', '0909737171', 'linh084@gmail.com', '20000215', 0, 300, 'PH17245', 0),
-('KH024', N'Nguyễn Nam I', '0903668231', 'thanh0014@gmail.com', '19990209', 1, 100, 'PH17245', 0),
-('KH025', N'Đinh Văn K', '0992863431', 'tung884@gmail.com', '19980909', 1, 600, 'PH17481', 0),
-('KH026', N'Đoàn Phú L', '0972863431', 'thai3214@gmail.com', '20021009', 1, 700, 'PH17481', 0),
-('KH027', N'Trịnh Tiến M', '0962862431', 'luc3074@gmail.com', '20020209', 1, 400, 'PH17481', 0),
-('KH028', N'Nguyễn Quang N', '0777348001', 'toan1234@gmail.com', '20021103', 1, 500, 'PH17446', 0),
-('KH029', N'Lý Thị O', '0981287651', 'lynnga1234@gmail.com', '20020826', 0, 200, 'PH17446', 0),
-('KH030', N'Nguyễn Viết P', '0902863431', 'thieu284@gmail.com', '20021030', 1, 400, 'PH17446', 0);
-
-INSERT INTO NhaCungCap (MaNCC,TenNCC,DiaChi,SDT,Email,TrangThai) VALUES
-('NCC066', N'Công ty Bình Tiên', N'Hải Dương', '0989237456', 'binhtien@gmail.com', 0),
-('NCC077', N'Công ty giày da Xuân Hồng', N'Nam Định', '0979273458', 'xhong1@gmail.com', 0),
-('NCC088', N'Công ty giày da Bắc Ninh', N'Bắc Ninh', '0234785985', 'bninh23@gmail.com', 0),
-('NCC099', N'Công ty giày da Thái Bình', N'Thái Bình', '0934879289', 'tbinh2@gmail.com', 0),
-('NCC101', N'Công ty giày da Lào Cai', N'Lào Cai', '0927781923', 'lcai@gmail.com', 0);
-
-SELECT A.MaSP, A.MaThuongHieu, A.TenSanPham, A.GiaBan, A.SoLuong,
-A.MaMau, A.Size, B.GiaTri, A.MaNCC, A.AnhSP, A.ChiTiet 
-FROM dbo.SanPham A JOIN dbo.KhuyenMai B ON B.MaKM = A.MaKM
-WHERE A.MaThuongHieu = 'TH001' AND A.TenSanPham LIKE '%c%'
-ORDER BY A.MaSP OFFSET 0 * 20 
-ROWS FETCH NEXT 20 ROWS ONLY;
-
-SELECT * FROM dbo.SanPham
-SELECT * FROM dbo.MauSac ORDER BY MaMau
-SELECT * FROM dbo.Size
-
-SELECT * FROM dbo.NhanVien WHERE TrangThai = 0
-
-SELECT * FROM dbo.SanPham
-WHERE MaThuongHieu LIKE '%%'
-	  AND Mau LIKE '%%'
-	  AND Size LIKE '%40%' 
-	  AND GiaBan BETWEEN 0 AND 50000000 
-	  AND TenSanPham LIKE '%a%'
-ORDER BY MaSP OFFSET 0 * 20 ROWS FETCH NEXT 20 ROWS ONLY;
-
-
-select * from HoaDonThanhToan
-SELECT * FROM dbo.ChiTietHoaDonThanhToan 
-SELECT SUM(DonGia*SoLuong) FROM dbo.ChiTietHoaDonThanhToan WHERE MaHDThanhToan = '211115A8H35S'
-WHERE MaNhanVien LIKE '%PH17417%'
-	  AND DAY(NgayThanhToan) LIKE ?
-	  AND MONTH(NgayThanhToan) LIKE ?
-ORDER BY MaHDThanhToan OFFSET 0 * 15 ROWS FETCH NEXT 15 ROWS ONLY;
-
-SELECT A.MaSanPham, B.TenSanPham, B.Mau, B.Size, A.DonGia, A.SoLuong, B.MaKM, A.DoiDiem
-FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.SanPham B ON B.MaSP = A.MaSanPham
-WHERE MaHDThanhToan=?
-ORDER BY MaHDThanhToan OFFSET ? * 5 ROWS FETCH NEXT 5 ROWS ONLY;
-
-SELECT DonGia*SoLuong AS 'Tổng Tiền' FROM dbo.ChiTietHoaDonThanhToan WHERE MaHDThanhToan = '2111151HUS9A'
-SELECT A.MaHDThanhToan, A.MaSanPham, B.TenSanPham, B.Mau, B.Size, A.DonGia, A.SoLuong, B.MaKM
-FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.SanPham B ON B.MaSP = A.MaSanPham
-				WHERE A.MaHDThanhToan='211115A8H35S' AND A.TrangThai=1
-				ORDER BY A.MaSanPham OFFSET 0 * 5 ROWS FETCH NEXT 5 ROWS ONLY;
-
-SELECT * FROM dbo.KhachHang
-SELECT * FROM dbo.HoaDonThanhToan
-SELECT * FROM dbo.ChiTietHoaDonThanhToan where MaHDThanhToan = '211201QXNKEN'
-UPDATE dbo.KhachHang SET SDT = '0936352884' WHERE MaKH = 'KH100';
-
-DELETE FROM dbo.HoaDonThanhToan WHERE MaHDThanhToan = '211201QXNKEN'
-
-SELECT * FROM dbo.HoaDonThanhToan
-WHERE MaHDThanhToan LIKE ?
-AND NgayThanhToan BETWEEN ? AND ?
-ORDER BY MaHDThanhToan OFFSET ? * 15 ROWS FETCH NEXT 15 ROWS ONLY;
-
-SELECT A.MaHDNhapHang, A.MaSP, B.TenSanPham, C.TenThuongHieu, A.GiaNhap, A.SoLuong, D.NgayNhapHang, D.MaNV, D.MaNCC
-FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.SanPham B ON B.MaSP = A.MaSP 
-JOIN dbo.ThuongHieu C ON C.MaThuongHieu = B.MaThuongHieu
-JOIN dbo.HoaDonNhapHang D ON D.MaHDNhapHang = A.MaHDNhapHang
-WHERE D.MaNCC= 'NCC066'
-ORDER BY A.MaSP OFFSET ? * 8 ROWS FETCH NEXT 8 ROWS ONLY;
-
-SELECT * FROM dbo.ChiTietHoaDonNhapHang
-SELECT * FROM dbo.SanPham
-SELECT * FROM dbo.HoaDonNhapHang
-SELECT * FROM dbo.NhaCungCap
-SELECT * FROM dbo.ChiTietHoaDonThanhToan
-SELECT * FROM dbo.HoaDonThanhToan
-SELECT * FROM dbo.NhanVien
-SELECT * FROM dbo.KhachHang
-SELECT * FROM dbo.ThuongHieu
-
-SELECT A.MaHDThanhToan, A.MaSanPham, B.TenSanPham, B.Mau, B.Size, A.DonGia, A.SoLuong, B.MaKM
-FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.SanPham B ON B.MaSP = A.MaSanPham
-WHERE A.MaHDThanhToan='211201NVQXTH' AND A.TrangThai=1
-ORDER BY A.MaSanPham OFFSET 0 * 5 ROWS FETCH NEXT 5 ROWS ONLY;
-
-
-
-UPDATE dbo.SanPham SET SoLuong=Soluong-1 WHERE MaSP='SP001DEN42'
-
-UPDATE dbo.ChiTietHoaDonThanhToan SET TrangThai=0 WHERE MaHDThanhToan=? AND MaSanPham=?
-UPDATE dbo.ChiTietHoaDonThanhToan SET SoLuong=SoLuong-? WHERE MaHDThanhToan=? AND MaSanPham=?;
-
-SELECT A.MaThuongHieu, D.TenThuongHieu, A.MaSP, A.TenSanPham, A.GiaBan, A.Mau, A.Size, B.GiaNhap, A.AnhSP, A.SoLuong, A.MaKM, A.ChiTiet 
-FROM dbo.SanPham A JOIN dbo.ChiTietHoaDonNhapHang B ON B.MaSP = A.MaSP 
-JOIN dbo.NhaCungCap C ON C.MaNCC = A.MaNCC JOIN dbo.ThuongHieu D ON D.MaThuongHieu = A.MaThuongHieu
-WHERE A.MaNCC=? ORDER BY MaSP OFFSET ? * 20 ROWS FETCH NEXT 20 ROWS ONLY
-
-SELECT A.MaThuongHieu, D.TenThuongHieu, A.MaSP, A.TenSanPham, A.GiaBan, A.Mau, A.Size, B.GiaNhap, A.AnhSP, A.SoLuong, A.MaKM, A.ChiTiet 
-FROM dbo.SanPham A JOIN dbo.ChiTietHoaDonNhapHang B ON B.MaSP = A.MaSP 
-JOIN dbo.NhaCungCap C ON C.MaNCC = A.MaNCC JOIN dbo.ThuongHieu D ON D.MaThuongHieu = A.MaThuongHieu
-WHERE A.MaThuongHieu LIKE ?
-AND A.Mau LIKE ?
-AND A.Size LIKE ?
-AND A.GiaBan BETWEEN ? AND ?
-AND A.TenSanPham LIKE ?
-ORDER BY A.MaSP OFFSET ? * 6 ROWS FETCH NEXT 6 ROWS ONLY;
-
-SELECT MauNen FROM dbo.NhanVien WHERE MaNV = 'PH17417'
-SELECT * FROM dbo.NhanVien WHERE MaNV='PH17417' AND TrangThai=1
-
-SELECT * FROM dbo.ChiTietHoaDonNhapHang
-SELECT * FROM dbo.HoaDonNhapHang
-SELECT * FROM dbo.ChiTietHoaDonThanhToan
-SELECT * FROM dbo.HoaDonThanhToan
-
-SELECT MaHDThanhToan, MaKhachHang, MaNhanVien, NgayThanhToan, DiemThuong, DoiDiem, GhiChu, TrangThai, COUNT(MaHDThanhToan) 
-FROM dbo.HoaDonThanhToan 
-GROUP BY MaHDThanhToan, MaKhachHang, MaNhanVien, NgayThanhToan, DiemThuong, DoiDiem, GhiChu, TrangThai
-HAVING NgayThanhToan = '20211115'
-
-SELECT B.NgayThanhToan, SUM(A.SoLuong*A.DonGia) 
-FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
-GROUP BY B.NgayThanhToan
-
-SELECT B.NgayNhapHang, SUM(A.SoLuong*A.GiaNhap) 
-FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.HoaDonNhapHang B ON B.MaHDNhapHang = A.MaHDNhapHang
-GROUP BY B.NgayNhapHang
-
-SELECT * FROM dbo.ChiTietHoaDonThanhToan WHERE MaHDThanhToan=? AND A.TrangThai=1 ORDER BY MaSanPham
-
-SELECT * FROM 
-(
-(SELECT B.NgayThanhToan, SUM(A.SoLuong*A.DonGia) AS 'TienBan' 
-FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
-GROUP BY B.NgayThanhToan) C FULL JOIN (SELECT B.NgayNhapHang, SUM(A.SoLuong*A.GiaNhap) AS 'TienNhap' 
-FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.HoaDonNhapHang B ON B.MaHDNhapHang = A.MaHDNhapHang
-GROUP BY B.NgayNhapHang) D ON D.NgayNhapHang = C.NgayThanhToan
-)
-
-SELECT * FROM 
-(
-(SELECT MONTH(B.NgayThanhToan) AS 'Tháng', SUM(A.SoLuong*A.DonGia) AS 'TienBan' 
-FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
-GROUP BY MONTH(B.NgayThanhToan)) C FULL JOIN (SELECT MONTH(B.NgayNhapHang) AS 'Tháng', SUM(A.SoLuong*A.GiaNhap) AS 'TienNhap' 
-FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.HoaDonNhapHang B ON B.MaHDNhapHang = A.MaHDNhapHang
-GROUP BY MONTH(B.NgayNhapHang)) D ON D.Tháng = C.Tháng
-) ORDER BY C.Tháng, D.Tháng 
-
-SELECT * FROM 
-(
-(SELECT YEAR(B.NgayThanhToan) AS 'Năm', SUM(A.SoLuong*A.DonGia) AS 'TienBan' 
-FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
-GROUP BY YEAR(B.NgayThanhToan)) C FULL JOIN (SELECT YEAR(B.NgayNhapHang) AS 'Năm', SUM(A.SoLuong*A.GiaNhap) AS 'TienNhap' 
-FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.HoaDonNhapHang B ON B.MaHDNhapHang = A.MaHDNhapHang
-GROUP BY YEAR(B.NgayNhapHang)) D ON D.Năm = C.Năm
-)
-
-SELECT * FROM dbo.ChiTietHoaDonNhapHang
-SELECT * FROM dbo.HoaDonNhapHang
-
-SELECT * FROM dbo.HoaDonThanhToan
-SELECT * FROM dbo.ChiTietHoaDonThanhToan
-
-SELECT B.MaHDThanhToan, B.NgayThanhToan, D.TenKH, B.MaNhanVien, E.TenNV, F.TenThuongHieu, A.MaSanPham,
-C.TenSanPham, A.DonGia, A.SoLuong, A.KhuyenMai, A.DonGia*A.SoLuong AS 'TienThanhToan', B.DiemThuong, B.DoiDiem
-FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan
-JOIN dbo.SanPham C ON C.MaSP = A.MaSanPham JOIN dbo.KhachHang D ON D.MaKH = B.MaKhachHang 
-JOIN dbo.NhanVien E ON E.MaNV = B.MaNhanVien JOIN dbo.ThuongHieu F ON  F.MaThuongHieu = C.MaThuongHieu
-WHERE B.MaHDThanhToan = '2111151HUS9A'
+('210909US828A', 'SP001DEN40', 3500000, 10),
+('210909US828A', 'SP001DEN41', 3500000, 10),
+('210909US828A', 'SP001DEN42', 3500000, 10),
+('210909US828A', 'SP001TR40', 3500000, 10),
+('210909US828A', 'SP001TR41', 3500000, 10),
+('210909US828A', 'SP001TR42', 3500000, 10),
+('210909US828A', 'SP006DEN38', 150000, 10),
+('210909US828A', 'SP006DEN39', 150000, 10),
+('210909US828A', 'SP006DEN40', 150000, 10),
+('210909US828A', 'SP006TR37', 150000, 10),
+('210909US828A', 'SP006TR38', 150000, 10),
+('210909US828A', 'SP006TR39', 150000, 10),
+('210909US828A', 'SP006TR40', 150000, 10),
+('210909US828A', 'SP006XA39', 150000, 10),
+('210909US828A', 'SP006XA40', 150000, 10),
+('210909US828A', 'SP006XA41', 150000, 10),
+('210909HU18SA', 'SP003DEN41', 1500000, 10),
+('210909HU18SA', 'SP003DEN42', 1500000, 10),
+('210909HU18SA', 'SP003DEN43', 1500000, 10),
+('210909HU18SA', 'SP003DEN44', 1500000, 10),
+('210909HU18SA', 'SP003TR41', 1500000, 10),
+('210909HU18SA', 'SP003TR42', 1500000, 10),
+('210909HU18SA', 'SP003TR43', 1500000, 10),
+('210909HU18SA', 'SP005DEN37', 2000000, 10),
+('210909HU18SA', 'SP005DEN38', 2000000, 10),
+('210909HU18SA', 'SP005DEN39', 2000000, 10),
+('210909HU18SA', 'SP005HO36', 2000000, 10),
+('210909HU18SA', 'SP005HO37', 2000000, 10),
+('210909HU18SA', 'SP005HO38', 2000000, 10),
+('210909HU18SA', 'SP005HO39', 2000000, 10),
+('210909HU18SA', 'SP005TR37', 2000000, 10),
+('210909HU18SA', 'SP005TR38', 2000000, 10),
+('210909HU18SA', 'SP005TR39', 2000000, 10),
+('210909HU18SA', 'SP007DEN39', 1200000, 10),
+('210909HU18SA', 'SP007DEN40', 1200000, 10),
+('210909HU18SA', 'SP007DEN41', 1200000, 10),
+('210909HU18SA', 'SP007DEN42', 1200000, 10),
+('210909HU18SA', 'SP007TR40', 1200000, 10),
+('210909HU18SA', 'SP007TR41', 1200000, 10),
+('210909HU18SA', 'SP007TR42', 1200000, 10),
+('210909HU18SA', 'SP007TR43', 1200000, 10),
+('210909HU18SA', 'SP007XA40', 1200000, 10),
+('210909HU18SA', 'SP007XA41', 1200000, 10),
+('210909HU18SA', 'SP007XA42', 1200000, 10),
+('210910NX819Z', 'SP004DEN39', 1000000, 10),
+('210910NX819Z', 'SP004DEN40', 1000000, 10),
+('210910NX819Z', 'SP004DEN41', 1000000, 10),
+('210910NX819Z', 'SP004XA40', 1000000, 10),
+('210910NX819Z', 'SP004XA41', 1000000, 10),
+('210910NX819Z', 'SP004XA42', 1000000, 10),
+('210910NX819Z', 'SP004XA43', 1000000, 10),
+('210910NX819Z', 'SP004XA44', 1000000, 10),
+('210910MSKNC9', 'SP008DEN41', 1200000, 10),
+('210910MSKNC9', 'SP008DEN42', 1200000, 10),
+('210910MSKNC9', 'SP008DEN43', 1200000, 10),
+('210910MSKNC9', 'SP008TR40', 1200000, 10),
+('210910MSKNC9', 'SP008TR41', 1200000, 10),
+('210910MSKNC9', 'SP008TR42', 1200000, 10),
+('210910N19ZJA', 'SP002DEN36', 2000000, 10),
+('210910N19ZJA', 'SP002DEN37', 2000000, 10),
+('210910N19ZJA', 'SP002DEN38', 2000000, 10),
+('210910N19ZJA', 'SP002DEN39', 2000000, 10),
+('210910N19ZJA', 'SP002TR39', 2000000, 10),
+('210910N19ZJA', 'SP002TR40', 2000000, 10),
+('210910N19ZJA', 'SP002TR41', 2000000, 10),
+('211019UHW1ZX', 'SP001DEN41', 3500000, 5),
+('211019UHW1ZX', 'SP001TR40', 3500000, 5),
+('211019UHW1ZX', 'SP001TR41', 3500000, 5),
+('211019UHW1ZX', 'SP001TR42', 3500000, 5),
+('211019JSBJ1K', 'SP003DEN41', 1500000, 5),
+('211019JSBJ1K', 'SP007DEN41', 1200000, 5),
+('211019JSBJ1K', 'SP007DEN42', 1200000, 5),
+('211019CKL1HA', 'SP004XA41', 1000000, 5),
+('211020BCJS91', 'SP002DEN36', 2000000, 5),
+('211020BCJS91', 'SP002DEN37', 2000000, 5),
+('211020BCJS91', 'SP002DEN38', 2000000, 5),
+('211020BCJS91', 'SP002DEN39', 2000000, 10),
+('211129ASHJ1X', 'SP001DEN41', 3500000, 5),
+('211129ASHJ1X', 'SP001TR40', 3500000, 5),
+('211129ASHJ1X', 'SP001TR41', 3500000, 5),
+('211129ASHJ1X', 'SP006TR40', 150000, 10),
+('211129ASHJ1X', 'SP006XA40', 150000, 10),
+('211129S12H3A', 'SP005HO38', 2000000, 5),
+('211129S12H3A', 'SP007DEN41', 1200000, 5),
+('211129S12H3A', 'SP007DEN42', 1200000, 5),
+('21113012BJZX', 'SP004XA41', 1000000, 5),
+('21113012BJZX', 'SP004XA44', 1000000, 5),
+('211130938XJK', 'SP002DEN37', 1200000, 10),
+('211130938XJK', 'SP002DEN38', 1200000, 5),
+('211130938XJK', 'SP002DEN39', 1200000, 10);

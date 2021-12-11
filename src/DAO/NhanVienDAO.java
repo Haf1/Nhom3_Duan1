@@ -128,4 +128,14 @@ public class NhanVienDAO extends ShoesSysDAO<NhanVien, String> {
     public List<NhanVien> selectAllTrash() {
         return this.selectBySql("SELECT * FROM dbo.NhanVien WHERE TrangThai=0");
     }
+    
+    public NhanVien selectBySDT(String id) {
+        List<NhanVien> list = this.selectBySql("SELECT * FROM dbo.NhanVien WHERE SDT=?", id);
+        return list.isEmpty() ? null : list.get(0);
+    }
+    
+    public NhanVien selectByEmail(String id) {
+        List<NhanVien> list = this.selectBySql("SELECT * FROM dbo.NhanVien WHERE Email=?", id);
+        return list.isEmpty() ? null : list.get(0);
+    }
 }

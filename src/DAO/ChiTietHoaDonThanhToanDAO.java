@@ -11,7 +11,7 @@ import model.ChiTietHoaDonThanhToan;
 public class ChiTietHoaDonThanhToanDAO extends ShoesSysDAO<ChiTietHoaDonThanhToan, String> {
 
     String SQL_Insert = "INSERT INTO dbo.ChiTietHoaDonThanhToan (MaHDThanhToan,MaSanPham,DonGia,SoLuong,KhuyenMai,TrangThai) VALUES (?,?,?,?,?,1)";
-    String SQL_Update = "";
+    String SQL_Update = "UPDATE dbo.ChiTietHoaDonThanhToan SET MaSanPham=? WHERE MaHDThanhToan=? AND MaSanPham=?";
     String SQL_VoHieuHoa = "UPDATE dbo.ChiTietHoaDonThanhToan SET TrangThai=0 WHERE MaHDThanhToan=? AND MaSanPham=?";
     String SQL_SelectALL = "SELECT * FROM dbo.ChiTietHoaDonThanhToan";
     String SQL_SelectID = "SELECT * FROM dbo.ChiTietHoaDonThanhToan WHERE MaHDThanhToan=? AND MaSanPham=?";
@@ -28,7 +28,6 @@ public class ChiTietHoaDonThanhToanDAO extends ShoesSysDAO<ChiTietHoaDonThanhToa
 
     @Override
     public void update(ChiTietHoaDonThanhToan entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -101,5 +100,39 @@ public class ChiTietHoaDonThanhToanDAO extends ShoesSysDAO<ChiTietHoaDonThanhToa
                 + "GROUP BY MaHDThanhToan, MaSanPham, DonGia, SoLuong, KhuyenMai, TrangThai\n"
                 + "HAVING MaHDThanhToan = ?", id);
         return list.isEmpty() ? null : list.get(0);
+    }
+
+    public List<ChiTietHoaDonThanhToan> selectTraHang(String mahd) {
+        String sql = "SELECT * FROM dbo.ChiTietHoaDonThanhToan WHERE MaHDThanhToan=? AND TrangThai=0 ORDER BY MaSanPham";
+        return this.selectBySql(sql, mahd);
+    }
+
+    public List<ChiTietHoaDonThanhToan> selectTraHang1(String id) {
+        String sql = "SELECT DISTINCT MaHDThanhToan FROM dbo.ChiTietHoaDonThanhToan WHERE TrangThai=?";
+        return this.selectBySql1(sql, id);
+    }
+
+    protected List<ChiTietHoaDonThanhToan> selectBySql1(String sql, Object... args) {
+        List<ChiTietHoaDonThanhToan> list = new ArrayList<>();
+        try {
+            ResultSet rs = helper.JdbcHelper.query(sql, args);
+            while (rs.next()) {
+                ChiTietHoaDonThanhToan entity = new ChiTietHoaDonThanhToan();
+                entity.setMaHD(rs.getString("MaHDThanhToan"));
+                list.add(entity);
+            }
+            rs.getStatement().getConnection().close();
+            return list;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateDoiHang(String masp1, String mahdct, String masp2) {
+        try {
+            helper.JdbcHelper.update(SQL_Update, masp1, mahdct, masp2);
+        } catch (SQLException ex) {
+            Logger.getLogger(ChiTietHoaDonThanhToanDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
