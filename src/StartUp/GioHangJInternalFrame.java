@@ -939,6 +939,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             tt.setTongTien(Double.parseDouble(currency.toInt(txtTongThanhToan.getText()) + ""));
             tt.setTienThanhToan(Double.parseDouble(currency.toInt(txtTienThanhToan.getText()) + ""));
             clearForm();
+            XuatPdf();
             MsgBoxHelper.alert(this, "Xuất hóa đơn thành công !!");
         }
     }//GEN-LAST:event_btnInHoaDonActionPerformed
@@ -1568,8 +1569,8 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
                 PdfPCell data6 = new PdfPCell(nestedTable);
                 //Thêm data vào bảng.
                 HoaDonThanhToan hdtt = new HoaDonThanhToan();
-                hdtt.setTongTien(Double.parseDouble(txtTongThanhToan.getText()));
-                hdtt.setTienThanhToan(Double.parseDouble(txtTienThanhToan.getText()));
+//                hdtt.setTongTien(Double.parseDouble(txtTongThanhToan.getText()));
+//                hdtt.setTienThanhToan(Double.parseDouble(txtTienThanhToan.getText()));
                 document.add(new Paragraph("Tiền thanh toán: "));
                 document.add(new Paragraph((float) hdtt.getTongTien()));
                 document.add(new Paragraph("Tổng tiền: "));
