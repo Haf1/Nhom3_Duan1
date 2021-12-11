@@ -7,11 +7,19 @@ import DAO.MauSPDAO;
 import DAO.SanPhamDAO;
 import DAO.SizeSPDAO;
 import DAO.ThuongHieuDAO;
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import helper.DateHelper;
 import helper.MsgBoxHelper;
 import helper.ShareHelper;
 import helper.currency;
 import java.awt.Color;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -35,6 +43,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
     KhachHangDAO daokh = new KhachHangDAO();
     HoaDonThanhToanDAO daohd = new HoaDonThanhToanDAO();
     ChiTietHoaDonThanhToanDAO daoct = new ChiTietHoaDonThanhToanDAO();
+    List<ChiTietHoaDonThanhToan> listct = daoct.selectAll();
 
     int index = 0;
     int index1 = 0;
@@ -1514,5 +1523,72 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         txtGhiChu.setText("");
         txtDiemThuong.setText("");
         txtTongThanhToan.setText("");
+    }
+    
+    void XuatPdf() {
+        String file = "src/hoadon.pdf";
+        Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream(file));
+            document.open();
+            document.add(new Paragraph("Start Up"));
+            Anchor taget = new Anchor("Hóa đơn thanh toán");
+            taget.setName("Hóa đơn");
+            PdfPTable table = new PdfPTable(3);
+
+            PdfPCell header1 = new PdfPCell(new Paragraph("MaHD"));
+            PdfPCell header2 = new PdfPCell(new Paragraph("MaSP"));
+            PdfPCell header3 = new PdfPCell(new Paragraph("SoLuong"));
+            PdfPCell header4 = new PdfPCell(new Paragraph("KhuyenMai"));
+            PdfPCell header5 = new PdfPCell(new Paragraph("DonGia"));
+//            PdfPCell header4 = new PdfPCell(new Paragraph("Vai trò"));
+
+            table.addCell(header1);
+            table.addCell(header2);
+            table.addCell(header3);
+            table.addCell(header4);
+            table.addCell(header5);
+//            table.addCell(header4);
+            //Khởi tạo 3 ô data: 
+
+            for (int i = 0; i < listct.size(); i++) {
+                ChiTietHoaDonThanhToan hd1 = listct.get(i);
+                PdfPCell data1 = new PdfPCell(new Paragraph(hd1.getMaHD()));
+                PdfPCell data2 = new PdfPCell(new Paragraph(hd1.getMaSP()));
+                PdfPCell data3 = new PdfPCell(new Paragraph(hd1.getSoLuong()));
+                PdfPCell data4 = new PdfPCell(new Paragraph(hd1.getKhuyenMai()));
+                String data5 = new PdfPCell(new Paragraph((float) hd1.getDonGia())).toString();
+                PdfPTable nestedTable = new PdfPTable(3);
+                nestedTable.addCell(new Paragraph("Nested Cell 1"));
+                nestedTable.addCell(new Paragraph("Nested Cell 2"));
+                nestedTable.addCell(new Paragraph("Nested Cell 3"));
+                nestedTable.addCell(new Paragraph("Nested Cell 4"));
+                nestedTable.addCell(new Paragraph("Nested Cell 5"));
+//                nestedTable.addCell(new Paragraph("Nested Cell 4"));
+                PdfPCell data6 = new PdfPCell(nestedTable);
+                //Thêm data vào bảng.
+                HoaDonThanhToan hdtt = new HoaDonThanhToan();
+                hdtt.setTongTien(Double.parseDouble(txtTongThanhToan.getText()));
+                hdtt.setTienThanhToan(Double.parseDouble(txtTienThanhToan.getText()));
+                document.add(new Paragraph("Tiền thanh toán: "));
+                document.add(new Paragraph((float) hdtt.getTongTien()));
+                document.add(new Paragraph("Tổng tiền: "));
+                document.add(new Paragraph((float) hdtt.getTienThanhToan()));
+                table.addCell(data1);
+                table.addCell(data2);
+                table.addCell(data3);
+                table.addCell(data4);
+                table.addCell(data5);
+            }
+
+//            PdfPCell data4 = new PdfPCell(new Paragraph(nv1.isVaiTro()));
+            document.add(table);
+            document.add(taget);
+            document.close();
+            MsgBoxHelper.alert(this, "Xuất thành công");
+        } catch (Exception e) {
+            MsgBoxHelper.alert(this, "Lỗi không xuất được");
+            e.printStackTrace();
+        }
     }
 }
