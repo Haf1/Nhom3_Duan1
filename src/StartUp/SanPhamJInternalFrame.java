@@ -109,6 +109,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtGiaNhap = new javax.swing.JTextField();
+        btnQRCode = new javax.swing.JButton();
         pn6 = new javax.swing.JPanel();
         pn7 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -428,6 +429,13 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
 
         txtGiaNhap.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        btnQRCode.setText("Mã QR");
+        btnQRCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQRCodeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pn5Layout = new javax.swing.GroupLayout(pn5);
         pn5.setLayout(pn5Layout);
         pn5Layout.setHorizontalGroup(
@@ -481,30 +489,31 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnVoHieuHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(btnVoHieuHoa)
+                        .addGap(17, 17, 17)
                         .addComponent(btnMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addComponent(btnFirst, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPre, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnPre, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLast, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2)
                     .addGroup(pn5Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(128, 128, 128)
                         .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
                             .addGroup(pn5Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(128, 128, 128)
-                                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pn5Layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(jLabel4))
-                                    .addComponent(cboThuongHieuCT, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel4))
+                            .addComponent(cboThuongHieuCT, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pn5Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnQRCode)))
                 .addContainerGap())
         );
         pn5Layout.setVerticalGroup(
@@ -553,8 +562,13 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
                             .addComponent(cboMauSacCT, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                             .addComponent(cboSizeCT)
                             .addComponent(cboKhuyenMai))))
-                .addGap(32, 32, 32)
-                .addComponent(jLabel10)
+                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pn5Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel10))
+                    .addGroup(pn5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnQRCode)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1076,6 +1090,11 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnThemKMActionPerformed
 
+    private void btnQRCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQRCodeActionPerformed
+        QR qr = new QR();
+        qr.setVisible(true);
+    }//GEN-LAST:event_btnQRCodeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFirst;
@@ -1088,6 +1107,7 @@ public class SanPhamJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnPre;
     private javax.swing.JButton btnPreBS;
     private javax.swing.JButton btnPreDS;
+    private javax.swing.JButton btnQRCode;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnSuaTH;
     private javax.swing.JButton btnThem;
