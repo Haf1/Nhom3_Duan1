@@ -124,4 +124,5 @@ public class KhachHangDAO extends ShoesSysDAO<KhachHang, String> {
             Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }

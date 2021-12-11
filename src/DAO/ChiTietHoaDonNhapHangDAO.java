@@ -76,4 +76,9 @@ public class ChiTietHoaDonNhapHangDAO extends ShoesSysDAO<ChiTietHoaDonNhapHang,
         List<ChiTietHoaDonNhapHang> list = this.selectBySql("SELECT * FROM dbo.ChiTietHoaDonNhapHang WHERE MaHDNhapHang=?", id);
         return list.isEmpty() ? null : list.get(0);
     }
+    
+    public List<ChiTietHoaDonNhapHang> selectPage(String mahdnh) {
+        String sql = "SELECT * FROM dbo.ChiTietHoaDonNhapHang WHERE MaHDNhapHang=? ORDER BY MaHDNhapHang";
+        return this.selectBySql(sql, mahdnh);
+    }
 }

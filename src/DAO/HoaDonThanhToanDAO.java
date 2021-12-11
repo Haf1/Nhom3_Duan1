@@ -85,12 +85,21 @@ public class HoaDonThanhToanDAO extends ShoesSysDAO<HoaDonThanhToan, String> {
         String sql = "SELECT * FROM dbo.HoaDonThanhToan\n"
                 + "WHERE MaHDThanhToan LIKE ? AND TrangThai=1\n"
                 + "AND NgayThanhToan BETWEEN ? AND ?\n"
-                + "ORDER BY MaHDThanhToan OFFSET ? * 15 ROWS FETCH NEXT 15 ROWS ONLY;";
+                + "ORDER BY MaHDThanhToan OFFSET ? * 20 ROWS FETCH NEXT 20 ROWS ONLY;";
         return this.selectBySql(sql, "%" + keyword + "%", ngaybd, ngaykt, index);
     }
-    
+
+    public List<HoaDonThanhToan> selectTraHang(String keyword, String mahdtt, int index) {
+        String sql = "SELECT * FROM dbo.HoaDonThanhToan\n"
+                + "WHERE MaHDThanhToan LIKE ?\n"
+                + "AND MaHDThanhToan=?\n"
+                + "ORDER BY MaHDThanhToan OFFSET ? * 5 ROWS FETCH NEXT 5 ROWS ONLY;";
+        return this.selectBySql(sql, "%" + keyword + "%", mahdtt, index);
+    }
+
     public HoaDonThanhToan selectThongKe(String ngay) {
         List<HoaDonThanhToan> list = this.selectBySql("SELECT * FROM dbo.HoaDonThanhToan WHERE NgayThanhToan = ?", ngay);
         return list.isEmpty() ? null : list.get(0);
     }
+    
 }

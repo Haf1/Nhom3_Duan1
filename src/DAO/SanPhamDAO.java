@@ -151,4 +151,10 @@ public class SanPhamDAO extends ShoesSysDAO<SanPham, String> {
                 + "ORDER BY MaSP OFFSET ? * 5 ROWS FETCH NEXT 5 ROWS ONLY;";
         return this.selectBySql(sql, mancc, index);
     }
+    
+    public List<SanPham> selectDoiHang(String masp) {
+        String sql = "SELECT * FROM dbo.SanPham\n"
+                + "WHERE MaSP LIKE ? AND TrangThai=1\n";
+        return this.selectBySql(sql, "%" + masp + "%");
+    }
 }

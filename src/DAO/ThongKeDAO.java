@@ -48,6 +48,19 @@ public class ThongKeDAO {
         String tongtien[] = {"Thang", "TienBan", "Tháng", "TienNhap"};
         return getListOfArray(sql, tongtien);
     }
+    
+    public List<Object[]> SelectThongKeThangChart(String thang) {
+        String sql = "SELECT * FROM \n"
+                + "(\n"
+                + "(SELECT MONTH(B.NgayThanhToan) AS 'Thang', SUM(A.SoLuong*A.DonGia) AS 'TienBan' \n"
+                + "FROM dbo.ChiTietHoaDonThanhToan A JOIN dbo.HoaDonThanhToan B ON B.MaHDThanhToan = A.MaHDThanhToan\n"
+                + "GROUP BY MONTH(B.NgayThanhToan)) C FULL JOIN (SELECT MONTH(B.NgayNhapHang) AS 'Tháng', SUM(A.SoLuong*A.GiaNhap) AS 'TienNhap' \n"
+                + "FROM dbo.ChiTietHoaDonNhapHang A JOIN dbo.HoaDonNhapHang B ON B.MaHDNhapHang = A.MaHDNhapHang\n"
+                + "GROUP BY MONTH(B.NgayNhapHang)) D ON D.Tháng = C.Thang\n"
+                + ") WHERE D.Tháng = ?";
+        String tongtien[] = {"Thang", "TienBan", "Tháng", "TienNhap"};
+        return getListOfArray(sql, tongtien, thang);
+    }
 
     public List<Object[]> SelectThongKeNam() {
         String sql = "SELECT * FROM \n"
