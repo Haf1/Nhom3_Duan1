@@ -135,4 +135,20 @@ public class ChiTietHoaDonThanhToanDAO extends ShoesSysDAO<ChiTietHoaDonThanhToa
             Logger.getLogger(ChiTietHoaDonThanhToanDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void updateDoiHang1(String masp1, String mahdct, String masp2) {
+        try {
+            helper.JdbcHelper.update("UPDATE dbo.ChiTietHoaDonThanhToan SET SoLuong=SoLuong-1 WHERE MaHDThanhToan=? AND MaSanPham=?", masp1, mahdct, masp2);
+        } catch (SQLException ex) {
+            Logger.getLogger(ChiTietHoaDonThanhToanDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void updateDoiHang2(String masp1, String mahdct, String masp2) {
+        try {
+            helper.JdbcHelper.update("INSERT INTO dbo.ChiTietHoaDonThanhToan (MaHDThanhToan,MaSanPham,DonGia,SoLuong,KhuyenMai,TrangThai) VALUES (?,?,?,?,?,1)", masp1, mahdct, masp2);
+        } catch (SQLException ex) {
+            Logger.getLogger(ChiTietHoaDonThanhToanDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

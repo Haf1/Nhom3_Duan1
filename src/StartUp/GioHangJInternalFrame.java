@@ -144,6 +144,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
+        setPreferredSize(new java.awt.Dimension(833, 630));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Giỏ Hàng");
@@ -316,7 +317,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         );
         pn8Layout.setVerticalGroup(
             pn8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
         );
 
         pn9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sản Phẩm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -461,7 +462,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
         pn2Layout.setVerticalGroup(
             pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 1, Short.MAX_VALUE)
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pn12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -487,7 +488,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(pn7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         tabs.addTab("Danh Sách", pn2);
@@ -773,15 +774,13 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pn10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDiemThuong)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn10Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnInHoaDon))
-                            .addComponent(txtTongThanhToan, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(91, 91, 91))
+                            .addComponent(txtTongThanhToan)
+                            .addComponent(txtDiemThuong)))
                     .addGroup(pn10Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnInHoaDon)))
+                .addContainerGap())
         );
 
         tabs.addTab("Hóa Đơn", pn10);
@@ -940,7 +939,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             tt.setTienThanhToan(Double.parseDouble(currency.toInt(txtTienThanhToan.getText()) + ""));
             clearForm();
             XuatPdf();
-            MsgBoxHelper.alert(this, "Xuất hóa đơn thành công !!");
+//            MsgBoxHelper.alert(this, "Xuất hóa đơn thành công !!");
         }
     }//GEN-LAST:event_btnInHoaDonActionPerformed
 
@@ -1457,10 +1456,10 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
             check = 1;
         }
         if (txtSDT.getText().matches("0[0-9]{9}")) {
-            String makh = daokh.selectBySDT(txtSDT.getText()).getMaKH();
-            if (makh != null) {
-                if (!txtMaKhachHang.getText().equals(makh)) {
-                    MsgBoxHelper.alert(this, "Số điện thoại này đã thuộc khách hàng khác !!");
+            KhachHang kh1 = daokh.selectBySDT(txtSDT.getText());
+            if (kh1 != null) {
+                if (!txtMaKhachHang.getText().equals(kh1.getMaKH())) {
+                    MsgBoxHelper.alert(this, "Số điện thoại đã được liên kết với một khách hàng khác !!");
                     txtSDT.requestFocus();
                     check = 0;
                     return;
@@ -1471,7 +1470,7 @@ public class GioHangJInternalFrame extends javax.swing.JInternalFrame {
                 check = 1;
             }
         } else {
-            MsgBoxHelper.alert(this, "Số Điện Thoại không đúng định dạng !!");
+            MsgBoxHelper.alert(this, "Số điện thoại không đúng định dạng !!");
             txtSDT.requestFocus();
             check = 0;
             return;
