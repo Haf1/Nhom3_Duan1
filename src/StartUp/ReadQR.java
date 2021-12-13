@@ -37,7 +37,7 @@ public class ReadQR extends javax.swing.JFrame implements Runnable, ThreadFactor
         jLabel1 = new javax.swing.JLabel();
         txtScan = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

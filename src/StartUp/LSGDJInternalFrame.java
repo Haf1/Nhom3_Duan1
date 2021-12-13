@@ -257,6 +257,11 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
         btnXuatHD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnXuatHD.setText("Xuất hóa đơn");
         btnXuatHD.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXuatHD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatHDActionPerformed(evt);
+            }
+        });
 
         btnLoc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnLoc.setText("Lọc");
@@ -1362,6 +1367,10 @@ public class LSGDJInternalFrame extends javax.swing.JInternalFrame {
         new DoiHangJFrame(masp, mahdtt).setVisible(true);
         tabs.setSelectedIndex(0);
     }//GEN-LAST:event_btnDoiHangActionPerformed
+
+    private void btnXuatHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatHDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXuatHDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

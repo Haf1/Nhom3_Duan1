@@ -1,4 +1,4 @@
-package StartUp;
+ package StartUp;
 
 import DAO.NhanVienDAO;
 import helper.ShareHelper;
@@ -59,6 +59,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JToolBar.Separator();
         btnThongKe = new javax.swing.JButton();
         btnLSGD = new javax.swing.JButton();
+        btnQuetQR = new javax.swing.JButton();
         pnNen = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         pn2 = new javax.swing.JPanel();
@@ -216,6 +217,15 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
             }
         });
         ToolBar.add(btnLSGD);
+
+        btnQuetQR.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnQuetQR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/QR.png"))); // NOI18N
+        btnQuetQR.setText("Quét QR");
+        btnQuetQR.setFocusable(false);
+        btnQuetQR.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnQuetQR.setMargin(new java.awt.Insets(2, 16, 2, 16));
+        btnQuetQR.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ToolBar.add(btnQuetQR);
 
         javax.swing.GroupLayout pn1Layout = new javax.swing.GroupLayout(pn1);
         pn1.setLayout(pn1Layout);
@@ -525,6 +535,7 @@ public class ShoesSysJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnNhaCungCap;
     private javax.swing.JButton btnNhanVien;
     private javax.swing.JButton btnNhapHang;
+    private javax.swing.JButton btnQuetQR;
     private javax.swing.JButton btnSanPham;
     private javax.swing.JButton btnThongKe;
     private javax.swing.JDesktopPane desktop;
