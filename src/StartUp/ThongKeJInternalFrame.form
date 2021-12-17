@@ -35,7 +35,7 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Component id="tabs" alignment="0" max="32767" attributes="0"/>
+          <Component id="tabs" alignment="0" pref="721" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -43,7 +43,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tabs" min="-2" max="-2" attributes="0"/>
+              <Component id="tabs" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,12 +79,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="pn2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="99" max="32767" attributes="0"/>
                               <Component id="btnPreDT" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblChiSoDT" min="-2" max="-2" attributes="0"/>
@@ -97,6 +97,10 @@
                               </Group>
                           </Group>
                           <Component id="pn4" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="btnXuatExcel" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -124,6 +128,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pn4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnXuatExcel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -491,6 +497,14 @@
                 </Container>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="btnXuatExcel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t File"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXuatExcelMouseClicked"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pn3">
@@ -505,7 +519,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" alignment="0" pref="712" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" alignment="0" pref="716" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
                       <Component id="btnPreSP" min="-2" max="-2" attributes="0"/>
@@ -514,6 +528,11 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnNextSP" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnXuatExcel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -527,6 +546,8 @@
                           <Component id="lblChiSoSP" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnNextSP" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <Component id="btnXuatExcel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -622,6 +643,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextSPActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnXuatExcel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t File"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXuatExcel1MouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
