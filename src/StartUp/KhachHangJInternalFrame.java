@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Random;
+import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import org.apache.poi.ss.usermodel.Cell;
@@ -159,7 +160,7 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnXuatExcel.setText("Xuất báo cáo");
+        btnXuatExcel.setText("Xuất File");
         btnXuatExcel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnXuatExcelMouseClicked(evt);
@@ -586,8 +587,10 @@ public class KhachHangJInternalFrame extends javax.swing.JInternalFrame {
                     cell.setCellValue(kh1.isTrangThai());
                 }
                 //save file
-                File f = new File("src/khachhang.xlsx");
-                fis = new FileOutputStream(f);
+                JFileChooser fc = new JFileChooser();
+                fc.showSaveDialog(this);
+                File f = fc.getSelectedFile();
+                fis = new FileOutputStream(f + ".xlsx");
                 workbook.write(fis);
                 fis.close();
             } catch (Exception ex) {

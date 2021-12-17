@@ -11,9 +11,17 @@ import helper.DateHelper;
 import helper.MsgBoxHelper;
 import helper.currency;
 import java.awt.CardLayout;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
+import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
 
@@ -63,12 +71,14 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
         cboThangBD1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         btnCheck1 = new javax.swing.JButton();
+        btnXuatExcel = new javax.swing.JButton();
         pn3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSanPham = new javax.swing.JTable();
         btnPreSP = new javax.swing.JButton();
         lblChiSoSP = new javax.swing.JLabel();
         btnNextSP = new javax.swing.JButton();
+        btnXuatExcel1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -272,6 +282,13 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
 
         pn4.add(pncard3, "pncard3");
 
+        btnXuatExcel.setText("Xuất File");
+        btnXuatExcel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnXuatExcelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pn1Layout = new javax.swing.GroupLayout(pn1);
         pn1.setLayout(pn1Layout);
         pn1Layout.setHorizontalGroup(
@@ -282,7 +299,7 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pn1Layout.createSequentialGroup()
                         .addComponent(pn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                         .addComponent(btnPreDT)
                         .addGap(18, 18, 18)
                         .addComponent(lblChiSoDT)
@@ -292,7 +309,10 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
                         .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(txtLoiNhuanDT, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(pn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnXuatExcel)))
                 .addContainerGap())
         );
         pn1Layout.setVerticalGroup(
@@ -313,6 +333,8 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
                             .addComponent(txtLoiNhuanDT, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnXuatExcel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -375,11 +397,18 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        btnXuatExcel1.setText("Xuất File");
+        btnXuatExcel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnXuatExcel1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pn3Layout = new javax.swing.GroupLayout(pn3);
         pn3.setLayout(pn3Layout);
         pn3Layout.setHorizontalGroup(
             pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(pn3Layout.createSequentialGroup()
                 .addGap(265, 265, 265)
                 .addComponent(btnPreSP)
@@ -388,6 +417,10 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnNextSP)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnXuatExcel1)
+                .addContainerGap())
         );
         pn3Layout.setVerticalGroup(
             pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,6 +431,8 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnPreSP)
                     .addComponent(lblChiSoSP)
                     .addComponent(btnNextSP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(btnXuatExcel1)
                 .addContainerGap())
         );
 
@@ -411,14 +446,14 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
                 .addGap(285, 285, 285)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(tabs)
+            .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tabs))
         );
 
         pack();
@@ -501,7 +536,7 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
     private void btnCheck1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheck1ActionPerformed
         int thangbd = cboThangBD.getSelectedIndex() + 1;
         int thangkt = cboThangBD1.getSelectedIndex() + 1;
-        if(thangbd > thangkt){
+        if (thangbd > thangkt) {
             MsgBoxHelper.alert(this, "Tháng bắt đầu phải nhỏ hơn tháng kết thúc !!");
             return;
         } else {
@@ -509,6 +544,128 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
             lblChiSoDT.setText(1 + "");
         }
     }//GEN-LAST:event_btnCheck1ActionPerformed
+
+    private void btnXuatExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXuatExcelMouseClicked
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet("Thống kê doanh thu");
+
+        XSSFRow row = null;
+        Cell cell = null;
+
+        row = sheet.createRow((short) 2);
+        row.setHeight((short) 500);
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("STT");
+        cell = row.createCell(1, CellType.STRING);
+        cell.setCellValue("Thời gian");
+        cell = row.createCell(2, CellType.STRING);
+        cell.setCellValue("Tiền bán hàng");
+        cell = row.createCell(3, CellType.STRING);
+        cell.setCellValue("Tiền nhập hàng");
+        cell = row.createCell(4, CellType.STRING);
+        cell.setCellValue("Tổng doanh thu");
+
+        if (tblTongDoanhThu != null) {
+            FileOutputStream fis = null;
+            try {
+                DefaultTableModel mol = (DefaultTableModel) tblTongDoanhThu.getModel();
+                for (int i = 0; i < tblTongDoanhThu.getRowCount(); i++) {
+
+                    row = sheet.createRow((short) 4 + i);
+                    cell = row.createCell(0, CellType.NUMERIC);
+                    cell.setCellValue(i + 1);
+
+                    cell = row.createCell(1, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 0).toString());
+
+                    cell = row.createCell(2, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 1).toString());
+
+                    cell = row.createCell(3, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 2).toString());
+
+                    cell = row.createCell(4, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 3).toString());
+
+                }
+                //save file
+                JFileChooser fc = new JFileChooser();
+                fc.showSaveDialog(this);
+                File f = fc.getSelectedFile();
+                fis = new FileOutputStream(f + ".xlsx");
+                workbook.write(fis);
+                fis.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_btnXuatExcelMouseClicked
+
+    private void btnXuatExcel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnXuatExcel1MouseClicked
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet("Thống kê sản phẩm");
+
+        XSSFRow row = null;
+        Cell cell = null;
+
+        row = sheet.createRow((short) 2);
+        row.setHeight((short) 500);
+        cell = row.createCell(0, CellType.STRING);
+        cell.setCellValue("STT");
+        cell = row.createCell(1, CellType.STRING);
+        cell.setCellValue("Thương hiệu");
+        cell = row.createCell(2, CellType.STRING);
+        cell.setCellValue("Mã sản phẩm");
+        cell = row.createCell(3, CellType.STRING);
+        cell.setCellValue("Tên sản phẩm");
+        cell = row.createCell(4, CellType.STRING);
+        cell.setCellValue("SL nhập");
+        cell = row.createCell(5, CellType.STRING);
+        cell.setCellValue("Sl bán");
+        cell = row.createCell(6, CellType.STRING);
+        cell.setCellValue("Sl trả");
+
+        if (tblTongDoanhThu != null) {
+            FileOutputStream fis = null;
+            try {
+                DefaultTableModel mol = (DefaultTableModel) tblTongDoanhThu.getModel();
+                for (int i = 0; i < tblTongDoanhThu.getRowCount(); i++) {
+
+                    row = sheet.createRow((short) 4 + i);
+                    cell = row.createCell(0, CellType.NUMERIC);
+                    cell.setCellValue(i + 1);
+
+                    cell = row.createCell(1, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 0).toString());
+
+                    cell = row.createCell(2, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 1).toString());
+
+                    cell = row.createCell(3, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 2).toString());
+
+                    cell = row.createCell(4, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 3).toString());
+                    
+                    cell = row.createCell(4, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 3).toString());
+                    
+                    cell = row.createCell(4, CellType.STRING);
+                    cell.setCellValue(mol.getValueAt(i, 3).toString());
+
+                }
+                //save file
+                JFileChooser fc = new JFileChooser();
+                fc.showSaveDialog(this);
+                File f = fc.getSelectedFile();
+                fis = new FileOutputStream(f + ".xlsx");
+                workbook.write(fis);
+                fis.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_btnXuatExcel1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -520,6 +677,8 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNextSP;
     private javax.swing.JButton btnPreDT;
     private javax.swing.JButton btnPreSP;
+    private javax.swing.JButton btnXuatExcel;
+    private javax.swing.JButton btnXuatExcel1;
     private javax.swing.JComboBox<String> cboThangBD;
     private javax.swing.JComboBox<String> cboThangBD1;
     private javax.swing.JComboBox<String> cboThoiGianDT;
@@ -560,11 +719,11 @@ public class ThongKeJInternalFrame extends javax.swing.JInternalFrame {
         cboThangBD1.removeAllItems();
         for (int i = 1; i < 13; i++) {
             cboThangBD.addItem("Tháng " + i);
-        } 
+        }
         for (int i = 1; i < 13; i++) {
             cboThangBD1.addItem("Tháng " + i);
         }
-        
+
         TableColumnModel mol = tblSanPham.getColumnModel();
         mol.getColumn(0).setMaxWidth(105);
         mol.getColumn(0).setMinWidth(105);

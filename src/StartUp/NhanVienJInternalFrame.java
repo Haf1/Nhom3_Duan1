@@ -149,7 +149,7 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
         lblChiSo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblChiSo.setText("1");
 
-        btnXuatExcel.setText("Xuất báo cáo");
+        btnXuatExcel.setText("Xuất File");
         btnXuatExcel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnXuatExcelMouseClicked(evt);
@@ -626,8 +626,10 @@ public class NhanVienJInternalFrame extends javax.swing.JInternalFrame {
                     cell.setCellValue(nv1.isVaiTro());
                 }
                 //save file
-                File f = new File("src/nhanvien.xlsx");
-                fis = new FileOutputStream(f);
+                JFileChooser fc = new JFileChooser();
+                fc.showSaveDialog(this);
+                File f = fc.getSelectedFile();
+                fis = new FileOutputStream(f+".xlsx");
                 workbook.write(fis);
                 fis.close();
             } catch (Exception ex) {

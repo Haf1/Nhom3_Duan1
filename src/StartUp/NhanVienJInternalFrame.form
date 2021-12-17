@@ -249,7 +249,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnXuatExcel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t b&#xe1;o c&#xe1;o"/>
+                    <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t File"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnXuatExcelMouseClicked"/>
